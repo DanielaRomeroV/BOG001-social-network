@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Share:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Share', cursive;
+    /*background: black;*/
+    }  
+footer {
+    height: 40px;
+    line-height: 20px;
+    font-size: 12px;
+    background: black;
+    border-top:2px solid white;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin:auto;
+    z-index: 10;
+    }
+#createAccount{
+    color:white;
+    font-size: 12px;
+    display: flex;
+    margin-left:30%;
+    margin-top:10%;
+    position:absolute;
+    justify-content: center;
+    flex-direction: column;
+}
+.startButton {
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 10% ;
+    margin-left: 25%;
+    position: absolute;
+    border-radius: 10px;
+    background: rgb(39, 131, 206);
+    font-family:'Share', cursive;
+    /*z-index: -1;*/
+    }
+.controls{
+    background: black;
+    border-bottom: 1px solid white ;
+}
+
+#thankAccount{
+    background: transparent;
+    color:white;
+    font-size: 12px;
+    display: flex;
+    margin-left:25%;
+    margin-top:20%;
+    position:absolute;
+    justify-content: center;
+    flex-direction: column;
+}
+.buttonContinue {
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 10% ;
+    margin-left: 30%;
+    position: absolute;
+    border-radius: 10px;
+    background: rgb(39, 131, 206);
+    font-family:'Share', cursive;
+    /*z-index: -1;*/
+    }
+#icono{
+    height: 50%;
+    width: 70%;
+    margin-left: 15%;
+}
+body {
+    background: url("img/fondovhs.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100vw 100vh;
+    }

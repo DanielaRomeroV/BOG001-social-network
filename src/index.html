@@ -3,10 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>HELIVISUEL</title>
 </head>
 <body>
+  <!--CREA UNA NUEVA CUENTA-->
+  <div id="account" class="accountOne" style="display: none;">
+    <section id="createAccount">
+      <h1>Crea una nueva Cuenta</h1>
+
+      <h2>Username</h2>
+      <input type="text" id="nameUser" class="controls" placeholder="Nombre de Usuario"/>
+
+      <h2>Email</h2>
+      <input type="text" id="correo" class="controls" placeholder="nameuser@gmail.com"/>
+
+      <h2>Password</h2>
+      <input type="text" id="contraseña" class="controls" placeholder="*********"/>
+
+      <h2>Birth Date</h2>
+      <input type="text" id="birthday" class="controls" placeholder="27/08/20"/>
+      
+      <div id="hi">
+      <button id="buttonOne" class="startButton">REGISTRARSE</button>
+      </div>
+
+    </section>
+  </div>
+
+  <!--GRACIAS-->
+  <div id="thanks" class="thanku" style="display: block;">
+    <section id="thankAccount">
+
+      <img src="img/besticono.png" id="icono">
+      <h1>Gracias por crear una cuenta</h1> 
+
+      <div id="th">
+      <button id="continue" class="buttonContinue">CONTINUAR</button>
+      </div>
+
+    </section>
+  </div>
+
+  <footer>
+    &copy;2020, Todos los derechos reservados - |D.D.C| - HELIVISUEL
+  </footer>
+
   <script type="module" src="main.js"></script>
 </body>
 </html>
