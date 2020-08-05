@@ -7,49 +7,41 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>HELIVISUEL</title>
 </head>
-<body>
-  <!--CREA UNA NUEVA CUENTA-->
-  <div id="account" class="accountOne" style="display: none;">
-    <section id="createAccount">
-      <h1>Crea una nueva Cuenta</h1>
+  <body>
+  <header id="header" >
+    <nav>
 
-      <h2>Username</h2>
-      <input type="text" id="nameUser" class="controls" placeholder="Nombre de Usuario"/>
-
-      <h2>Email</h2>
-      <input type="text" id="correo" class="controls" placeholder="nameuser@gmail.com"/>
-
-      <h2>Password</h2>
-      <input type="text" id="contraseña" class="controls" placeholder="*********"/>
-
-      <h2>Birth Date</h2>
-      <input type="text" id="birthday" class="controls" placeholder="27/08/20"/>
-      
-      <div id="hi">
-      <button id="buttonOne" class="startButton">REGISTRARSE</button>
-      </div>
-
-    </section>
-  </div>
-
-  <!--GRACIAS-->
-  <div id="thanks" class="thanku" style="display: block;">
-    <section id="thankAccount">
-
-      <img src="img/besticono.png" id="icono">
-      <h1>Gracias por crear una cuenta</h1> 
-
-      <div id="th">
-      <button id="continue" class="buttonContinue">CONTINUAR</button>
-      </div>
-
-    </section>
-  </div>
-
+    </nav>
+  </header>
+  <main id="root"></main>
   <footer>
     &copy;2020, Todos los derechos reservados - |D.D.C| - HELIVISUEL
   </footer>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
 
-  <script type="module" src="main.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCmwVGYwXPthsBRzH0hz4SUijhubVfRtNg",
+    authDomain: "social-network-d53d0.firebaseapp.com",
+    databaseURL: "https://social-network-d53d0.firebaseio.com",
+    projectId: "social-network-d53d0",
+    storageBucket: "social-network-d53d0.appspot.com",
+    messagingSenderId: "718332221363",
+    appId: "1:718332221363:web:ac38ad63f0944ab878ddc6",
+    measurementId: "G-7Z7XZEK973"
+  };
+  // Initialize Firebase
+  let proy = firebase.initializeApp(firebaseConfig);
+  console.log(proy.name);
+  firebase.analytics();
+</script>
+<script type="module" src="main.js"></script>
 </body>
+
 </html>

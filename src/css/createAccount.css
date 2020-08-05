@@ -1,0 +1,70 @@
+/*SECCIÓN CREAR CUENTA*/
+
+#iconoOne{
+    width: 50%;
+    height: 30%;
+    margin: auto;
+    margin-top: 80%;
+    
+  }
+  #createAccount{
+      width:300px;
+      height: 400px;
+      color:white;
+      font-size: 12px;
+      display: flex;
+      margin: auto;
+      justify-content: center;
+      flex-direction: column;
+      font-family: 'Comfortaa', cursive;
+  }
+  .startButton {
+      color: #fff;
+      height: 30px;
+      line-height: 30px;
+      margin: auto;
+      margin-top: 10% ;
+      margin-left: 30%;
+      border-radius: 10px;
+      background: rgb(39, 131, 206);
+      font-family:'Comfortaa', cursive;
+      /*z-index: -1;*/
+      }
+  .controls{
+      background: black;
+      color: white;
+      border-bottom: 1px solid white ;
+  }
+  @media screen and (max-width:1024px){
+    #createAccount{
+      width:400px;
+      height: 500px;
+      color:white;
+      font-size: 12px;
+    }
+    #iconoOne{
+      margin-top: 140%;
+  }
+  .startButton {
+    margin-left: 35%;
+  }
+  }
+  
+  @media screen and (max-width:768px){
+    #iconoOne{
+      margin-top: 50%;
+  }
+  }
+  
+  @media screen and (max-width:425px){
+    #createAccount{
+      width:300px;
+      height: 400px;
+      color:white;
+      font-size: 9px;
+    }
+    #iconoOne{
+      margin-top: 50%;
+  }
+  }
+  
