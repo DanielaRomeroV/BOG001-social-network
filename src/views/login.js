@@ -1,6 +1,5 @@
 export default ()=>{
-    history.replaceState({},'login', '#login');
-
+    history.replaceState({},'log in', '#login');
     const signin = document.createElement('div');
     signin.setAttribute('class', 'container');
 
@@ -20,12 +19,9 @@ export default ()=>{
 
     const createAccount = document.createElement('div');
     createAccount.setAttribute('class', 'createAccount');
-    createAccount.innerHTML = `<p>¿Eres un usuario nuevo? <a href="/createAccount">Crea una cuenta</a></p>
-                <p>o ingresa con</p>
+    createAccount.innerHTML = `<p>¿Eres un usuario nuevo? <a href="#createAccount">Crea una cuenta</a></p>
+                <p>o inglesa con</p>
                 <img src="img/google.png" width="30" height="30" class="google">`;
-
-
-   
 
 
     login.appendChild(input)
