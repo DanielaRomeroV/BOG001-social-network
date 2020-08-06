@@ -7,10 +7,28 @@ import createAccount from './views/createAccount.js';
 import recover from './views/recover.js';
 import otherThank from './views/thankAccount.js';
 
+const body = document.getElementById('root');
+body.appendChild(home());
+
+const router = (rute)=>{
+  body.innerHTML = " ";
+  switch (rute) {
+    case "#home":
+      return body.appendChild(home());
+    case "#login":
+      return body.appendChild(login());
+    case "#createAccount":
+      return body.appendChild(createAccount());
+      break;
+    default:
+  }
+}
+
 
 header.style.display = 'none';
-const body = document.getElementById('root');
 
-body.appendChild(home());
+window.addEventListener('hashchange', ()=>{
+    router(window.location.hash);
+})
 console.log(home);
 myFunction();
