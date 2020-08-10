@@ -1,70 +1,45 @@
-/*SECCIÓN CREAR CUENTA*/
+.accountOne{
+  height: 100%;
+  display: flex;
+  padding: 0 20px;
+}
 
-#iconoOne{
-    width: 50%;
-    height: 30%;
-    margin: auto;
-    margin-top: 80%;
-    
-  }
   #createAccount{
-      width:300px;
-      height: 400px;
-      color:white;
-      font-size: 12px;
-      display: flex;
-      margin: auto;
-      justify-content: center;
-      flex-direction: column;
-      font-family: 'Comfortaa', cursive;
+    margin: auto;
+    width: 300px;
+    height: 400px;
+    color:white;
+    font-family: 'Comfortaa', cursive;
   }
-  .startButton {
-      color: #fff;
-      height: 30px;
-      line-height: 30px;
-      margin: auto;
-      margin-top: 10% ;
-      margin-left: 30%;
-      border-radius: 10px;
-      background: rgb(39, 131, 206);
-      font-family:'Comfortaa', cursive;
-      /*z-index: -1;*/
-      }
+
+  #account{
+    margin: auto;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+
   .controls{
+      display:block;
       background: black;
       color: white;
       border-bottom: 1px solid white ;
+      border-radius: 0px;
+      text-align: left;
   }
-  @media screen and (max-width:1024px){
-    #createAccount{
-      width:400px;
-      height: 500px;
-      color:white;
-      font-size: 12px;
+
+
+
+@media screen and (min-width:768px){
+    #account{
+    width: 300px;
+    padding: 0;
+  }
+    .controls{
+      width: 300px;
     }
-    #iconoOne{
-      margin-top: 140%;
   }
-  .startButton {
-    margin-left: 35%;
-  }
-  }
-  
-  @media screen and (max-width:768px){
-    #iconoOne{
-      margin-top: 50%;
-  }
-  }
-  
-  @media screen and (max-width:425px){
-    #createAccount{
-      width:300px;
-      height: 400px;
-      color:white;
-      font-size: 9px;
-    }
-    #iconoOne{
-      margin-top: 50%;
-  }
-  }
-  

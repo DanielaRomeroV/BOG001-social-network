@@ -1,6 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Comfortaa&family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Comfortaa:wght@300&family=Source+Sans+Pro&display=swap');
+@import "css/home.css";
+@import "css/login.css";
 @import "css/createAccount.css";
 @import "css/thanksAccount.css";
+@import "css/recover.css";
 
 body{
   margin: 0px;
@@ -11,7 +14,8 @@ body{
   font-size: 16px;
   display: flex;
   flex-direction: column;
-  }
+  background-color: #000;
+}
 
 main{
   height: 100%;
@@ -19,6 +23,47 @@ main{
 
 header{
   height: 50px;
+}
+
+h2{
+  font-family: 'Comfortaa';
+  font-size: 1.2em;
+}
+
+label{
+  font-family: 'Source Sans Pro';
+}
+
+input{
+  text-align: center;
+  height: 30px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+}
+
+a{
+  text-decoration: none;
+  color: #05ADBA;
+}
+
+
+.btn{
+  align-self: center;
+  text-align: center;
+  height: 40px;
+  width: 200px;
+  background: #06B8C7;
+  border: 2px solid #06B8C7;
+  border-radius: 5px;
+  font-family: 'Comfortaa';
+  color: #FFFFFF;
+
+}
+.btn:hover {
+  background: cadetblue ;
+  border-color: cadetblue;
+
 }
 
 footer{
@@ -31,6 +76,9 @@ footer{
   height: 50px;
   border-top: 3px solid #FFFFFF;
 }
+
+
+
 
 @media (min-width: 1000px){
   footer{
