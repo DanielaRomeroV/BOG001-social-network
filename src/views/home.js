@@ -6,7 +6,7 @@ export default ()=>{
   home.innerHTML = `<p class="welcome"><a class="nav-link" href="#home">Bienvenido a la comunidad más grande de amantes de series y películas</a></p>`;
 
   home.addEventListener('click', (e)=>{
-  window.location = "#login";
+  window.location = "#login"
   })
   return home;
 }
