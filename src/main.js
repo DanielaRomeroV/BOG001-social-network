@@ -36,3 +36,24 @@ window.addEventListener('hashchange', ()=>{
 console.log(home);
 myFunction();
 
+
+  
+//obtener elementos
+const email = form.getElementById ('username')
+const pass = form.getElementById ('password')
+const btnLogin = form.getElementById ('btn')
+
+//añadir evento login
+btnLogin.addEventListener('click', e => {
+//obtener email y pass
+
+const email = username.value;
+const pass = password.value;
+//almacenar el valor que va a devolver la promesa
+
+const auth = firebase.auth();
+
+//sign in
+const promise = auth.signInWithEmailAndPassword (email, pass);
+promise.catch(e => console.log(e.message));
+});
