@@ -19,8 +19,6 @@ const router = (rute)=>{
       return body.appendChild(login());
     case "#createAccount":
       return body.appendChild(createAccount());
-
-
     case "#recover":
       return body.appendChild(recover());
 
