@@ -13,7 +13,7 @@ export default ()=>{
     input.innerHTML = `<input type="text" class="username" placeholder="User name o email">
           <br>
           <input type="text" class="username" placeholder="Contraseña">
-          <p>¿Olvidaste tú contraseña? <a href="/recover">Click aquí</a></p>
+          <p>¿Olvidaste tú contraseña? <a href="#recover">Click aquí</a></p>
           <button type="button" class="btn">ENTRAR</button>`;
 
 
