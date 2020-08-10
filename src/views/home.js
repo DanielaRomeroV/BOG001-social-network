@@ -7,7 +7,9 @@ export default ()=>{
 
   home.addEventListener('click', (e)=>{
 
+
    window.location = "/#login"
+
 
   })
   return home;

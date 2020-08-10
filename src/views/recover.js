@@ -1,3 +1,4 @@
+
   export default ()=>{
   history.replaceState({},'recoverAccount', '#recover');
 
