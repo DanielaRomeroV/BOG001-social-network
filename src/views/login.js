@@ -27,6 +27,32 @@ export default ()=>{
     login.appendChild(input)
     login.appendChild(createAccount)
     signin.appendChild(login)
+
+
+
+    const loginForm = signin.querySelector('form');
+    loginForm.addEventListener('button', (e) => {
+      e.preventDefault();
+      
+
+      const email = loginForm['username'].value;
+      const password = loginForm['password'].value;
+      console.log(email, password );
+      Login(email, password);
+
+
+    })  
     return  signin;
+ }
+
+ async function Login(email, pass) {
+  try {
+        const user = await auth.signInWithEmailAndPassword(email, pass);
+        console.log(user);
   }
+  catch (error) {
+        console.log("error")
+  }
+
+}
 
