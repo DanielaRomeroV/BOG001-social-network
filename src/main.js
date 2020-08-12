@@ -33,6 +33,9 @@ window.addEventListener('hashchange', () => {
 });
 console.log(home);
 
+
+//Logout
+
 const logout = document.querySelector('#logout');
 logout.addEventListener('click', () => {
   signOut();
