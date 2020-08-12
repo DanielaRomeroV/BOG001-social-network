@@ -43,13 +43,19 @@
     font-size: 12px;
 }
 
-.createAccount .google {
+.createAccount .google, .btnGgle {
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: transparent;
+    border: none;
     margin-top: 10px;
-    display:block;
+    /*display:block;
     margin-left: auto;
-    margin-right: auto;
-
+    margin-right: auto;*/
 }
 
 .link {
@@ -58,7 +64,6 @@
     font-size: 12px;
 
 }
-
 
 /*Tablet--------------------*/
 @media screen and (min-width: 768px) {

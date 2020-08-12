@@ -5,7 +5,7 @@ import home from './views/home.js';
 import login from './views/login.js';
 import createAccount from './views/createAccount.js';
 import recover from './views/recover.js';
-import otherThank from './views/thankAccount.js';
+import thankAccount from './views/thankAccount.js';
 
 const body = document.getElementById('root');
 body.appendChild(home());
@@ -21,6 +21,8 @@ const router = (rute)=>{
       return body.appendChild(createAccount());
     case "#recover":
       return body.appendChild(recover());
+    case "#thankAccount":
+      return body.appendChild(thankAccount());
       break;
     default:
   }

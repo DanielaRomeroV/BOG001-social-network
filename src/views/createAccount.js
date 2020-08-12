@@ -15,15 +15,57 @@ export default ()=>{
         <input type="text" id="correo" class="controls" placeholder="usuario@gmail.com"/>
         <br>
         <label for="contraseña">Contraseña</label>
-        <input type="text" id="contraseña" class="controls" placeholder="*********"/>
+        <input type="password" id="contraseña" class="controls" placeholder="*********"/>
         <br>
         <label for="birthday">Fecha de Nacimiento</label>
-        <input type="text" id="birthday" class="controls" placeholder="27/08/20"/>
+        <input type="date" id="birthday" class="controls" placeholder="27/08/20"/>
         <br>
         <br>
-        <button type= "submit" id="buttonOne" class="btn">REGISTRARSE</button>
+        <button type="submit" id="buttonOne" class="btn"><a href="#thankAccount">REGISTRARSE</a></button>
         </form>`;
 
     createAccount.appendChild(sectionAccount);
+    
+    /*let registerBtn = createAccount.getElementById(buttonOne);
+    registerBtn.addEventListener("click", register);*/
+
+    /*function register(){
+        let email = createAccount.getElementById("correo").value;
+        let pass = createAccount.getElementById("contraseña").value;
+    
+        alert(email, pass);
+    }*/
+    
+    const register = createAccount.querySelector("#account");
+    register.addEventListener("submit", (e)=>{
+        e.preventDefault();
+    
+    //get user info
+
+    const email = register["correo"].value;
+    const name = register["nameUser"].value;
+    const pass = register["contraseña"].value;
+    const birthDate = register["birthday"].value;
+
+
+    console.log(email,name,pass,birthDate);
+    signUser(email,pass);
+    })
     return createAccount;
     }
+
+    //sign up the user
+    //Async/Await Resolver la promesa, el catch me dice si la promesa se resuelve o no, try se encuentra lo que se resuelve, y en el catch pongo lo que pasaria si la promesa no se resuelve.
+    //Se puede utilizar de forma independiente el try catch, o el async await.
+    async function signUser (email,pass){
+        try{
+            const userNew = await auth.createUserWithEmailAndPassword(email,pass);
+            console.log (userNew);
+        }
+        catch(error){
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage,errorCode);
+        }
+    }
+
