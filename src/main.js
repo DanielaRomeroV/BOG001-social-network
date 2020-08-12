@@ -21,7 +21,7 @@ export const router = (rute)=>{
       return body.appendChild(createAccount());
     case "#recover":
       return body.appendChild(recover());
-      
+    
 
       break;
     default:
