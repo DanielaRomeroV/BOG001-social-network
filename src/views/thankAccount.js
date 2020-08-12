@@ -8,5 +8,13 @@ export default () => {
       <h1>Gracias por crear una cuenta</h1>
       <button id="continue" class="btn">CONTINUAR</button>`;
   otherThank.appendChild(accountThank);
+
+
+
+//click boton a el muro
+  otherThank.addEventListener('click', () => {
+    window.location = '#muro';
+  });
+
   return otherThank;
 };

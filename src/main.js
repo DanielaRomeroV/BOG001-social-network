@@ -6,6 +6,7 @@ import login from './views/login.js';
 import createAccount from './views/createAccount.js';
 import recover from './views/recover.js';
 import otherThank from './views/thankAccount.js';
+import muro from './views/muro.js';
 
 const body = document.getElementById('root');
 body.appendChild(home());
@@ -23,6 +24,8 @@ const router = (rute) => {
       return body.appendChild(recover());
     case '#thankAccount':
       return body.appendChild(otherThank());
+    case '#muro':
+      return body.appendChild(muro());
       break;
     default:
   }

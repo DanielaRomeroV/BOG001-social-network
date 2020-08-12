@@ -10,9 +10,9 @@ export default () => {
 
       const input = document.createElement('form');
       input.setAttribute('class', 'input-container');
-      input.innerHTML = `<input type="text" id= "user" placeholder="User name o email" required>
+      input.innerHTML = `<input type="text" id="loginame" class="username" placeholder="User name o email">
       <br>
-      <input type="password" id= "password" placeholder="Contraseña" required>
+      <input type="password" class="username" id="loginpass" placeholder="Contraseña">
       <p>¿Olvidaste tú contraseña? <a href="#recover">Click aquí</a></p>
       <button type="submit" class="btn">ENTRAR</button>`;
 
@@ -21,44 +21,59 @@ export default () => {
       createAccount.setAttribute('class', 'createAccount');
       createAccount.innerHTML = `<p>¿Eres un usuario nuevo? <a href="#createAccount">Crea una cuenta</a></p>
       <p>o ingresa con</p>
-      <img src="img/google.png" width="30" height="30" class="google">`;
+      <img src="img/google.png" width="25" height="25" class="google">`;
 
 
       login.appendChild(input);
       login.appendChild(createAccount);
       signin.appendChild(login);
 
-      input.addEventListener('submit', (e) => {
+      const loginForm = signin.querySelector(".input-container");
+      loginForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            const user = input.user.value;
-            const password = input.password.value;
-            logIn(user, password);
+
+            const loginEmail = loginForm["loginame"].value;
+            const passwordLogin = loginForm["loginpass"].value;
+
+            console.log(loginEmail, passwordLogin);
+            loginUser(loginEmail, passwordLogin);
       });
-      createAccount.querySelector('.google').addEventListener('click', () => {
+
+      //Google Login
+
+      const googleBtn = createAccount.querySelector(".google");
+      googleBtn.addEventListener("click", () => {
             const provider = new firebase.auth.GoogleAuthProvider();
             loginGoogle(provider);
       });
-      return signin;
-};
 
+//click boton de login a el muro
+/*
+      signin.addEventListener('click', () => {
+            window.location = '#muro';
+          });*/
 
-async function logIn(email, password) {
+      return signin;      
+}
+
+//sign in
+async function loginUser(loginEmail, passwordLogin) {
       try {
-            const userLogIn = await auth.signInWithEmailAndPassword(email, password);
-      } catch (error) {
-
-            
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
+            const userLogin = await auth.signInWithEmailAndPassword(loginEmail, passwordLogin);
+            console.log(userLogin);
+      }
+      catch (error) {
+            let errorCode = error.code;
+            let errorMessage = error.message;
+            alert(errorMessage, errorCode);
       }
 }
 
 async function loginGoogle(provider) {
       try {
-            const userLogin = await auth.signInWithPopup(provider);
-            const token = userLogin.credential.accessToken;
-            const user = userLogin.user;
+            const googleLogin = await auth.signInWithPopup(provider);
+            const token = googleLogin.credential.accessToken;
+            const user = googleLogin.user;
             console.log(user);
       } catch (error) {
             const errorCode = error.code;
@@ -67,4 +82,11 @@ async function loginGoogle(provider) {
             const credential = error.credential;
             console.log(errorCode, errorMessage);
       }
+
+
+      
 }
+
+
+
+

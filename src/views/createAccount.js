@@ -1,13 +1,13 @@
 export default () => {
-  history.replaceState({}, 'createAccount', '#createAccount');
-  const createAccount = document.createElement('div');
-  createAccount.setAttribute('class', 'accountOne');
+    history.replaceState({}, 'createAccount', '#createAccount');
+    const createAccount = document.createElement('div');
+    createAccount.setAttribute('class', 'accountOne');
 
-  const sectionAccount = document.createElement('section');
-  sectionAccount.setAttribute('id', 'createAccount');
+    const sectionAccount = document.createElement('section');
+    sectionAccount.setAttribute('id', 'createAccount');
 
-  sectionAccount.innerHTML = ` <h1>Crea una nueva Cuenta</h1>
-          <form id="account">
+    sectionAccount.innerHTML = ` <h1>Crea una nueva Cuenta</h1>
+     <form id="account">
           <label for="nameUser">Nombre de Usuario</label>
           <input type="text" id="nameUser" class="controls" placeholder="Nombre de Usuario" required title="Llena el campo"/>
           <br>
@@ -18,36 +18,45 @@ export default () => {
           <input type="password" id="contraseña" class="controls" placeholder="*********" required pattern=".{6,}" title="Debe contener 6 o más carácteres"/>
           <br>
           <label for="birthday">Fecha de Nacimiento</label>
-          <input type="data" id="birthday" class="controls" placeholder="27/08/2000" required  pattern= "(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}" title="Día/Mes/Año"/>
+          <input type="date" id="birthday" class="controls" placeholder="27/08/2000" required  pattern= "(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}" title="Día/Mes/Año"/>
           <br>
           <br>
           <button type= "submit" id="buttonOne" class="btn">REGISTRARSE</button>
           </form>`;
 
-  createAccount.appendChild(sectionAccount);
-  const form = createAccount.querySelector('#account');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const nameUser = form.nameUser.value;
-    const email = form.correo.value;
-    const password = form.contraseña.value;
-    const birthday = form.birthday.value;
-    console.log(nameUser, email, password, birthday);
-    signUp(email, password);
-  });
-  return createAccount;
-};
+    createAccount.appendChild(sectionAccount);
+
+    const register = createAccount.querySelector('#account');
+    register.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        //get user info
+
+        const email = register['correo'].value;
+        const name = register['nameUser'].value;
+        const pass = register['contraseña'].value;
+        const birthDate = register['birthday'].value;
 
 
-async function signUp(email, password) {
-  try {
-    const newUser = await auth.createUserWithEmailAndPassword(email, password);
-    console.log(newUser.user);
-    window.location = '#thankAccount';
-  } catch (error) {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
-  }
+        console.log(email, name, pass, birthDate);
+        signUser(email, pass);
+    });
+    return createAccount;
+}
+
+//sign up the user
+//Async/Await Resolver la promesa, el catch me dice si la promesa se resuelve o no, try se encuentra lo que se resuelve, y en el catch pongo lo que pasaria si la promesa no se resuelve.
+//Se puede utilizar de forma independiente el try catch, o el async await.
+async function signUser(email, pass) {
+    try {
+        const userNew = await auth.createUserWithEmailAndPassword(email, pass);
+        console.log(userNew);
+
+        window.location = '#thankAccount';
+
+    } catch (error) {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage, errorCode);
+    }
 }
