@@ -1,4 +1,5 @@
 export default () => {
+  
   const otherThank = document.createElement('div');
   otherThank.setAttribute('id', 'thanku');
   const accountThank = document.createElement('section');
