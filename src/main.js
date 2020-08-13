@@ -8,10 +8,28 @@ import recover from './views/recover.js';
 import thankAccount from './views/thankAccount.js';
 
 const body = document.getElementById('root');
-body.appendChild(home());
+
+//Verificar si los usuarios ya estan logueados, si estan registrados o no
+auth.onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    let displayName = user.displayName;
+    let email = user.email;
+    let emailVerified = user.emailVerified;
+    let photoURL = user.photoURL;
+    let isAnonymous = user.isAnonymous;
+    let uid = user.uid;
+    let providerData = user.providerData;
+      console.log('Logueado');
+  } else {
+    // User is signed out.
+      console.log('No Logueado')
+      window.location.hash = '#home';
+  }
+});
 
 const router = (rute)=>{
-  body.innerHTML = " ";
+  body.innerHTML = '';
   switch (rute) {
     case "#home":
       return body.appendChild(home());
@@ -28,25 +46,10 @@ const router = (rute)=>{
   }
 }
 
+header.style.display = "none";
 
-header.style.display = 'none';
+window.addEventListener("hashchange", ()=>{
+  router(window.location.hash);
+});
 
-window.addEventListener('hashchange', ()=>{
-    router(window.location.hash);
-})
-console.log(home);
 myFunction();
-
-/*window.addEventListener("hashchange", function(){
-    console.log(location.hash);
-});*/
-
-/*function showPage (pageId) {
-    $(".home").hide();
-    $(pageId).show();
-}
-$(window).on("hashchange",function(){
-    //console.log("Hash Changed!")
-    showPage(location.hash);
-})*/
-

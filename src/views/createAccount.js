@@ -1,4 +1,6 @@
-export default ()=>{
+import {signUser} from '../lib/firebase_auth.js';
+
+export default () => {
     history.replaceState({},'createAccount', '#createAccount');
     const createAccount = document.createElement('div');
     createAccount.setAttribute('class', 'accountOne');
@@ -8,36 +10,26 @@ export default ()=>{
 
     sectionAccount.innerHTML = ` <h1>Crea una nueva Cuenta</h1>
         <form id="account">
-        <label for="nameUser">Nombre de Usuario</label>
-        <input type="text" id="nameUser" class="controls" placeholder="Nombre de Usuario"/>
-        <br>
-        <label for="correo">Email</label>
-        <input type="text" id="correo" class="controls" placeholder="usuario@gmail.com"/>
-        <br>
-        <label for="contraseña">Contraseña</label>
-        <input type="password" id="contraseña" class="controls" placeholder="*********"/>
-        <br>
-        <label for="birthday">Fecha de Nacimiento</label>
-        <input type="date" id="birthday" class="controls" placeholder="27/08/20"/>
-        <br>
-        <br>
-        <button type="submit" id="buttonOne" class="btn"><a href="#thankAccount">REGISTRARSE</a></button>
+            <label for="nameUser">Nombre de Usuario</label>
+            <input type="text" id="nameUser" class="controls" placeholder="Nombre de Usuario"/>
+            <br>
+            <label for="correo">Email</label>
+            <input type="text" id="correo" class="controls" placeholder="usuario@gmail.com"/>
+            <br>
+            <label for="contraseña">Contraseña</label>
+            <input type="password" id="contraseña" class="controls" placeholder="*********"/>
+            <br>
+            <label for="birthday">Fecha de Nacimiento</label>
+            <input type="date" id="birthday" class="controls" placeholder="27/08/20"/>
+            <br>
+            <br>
+            <button type="submit" id="buttonOne" class="btn"><a href="#thankAccount">REGISTRARSE</a></button>
         </form>`;
 
     createAccount.appendChild(sectionAccount);
-    
-    /*let registerBtn = createAccount.getElementById(buttonOne);
-    registerBtn.addEventListener("click", register);*/
-
-    /*function register(){
-        let email = createAccount.getElementById("correo").value;
-        let pass = createAccount.getElementById("contraseña").value;
-    
-        alert(email, pass);
-    }*/
-    
+        
     const register = createAccount.querySelector("#account");
-    register.addEventListener("submit", (e)=>{
+    register.addEventListener("submit", (e) => {
         e.preventDefault();
     
     //get user info
@@ -49,23 +41,13 @@ export default ()=>{
 
 
     console.log(email,name,pass,birthDate);
-    signUser(email,pass);
-    })
+    signUser(email, pass);
+    });
     return createAccount;
-    }
+}
 
     //sign up the user
     //Async/Await Resolver la promesa, el catch me dice si la promesa se resuelve o no, try se encuentra lo que se resuelve, y en el catch pongo lo que pasaria si la promesa no se resuelve.
     //Se puede utilizar de forma independiente el try catch, o el async await.
-    async function signUser (email,pass){
-        try{
-            const userNew = await auth.createUserWithEmailAndPassword(email,pass);
-            console.log (userNew);
-        }
-        catch(error){
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            alert(errorMessage,errorCode);
-        }
-    }
+
 
