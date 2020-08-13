@@ -16,6 +16,7 @@ export async function signUp(email, password) {
   export async function logIn(email, password) {
     try {
       const userLogIn = await auth.signInWithEmailAndPassword(email, password);
+      window.location = '#timeline';
     } catch (error) {
       // Handle Errors here.
       const errorCode = error.code;

@@ -44,12 +44,7 @@ export default () => {
         logInGoogle(provider);
       });
       
-      
-//click boton de login a el muro
-/*
-      signin.addEventListener('click', () => {
-            window.location = '#muro';
-          });*/
+
 
       return signin;      
 }
