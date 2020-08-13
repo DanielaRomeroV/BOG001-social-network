@@ -1,3 +1,7 @@
+import { logIn, logInGoogle } from '../lib/firebaseAuth.js';
+
+
+
 export default () => {
       history.replaceState({}, 'log in', '#login');
       const signin = document.createElement('div');
@@ -27,26 +31,20 @@ export default () => {
       login.appendChild(input);
       login.appendChild(createAccount);
       signin.appendChild(login);
-
-      const loginForm = signin.querySelector(".input-container");
-      loginForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-
-            const loginEmail = loginForm["loginame"].value;
-            const passwordLogin = loginForm["loginpass"].value;
-
-            console.log(loginEmail, passwordLogin);
-            loginUser(loginEmail, passwordLogin);
+    
+      input.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const user = input.user.value;
+        const password = input.password.value;
+        logIn(user, password);
       });
-
-      //Google Login
-
-      const googleBtn = createAccount.querySelector(".google");
-      googleBtn.addEventListener("click", () => {
-            const provider = new firebase.auth.GoogleAuthProvider();
-            loginGoogle(provider);
+    
+      createAccount.querySelector('.google').addEventListener('click', () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        logInGoogle(provider);
       });
-
+      
+      
 //click boton de login a el muro
 /*
       signin.addEventListener('click', () => {
@@ -56,36 +54,6 @@ export default () => {
       return signin;      
 }
 
-//sign in
-async function loginUser(loginEmail, passwordLogin) {
-      try {
-            const userLogin = await auth.signInWithEmailAndPassword(loginEmail, passwordLogin);
-            console.log(userLogin);
-      }
-      catch (error) {
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            alert(errorMessage, errorCode);
-      }
-}
-
-async function loginGoogle(provider) {
-      try {
-            const googleLogin = await auth.signInWithPopup(provider);
-            const token = googleLogin.credential.accessToken;
-            const user = googleLogin.user;
-            console.log(user);
-      } catch (error) {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const email = error.email;
-            const credential = error.credential;
-            console.log(errorCode, errorMessage);
-      }
-
-
-      
-}
 
 
 

@@ -1,3 +1,7 @@
+  
+import { signUp } from '../lib/firebaseAuth.js';
+
+
 export default () => {
     history.replaceState({}, 'createAccount', '#createAccount');
     const createAccount = document.createElement('div');
@@ -39,24 +43,7 @@ export default () => {
 
 
         console.log(email, name, pass, birthDate);
-        signUser(email, pass);
+        signUp(email, password);
     });
     return createAccount;
-}
-
-//sign up the user
-//Async/Await Resolver la promesa, el catch me dice si la promesa se resuelve o no, try se encuentra lo que se resuelve, y en el catch pongo lo que pasaria si la promesa no se resuelve.
-//Se puede utilizar de forma independiente el try catch, o el async await.
-async function signUser(email, pass) {
-    try {
-        const userNew = await auth.createUserWithEmailAndPassword(email, pass);
-        console.log(userNew);
-
-        window.location = '#thankAccount';
-
-    } catch (error) {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorMessage, errorCode);
-    }
 }
