@@ -1,17 +1,27 @@
 
-const auth =() => {
+const auth = () => {
     return {
-        createUserWithEmailAndPassword : (email, password) => {
-            return new Promise ((resolve) =>{
-                 resolve('usuario creado con ${email} ');
+        createUserWithEmailAndPassword: (email) => {
+            return new Promise((resolve) => {
+                resolve(`usuario nuevo ${email}`);
             })
-            },
+        },
+        signInWithEmailAndPassword: (loginEmail) => {
+            return new Promise((resolve) => {
+                resolve(`ingreso con ${loginEmail}`)
 
-            signInWithEmailAndPassword: (loginEmail,LoginPassword) => {
-                return new Promise ((resolve) =>{
-                    resolve (' ingreso con ${loginEmail} y ${loginPassword)');
+            })
+        }
 
-         export default jest.fn(()=>{
-          return auth
-         })
-        }  
+    }
+
+}
+
+
+export default jest.fn(() => {
+    return auth;
+})
+
+
+
+

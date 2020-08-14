@@ -1,13 +1,21 @@
-import authMock from './test/mock';
+import auth from './mock';
 
-import { signUser } from '../src/lib/firebaseAuth';
+import { signUser, loginUser } from '../src/lib/firebaseAuth';
 
-global.auth = authMock();
+global.auth = auth()();
 
 describe('signUser', () => {
-  it('debería retornar un email@gmail.com, correo', async () => {
-    const userNew = await signUser('correo@gmail.com', 'correo');
-    console.log(userNew);
-    expect(userNew).toBe('correo@gmail.com');
+
+  it('deberia ser una función ', () => {
+    expect(typeof signUser).toBe('function');
+});
+  it('debería retornar un daniela@gmail.com, correo', async () => {
+    const userNew = await signUser('daniela@gmail.com', 'correo');    
+    expect(userNew).toBe('usuario nuevo daniela@gmail.com');
+  });
+
+  it('debería devolver daniela@gmail.com, contraseña', async () => {
+    const userLogin = await loginUser('daniela@gmail.com', 'contraseña');    
+    expect(userLogin).toBe('ingreso con daniela@gmail.com');
   });
 });

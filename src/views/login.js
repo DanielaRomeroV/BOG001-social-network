@@ -13,9 +13,9 @@ export default () => {
 
   const input = document.createElement('form');
   input.setAttribute('class', 'input-container');
-  input.innerHTML = `<input type="text" id="loginame" class="username" placeholder="User name o email">
+  input.innerHTML = `<input type="text" id="username" class="username" placeholder="User name o email">
       <br>
-      <input type="password" class="username" id="loginpass" placeholder="Contraseña">
+      <input type="password" class="username" id="pass" placeholder="Contraseña">
       <p>¿Olvidaste tú contraseña? <a href="#recover">Click aquí</a></p>
       <button type="submit" class="btn">ENTRAR</button>`;
 
@@ -26,23 +26,27 @@ export default () => {
       <p>o ingresa con</p>
       <img src="img/google.png" width="25" height="25" class="google">`;
 
-
   login.appendChild(input);
   login.appendChild(createAccount);
   signin.appendChild(login);
 
-  input.addEventListener('submit', (e) => {
+  const loginSigIn = signin.querySelector("form");
+  loginSigIn.addEventListener("submit", (e) => {
     e.preventDefault();
-    const user = input.user.value;
-    const password = input.password.value;
-    loginUser(user, password);
+
+    const loginEmail = loginSigIn["username"].value;
+    const passwordLogin = loginSigIn["pass"].value;
+
+    console.log(loginEmail, passwordLogin);
+    loginUser(loginEmail, passwordLogin);
   });
 
-  createAccount.querySelector('.google').addEventListener('click', () => {
+  //Google Login
+
+  const google = createAccount.querySelector(".google");
+  google.addEventListener("click", () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     loginGoogle(provider);
   });
-
-
   return signin;
-};
+}
