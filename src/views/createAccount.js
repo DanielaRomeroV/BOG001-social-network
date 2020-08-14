@@ -26,14 +26,14 @@ export default () => {
           </form>`;
 
   createAccount.appendChild(sectionAccount);
-  const form = createAccount.querySelector('#account');
-  form.addEventListener('submit', (e) => {
+  const register = createAccount.querySelector('#account');
+  register.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const nameUser = form.nameUser.value;
-    const email = form.correo.value;
-    const password = form.contraseña.value;
-    const birthday = form.birthday.value;
+    const nameUser = register.nameUser.value;
+    const email = register.correo.value;
+    const password = register.contraseña.value;
+    const birthday = register.birthday.value;
 
     console.log(nameUser, email, password, birthday);
     signUp(email, password);
