@@ -37,21 +37,6 @@ window.addEventListener('hashchange', () => {
 console.log(home);
 
 
-//Logout
 
-const logout = document.querySelector('#logout');
-logout.addEventListener('click', () => {
-  signOut();
-});
-
-async function signOut() {
-  try {
-    const userOut = await auth.signOut();
-    console.log('user out');
-  } catch (e) {
-    console.log(e);
-  }
-}
-myFunction();
 
 

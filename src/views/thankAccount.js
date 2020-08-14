@@ -13,7 +13,7 @@ export default () => {
 
 //click boton a el muro
   otherThank.addEventListener('click', () => {
-    window.location = '#muro';
+    window.location = 'timeline';
   });
 
   return otherThank;
