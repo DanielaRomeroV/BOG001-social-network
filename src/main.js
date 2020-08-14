@@ -35,8 +35,3 @@ window.addEventListener('hashchange', () => {
   router(window.location.hash);
 });
 console.log(home);
-
-
-
-
-

@@ -1,8 +1,13 @@
-// importamos la funcion que vamos a testear
-import { myFunction } from "../test/mock";
+import authMock from './test/mock';
 
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+import { signUser } from '../src/lib/firebaseAuth';
+
+global.auth = authMock();
+
+describe('signUser', () => {
+  it('debería retornar un email@gmail.com, correo', async () => {
+    const userNew = await signUser('correo@gmail.com', 'correo');
+    console.log(userNew);
+    expect(userNew).toBe('correo@gmail.com');
   });
 });

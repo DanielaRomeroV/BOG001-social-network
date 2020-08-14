@@ -1,4 +1,4 @@
-import { signUp } from '../lib/firebaseAuth.js';
+import { signUser } from '../lib/firebaseAuth.js';
 
 export default () => {
   const createAccount = document.createElement('div');
@@ -36,8 +36,8 @@ export default () => {
     const birthday = register.birthday.value;
 
     console.log(nameUser, email, password, birthday);
-    signUp(email, password);
+    signUser(email, password);
   });
-  
+
   return createAccount;
 };
