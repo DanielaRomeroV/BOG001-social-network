@@ -14,7 +14,8 @@ export default () => {
             <li class="menu-item"> <a href="">Peliculas</a></li>
             <li class="menu-item"> <a href="">Series</a></li>
             <li class="menu-item"> <a href="">Cerrar sesión</a></li>
-        </ul>`;
+        </ul>
+        <button type="submit" class="btn login">ENTRAR</button>`;
 
 //const buttonMenu = timeline.querySelector('#menu-button');
 //buttonMenu.addEventListener('click', toggleMenu);
