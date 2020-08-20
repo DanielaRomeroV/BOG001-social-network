@@ -9,19 +9,33 @@
 </head>
 <body>
   <header id="header" >
-    <nav>
-      <!--<a href="#login" id="logout">Salir</a>-->
-    </nav>
-  </header>
+      <nav id="wall">
+        <input type="checkbox" id="check">
+        <label class="icon">
+          <a class="logo-desk" href="#timeline"><img src="img/icon.png" alt="logo" width="50px" /></a> 
+        </label>
+        <label for="check" class="checkbtn" >
+         <img src="img/menu.png" alt="logo" width="50px"/>
+        </label>
+        <ul>
+          <li><a href="#profile"  class="optionsWall">Perfil</a></li>
+          <li><a href="#movies"  class="optionsWall">Peliculas</a><li>
+          <li><a href="#series"  class="optionsWall">Series</a></li>
+          <li><a href="#documentary"  class="optionsWall">Documentales</a></li>
+          <li><a class="optionsWall">Cerrar Sesión</a></li>
+        </ul>
+      </nav>      
+  </header> 
   <main id="root"></main>
   <footer id="footer">
     <p> &copy; Todos los derechos reservados - |D.D.C|  -  HELIVISUEL   </p>
   </footer>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
 https://firebase.google.com/docs/web/setup#available-libraries -->
+<!--<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>-->
 <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
 
@@ -39,12 +53,18 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
     measurementId: "G-7Z7XZEK973"
   };
   // Initialize Firebase
-  let proy = firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const data = firebase.firestore();
+  firebase.initializeApp(firebaseConfig);
+  //firebase.analytics();
 
+  //make auth  and firestore references
+  const auth = firebase.auth();
+  const db = firebase.firestore();
 
 </script>
 <script type="module" src="main.js"></script>
 </body>
 </html>
+
+      
+
+    

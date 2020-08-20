@@ -1,16 +1,5 @@
-.headerTimeline {
-    height: 80px;
-}
 
-header .container{
-    background-color:black
-}
-
-header .logo {
-    max-width: 5rem;
-}
-
-  .containerTimeline {
+ .containerTimeline {
     height: 100%;
     display: flex;
     justify-content: center;
@@ -18,7 +7,6 @@ header .logo {
     background-color: #FCFCEE;
   }
 
- 
 
 
   
