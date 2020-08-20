@@ -3,7 +3,7 @@ export default () => {
 
   const timeline = document.createElement('section');
   timeline.setAttribute('class', 'containerTimeline');
-  timeline.innerHTML= `<button type="submit" class="btn login">Publicar</button>`;
+  timeline.innerHTML= `<button type="submit" class="btnlogin">Publicar</button>`;
 
   return timeline;
 };
