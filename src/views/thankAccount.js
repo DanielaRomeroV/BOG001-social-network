@@ -11,7 +11,7 @@ export default () => {
 
   // click boton a el muro
   otherThank.addEventListener('click', () => {
-    window.location = 'timeline';
+    window.location = '#timeline';
   });
 
   return otherThank;

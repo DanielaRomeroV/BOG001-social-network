@@ -19,7 +19,7 @@ export async function loginUser(loginEmail, loginPassword) {
   try {
     const userLogin = await auth.signInWithEmailAndPassword(loginEmail, loginPassword);
     console.log(userLogin);
-   // window.location = '#timeline';
+   window.location = '#timeline';
 return userLogin;
   } catch (error) {
     const errorCode = error.code;
@@ -51,6 +51,7 @@ export async function loginGoogle(provider) {
     const token = googleLogin.credential.accessToken;
     const user = googleLogin.user;
     console.log(user);
+    window.location = '#timeline';
     return googleLogin;
     
   } catch (error) {
