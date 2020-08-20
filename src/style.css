@@ -24,6 +24,8 @@ main{
 
 header{
   display: block; 
+  height: 80px;
+
   }
 
 /*MENU MURO*/
