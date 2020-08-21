@@ -36,12 +36,10 @@ header{
 
 header > nav ul{
   position: fixed;
-  width: 30%;
-  height: 25vh;
+  width: 50%;
   background:#06B8C7;
   top: 50px;
-  right: -100%;
-  text-align: center;
+  right: -100%; 
   transition: all .5s;
 }
 header >nav ul li{
@@ -52,15 +50,17 @@ header >nav ul li{
 }
 #check:checked ~ ul{
   right: 0;
+  padding: 10px;
 }
 header>nav ul li .optionsWall {
-  font-size: 13px;
+  font-size: 15px;
   padding: 30px 5px;
+  color: white;
+  
 }
 nav {
   overflow-y: auto;
   max-height: 100vh;
-
   overflow-x: hidden;
 }
 
