@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Comfortaa:wght@300&family=Source+Sans+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Comfortaa:wght@300&family=Source+Sans+Pro&display=swap");
 @import "css/home.css";
 @import "css/login.css";
 @import "css/createAccount.css";
@@ -6,11 +6,11 @@
 @import "css/recover.css";
 @import "css/timeline.css";
 
-body{
+body {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #ffffff;
   height: 100vh;
   font-size: 16px;
   display: flex;
@@ -18,55 +18,36 @@ body{
   background-color: #000;
 }
 
-main{
+main {
   height: 100%;
 }
 
-header{
-  display: block; 
-  height: 80px;
-
-  }
-
-/*MENU MURO*/
-
-.checkbtn{
-  float: right;  
+header {
+  height: 50px;
 }
 
-header > nav ul{
-  position: fixed;
-  width: 50%;
-  background:#06B8C7;
-  top: 50px;
-  right: -100%; 
-  transition: all .5s;
-}
-header >nav ul li{
-  display: block;
-  margin: 5px 0;
-  line-height: 20px;
-  border-bottom:1px solid rgba(255, 255, 255, 0.3);
-}
-#check:checked ~ ul{
-  right: 0;
-  padding: 10px;
-}
-header>nav ul li .optionsWall {
-  font-size: 15px;
-  padding: 30px 5px;
-  color: white;
-  
-}
-nav {
-  overflow-y: auto;
-  max-height: 100vh;
-  overflow-x: hidden;
+h2{
+  font-family: 'Comfortaa';
+  font-size: 1.2em;
 }
 
-#check{
-    display: none;
-  }
+label{
+  font-family: 'Source Sans Pro';
+}
+
+input{
+  text-align: center;
+  height: 30px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+}
+
+a{
+  text-decoration: none;
+  color: #05ADBA;
+}
+
 
 .btn{
   align-self: center;
@@ -81,8 +62,8 @@ nav {
 
 }
 .btn:hover {
-   background: cadetblue ;
-   border-color: cadetblue;
+  background: cadetblue ;
+  border-color: cadetblue;
 
 }
 
@@ -95,9 +76,10 @@ footer{
   background: #000;
   height: 50px;
   border-top: 3px solid #FFFFFF;
+}
 
 
-}/* TABLET */
+
 
 @media (min-width: 1000px){
   footer{

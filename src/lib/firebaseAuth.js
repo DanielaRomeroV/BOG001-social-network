@@ -15,16 +15,16 @@ export async function signUser(email, password) {
 
 // login
 
-export async function loginUser(loginEmail, loginPassword) {
+export async function loginUser(loginEmail, passwordLogin) {
   try {
-    const userLogin = await auth.signInWithEmailAndPassword(loginEmail, loginPassword);
+    const userLogin = await auth.signInWithEmailAndPassword(loginEmail, passwordLogin);
     console.log(userLogin);
    window.location = '#timeline';
 return userLogin;
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
-    alert(errorMessage, errorCode);
+    console.log(errorMessage, errorCode);
   }
 }
 

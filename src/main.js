@@ -9,7 +9,7 @@ import otherThank from './views/thankAccount.js';
 import timeline from './views/timeline.js';
 
 const body = document.getElementById('root');
-body.appendChild(home());
+
 
 const router = (rute) => {
   body.innerHTML = ' ';
@@ -35,3 +35,22 @@ window.addEventListener('hashchange', () => {
   router(window.location.hash);
 });
 console.log(home);
+
+// Verificar si los usuarios ya estan logueados, si estan registrados o no
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in.
+    const displayName = user.displayName;
+    const email = user.email;
+    const emailVerified = user.emailVerified;
+    const photoURL = user.photoURL;
+    const isAnonymous = user.isAnonymous;
+    const uid = user.uid;
+    const providerData = user.providerData;
+    console.log('Logueado');
+  } else {
+    // User is signed out.
+    console.log('No Logueado');
+    window.location.hash = '#home';
+  }
+});
