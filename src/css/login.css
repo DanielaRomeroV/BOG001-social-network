@@ -27,6 +27,10 @@
     display:inline-block;
 }
 
+#login a{
+  color:white;
+}
+
 .input-container p{
     font-size: 12px;
     margin-top:10px;

@@ -1,17 +1,17 @@
 
 const auth = () => {
-    return {
+    return{
         createUserWithEmailAndPassword: (email,pass) => {
             return new Promise ((resolve) =>{
                 resolve(`Se creo un usuario con ${email} y ${pass}`);
             })
-        },
-        sendPasswordResetEmail: (email) => {
+        }
+        /*sendPasswordResetEmail: (email) => {
             return new Promise ((resolve) => {
                 resolve (`Se envio un correo de restablecer contraseña a ${email}`)
             })  
-        },
-        signInWithEmailAndPassword: (email,password) => {
+        }*/
+        /*signInWithEmailAndPassword: (email,password) => {
             return new Promise ((resolve) =>{
                 resolve (`Se pudo loguear con ${email} y contraseña ${password}`)
             })
@@ -20,10 +20,9 @@ const auth = () => {
             return new Promise ((resolve) =>{
                 resolve (`${user} se logueo con Google`)
             })
-        } 
+        }*/
     }
 }
-
 /*const firebase = {
     auth:auth
 }*/

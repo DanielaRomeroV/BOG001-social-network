@@ -1,0 +1,48 @@
+header{
+    display: block; 
+    height: 80px;
+}
+/*MENU MURO*/
+header > nav label{
+    align-items: center;
+}
+#menuIcon{
+    margin: 0.5em;
+}
+.checkbtn{
+    margin-top: 20px;
+    float: right;  
+    margin-right: 20px;
+}
+header > nav ul{
+    position: fixed;
+    width: 30%;
+    height: 31vh;
+    background:#06B8C7;
+    top: 55px;
+    right: -100%;
+    text-align: center;
+    transition: all .5s;
+}
+header >nav ul li{
+    display: block;
+    margin: 5px 0;
+    line-height: 20px;
+    border-bottom:1px solid rgba(255, 255, 255, 0.3);
+}
+#check:checked ~ ul{
+    right: 0;
+}
+header>nav ul li .optionsWall {
+    font-size: 13px;
+    padding: 30px 5px;
+}
+nav {
+    overflow-y: auto;
+    max-height: 100vh;
+    overflow-x: hidden;
+}
+
+#check{
+    display: none;
+}

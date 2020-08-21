@@ -1,14 +1,14 @@
-import {signUser} from '../lib/firebase_auth.js';
+import { signUser } from '../lib/firebase_auth.js';
 
 export default () => {
-    history.replaceState({},'createAccount', '#createAccount');
-    const createAccount = document.createElement('div');
-    createAccount.setAttribute('class', 'accountOne');
+  history.replaceState({}, 'createAccount', '#createAccount');
+  const createAccount = document.createElement('div');
+  createAccount.setAttribute('class', 'accountOne');
 
-    const sectionAccount = document.createElement('section');
-    sectionAccount.setAttribute('id', 'createAccount');
+  const sectionAccount = document.createElement('section');
+  sectionAccount.setAttribute('id', 'createAccount');
 
-    sectionAccount.innerHTML = ` <h1>Crea una nueva Cuenta</h1>
+  sectionAccount.innerHTML = ` <h1>Crea una nueva Cuenta</h1>
         <form id="account">
             <label for="nameUser">Nombre de Usuario</label>
             <input type="text" id="nameUser" class="controls" placeholder="Nombre de Usuario"/>
@@ -26,28 +26,26 @@ export default () => {
             <button type="submit" id="buttonOne" class="btn"><a href="#thankAccount">REGISTRARSE</a></button>
         </form>`;
 
-    createAccount.appendChild(sectionAccount);
-        
-    const register = createAccount.querySelector("#account");
-    register.addEventListener("submit", (e) => {
-        e.preventDefault();
-    
-    //get user info
+  createAccount.appendChild(sectionAccount);
 
-    const email = register["correo"].value;
-    const name = register["nameUser"].value;
-    const pass = register["contraseña"].value;
-    const birthDate = register["birthday"].value;
+  const register = createAccount.querySelector('#account');
+  register.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // get user info
+
+    const email = register.correo.value;
+    const name = register.nameUser.value;
+    const pass = register['contraseña'].value;
+    const birthDate = register.birthday.value;
 
 
-    console.log(email,name,pass,birthDate);
+    console.log(email, name, pass, birthDate);
     signUser(email, pass);
-    });
-    return createAccount;
-}
+  });
+  return createAccount;
+};
 
-    //sign up the user
-    //Async/Await Resolver la promesa, el catch me dice si la promesa se resuelve o no, try se encuentra lo que se resuelve, y en el catch pongo lo que pasaria si la promesa no se resuelve.
-    //Se puede utilizar de forma independiente el try catch, o el async await.
-
-
+// sign up the user
+// Async/Await Resolver la promesa, el catch me dice si la promesa se resuelve o no, try se encuentra lo que se resuelve, y en el catch pongo lo que pasaria si la promesa no se resuelve.
+// Se puede utilizar de forma independiente el try catch, o el async await.
