@@ -17,7 +17,7 @@ export default () => {
       <br>
       <input type="password" class="username" id="pass" placeholder="Contraseña">
       <p>¿Olvidaste tú contraseña? <a href="#recover">Click aquí</a></p>
-      <button type="submit" class="btn login" onclick="divLogin()">ENTRAR</button>`;
+      <button type="submit" class="btn login">ENTRAR</button>`;
 
 
   const createAccount = document.createElement('div');

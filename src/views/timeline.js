@@ -16,7 +16,7 @@ export default () => {
             <li><a href="#movies" class="optionsWall"><img src="img/Movie.png" width="20px"/>Peliculas</a></li>
             <li><a href="#series" class="optionsWall"><img src="img/series.png" alt="iconos" width="20px"/>Series</a></li>
             <li><a href="#documentary" class="optionsWall"><img src="img/documentry.png"  width="20px"/>Documentales</a></li>
-            <li><a class="optionsWall"><img src="img/salir.png" alt="iconos" width="20px"/>Cerrar Sesión</a></li>
+            <li><a href="#home" class="optionsWall"><img src="img/salir.png" alt="iconos" width="20px"/>Cerrar Sesión</a></li>
         </ul>
     </nav>`;
 
