@@ -5,36 +5,10 @@ import home from './views/home.js';
 import login from './views/login.js';
 import createAccount from './views/createAccount.js';
 import recover from './views/recover.js';
-import otherThank from './views/thankAccount.js';
-import timeline from './views/timeline.js';
+import thankAccount from './views/thankAccount.js';
+import timeline from './views/timeline.js'
 
 const body = document.getElementById('root');
-
-
-const router = (rute) => {
-  body.innerHTML = ' ';
-  switch (rute) {
-    case '#home':
-      return body.appendChild(home());
-    case '#login':
-      return body.appendChild(login());
-    case '#createAccount':
-      return body.appendChild(createAccount());
-    case '#recover':
-      return body.appendChild(recover());
-    case '#thankAccount':
-      return body.appendChild(otherThank());
-    case '#timeline':
-      return body.appendChild(timeline());
-      break;
-    default:
-  }
-};
-
-window.addEventListener('hashchange', () => {
-  router(window.location.hash);
-});
-console.log(home);
 
 // Verificar si los usuarios ya estan logueados, si estan registrados o no
 auth.onAuthStateChanged((user) => {
@@ -54,3 +28,31 @@ auth.onAuthStateChanged((user) => {
     window.location.hash = '#home';
   }
 });
+
+const router = (rute) => {
+  body.innerHTML = '';
+  switch (rute) {
+    case '#home':
+      return body.appendChild(home());
+    case '#login':
+      return body.appendChild(login());
+    case '#createAccount':
+      return body.appendChild(createAccount());
+    case '#recover':
+      return body.appendChild(recover());
+    case '#thankAccount':
+      return body.appendChild(thankAccount());
+    case '#timeline':
+      return body.appendChild(timeline());
+      break;
+    default:
+  }
+};
+
+header.style.display = 'none';
+
+window.addEventListener('hashchange', () => {
+  router(window.location.hash);
+});
+
+myFunction();
