@@ -6,7 +6,8 @@ import login from './views/login.js';
 import createAccount from './views/createAccount.js';
 import recover from './views/recover.js';
 import thankAccount from './views/thankAccount.js';
-import timeline from './views/timeline.js'
+import timeline from './views/timeline.js';
+import profile from './views/profileUser.js'
 
 const body = document.getElementById('root');
 
@@ -44,7 +45,9 @@ const router = (rute) => {
       return body.appendChild(thankAccount());
     case '#timeline':
       return body.appendChild(timeline());
-      break;
+    case '#profile':
+      return body.appendChild(profile());
+    break;
     default:
   }
 };

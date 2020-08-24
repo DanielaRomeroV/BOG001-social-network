@@ -1,0 +1,18 @@
+#profile{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFF0;
+    background-size:cover;
+    flex-direction: column;
+    }
+#profile h1,h3{
+    color:black;
+    text-align: center;
+}
+
+#profile .photo{
+        max-width: 25%;
+        display:inline-block;
+    }
