@@ -22,7 +22,7 @@ export default () => {
 
   const timelineContainer = document.createElement('section');
   timelineContainer.setAttribute('class', 'containerTimeline');
-  
+
 
 
   const card = document.createElement('section')
@@ -40,14 +40,34 @@ export default () => {
       </div>
       <div class="desc">
         "La pelicula El Origen tiene una calificación IMDb 8.8/10, pero para mi deberia ser 5/10, ¿Ustedes que opinan?
+      </div></div></div>`;
+
+  const icons = document.createElement('section')
+  icons.setAttribute('class', 'newsfeed');
+  icons.innerHTML = `<div class="icons"><img src="img/like.png" class="likes" width="20px"/><img src="img/comments.png" class="commentaries" width="20px"/></div>
+  <textarea class="inputComment" id="comment" cols="40" rows="2" required placeholder="Escribe tu comentario aquí"></textarea>
+  <button type="submit" class="btnCommentaries">Enviar</button>`;
+
+  const comments = document.createElement('section')
+  comments.setAttribute('class', 'newsfeed');
+  comments.innerHTML = `
+
+  <div class="comments">
+      <div class="content">
+        <div class="detail">
+          </div>  
       </div>
-      <div class="icons"></div>`;
+      <div class="desc">
+      "La pelicula El Origen tiene una calificación IMDb 8.8/10, pero para mi deberia ser 5/10, ¿Ustedes que opinan?
+      </div></div>`;
 
 
 
 
-
+  
   timelineContainer.appendChild(card);
+  timelineContainer.appendChild(icons);
+  timelineContainer.appendChild(comments);
   timeline.appendChild(timelineContainer);
 
   header.style.display = 'none';
