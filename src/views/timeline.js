@@ -1,9 +1,9 @@
 export default () => {
- 
+
   history.replaceState({}, 'timeline', '#timeline');
-    const timeline = document.createElement('header');
-    timeline.setAttribute('id', 'headerWall');
-    timeline.innerHTML = `<nav id="wall">
+  const timeline = document.createElement('header');
+  timeline.setAttribute('id', 'headerWall');
+  timeline.innerHTML = `<nav id="wall">
         <input type="checkbox" id="check">
         <label class="icon">
             <a class="logo-desk" href="#login"><img src="img/icon.png" alt="logo" width="70px" id= "menuIcon"/></a> 
@@ -22,9 +22,33 @@ export default () => {
 
   const timelineContainer = document.createElement('section');
   timelineContainer.setAttribute('class', 'containerTimeline');
-  timelineContainer.innerHTML = `<button type="submit" class="btnlogin">Publicar</button>`;
+  timelineContainer.innerHTML = ``;
 
- timeline.appendChild(timelineContainer);
+
+  const card = document.createElement('section')
+  card.setAttribute('class', 'newsfeed');
+  card.innerHTML = `<button type="submit" class="btnlogin">Publicar</button>
+     <div class="card">
+      <div class="content">
+      <div class="header">
+        <div class="profile-pic"></div>        
+          <div class="detail">
+          <p class="name">Jose Maria</p>
+          <p class="posted">2 hours ago</p>          
+        </div>   
+        <div class="categories"></div>   
+      </div>
+      <div class="desc">
+        "La pelicula El Origen tiene una calificación IMDb 8.8/10, pero para mi deberia ser 5/10, ¿Ustedes que opinan?
+      </div>
+      <div class="icons"></div>`;
+
+
+
+
+
+  timelineContainer.appendChild(card);
+  timeline.appendChild(timelineContainer);
 
   header.style.display = 'none';
   return timeline;
