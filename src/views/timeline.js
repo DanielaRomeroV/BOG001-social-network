@@ -22,7 +22,7 @@ export default () => {
 
   const timelineContainer = document.createElement('section');
   timelineContainer.setAttribute('class', 'containerTimeline');
-  timelineContainer.innerHTML = ``;
+  
 
 
   const card = document.createElement('section')
