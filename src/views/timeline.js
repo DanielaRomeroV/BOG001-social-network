@@ -73,6 +73,10 @@ export default () => {
   timeline.appendChild(timelineContainer);
 
   header.style.display = 'none';
+
+
+
+  
  
   icons.querySelector('.commentaries').addEventListener('click', () => {
   icons.querySelector('.inputCommentandButton').style.display = "block";

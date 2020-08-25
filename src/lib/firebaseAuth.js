@@ -59,6 +59,6 @@ export async function loginGoogle(provider) {
     const errorMessage = error.message;
     const email = error.email;
     const credential = error.credential;
-    console.log(errorCode, errorMessage);
+    
   }
 }
