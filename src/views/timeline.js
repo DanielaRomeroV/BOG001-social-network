@@ -47,8 +47,10 @@ export default () => {
   icons.setAttribute('class', 'input-comment');
   icons.innerHTML = `<div class="icons"><img src="img/like.png" class="likes" width="20px"/>
   <img src="img/comments.png" class="commentaries" width="20px" onclick="openInput()"/></div>
+  <div class="inputCommentandButton">
   <textarea class="inputComment" id="comment" cols="40" rows="2" required placeholder="Escribe tu comentario aquí"></textarea>
-  <button type="submit" class="btnCommentaries">Enviar</button>`;
+  <button type="submit" class="btnCommentaries">Enviar</button>
+  </div>`;
 
   
   const comments = document.createElement('section')
@@ -73,7 +75,7 @@ export default () => {
   header.style.display = 'none';
  
   icons.querySelector('.commentaries').addEventListener('click', () => {
-  icons.querySelector('.inputComment').style.display = "block";
+  icons.querySelector('.inputCommentandButton').style.display = "block";
     openInput();
   });
 

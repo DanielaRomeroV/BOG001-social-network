@@ -17,8 +17,8 @@
   border: 2px solid #06B8C7;
   border-radius: 5px;
   font-family: 'Anton';
-  color: #FFFFFF;
-  margin-inline: 50px;
+  color: #FFFFFF;  
+  margin-left: 70px;
   }
 
 /*MENU MURO*/
@@ -188,12 +188,13 @@ nav {
 .inputComment {
   font-family: 'Source Sans Pro';
   width: 100%;
-  display: none;
-  
+   
 }
 
-
 .input-comment {
-  padding: 0 20px;
-  
+  padding: 0 20px;  
+}
+
+.inputCommentandButton {
+  display: none;
 }
