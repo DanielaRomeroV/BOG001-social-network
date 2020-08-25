@@ -54,13 +54,10 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
     measurementId: "G-7Z7XZEK973"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  //firebase.analytics();
-
-  //make auth  and firestore references
+  let proy = firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
-  const db = firebase.firestore();
-
+  const data = firebase.firestore();
+  
 </script>
 <script type="module" src="main.js"></script>
 </body>

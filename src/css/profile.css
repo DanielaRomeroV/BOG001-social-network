@@ -46,3 +46,24 @@
     background-color: #ED3124;
     border: 2px solid #C7251F;
   }
+
+  #profile{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFF0;
+    background-size:cover;
+    flex-direction: column;
+    }
+#profile h1,h3{
+    font-size: 13px;
+    color:black;
+    text-align: center;
+}
+
+#profile .photo{
+        border-radius: 50%;
+        max-width: 25%;
+        display:inline-block;
+    }
