@@ -1,5 +1,6 @@
-export default ()=>{
-  //history.replaceState({},'recoverAccaunt', 'recover');
+import { recoverPass } from '../lib/firebaseAuth.js';
+
+export default () => {
   const recover = document.createElement('section');
   recover.setAttribute('class', 'recover');
 
@@ -9,12 +10,16 @@ export default ()=>{
       <input type="email" id="email" placeholder="usuario@email.com" autocomplete="off" required>
       <button type="button" name="send" class="btn send" >ENVIAR</button>
       <p class="message"><p>
-    </div>`
+    </div>`;
 
-    const email = recover.querySelector('#email');
-    const send = recover.querySelector('.send').addEventListener('click', ()=>{
-      recover.querySelector('.message').style.display = 'block';
-      recover.querySelector('.message').innerHTML = `Hemos enviado un email a ${email.value} para cambiar la contraseña`;
-    })
-    return recover;
-}
+
+  const send = recover.querySelector('.send').addEventListener('click', () => {
+    const email = recover.querySelector('#email').value;
+    const message = recover.querySelector('.message');
+    message.style.display = 'block';
+    console.log(email);
+    recoverPass(message, email);
+  });
+
+  return recover;
+};
