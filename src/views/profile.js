@@ -1,5 +1,3 @@
-import { currentUser } from '../lib/firebaseAuth.js';
-
 export default () => {
   history.replaceState({}, 'profileUser', '#profile');
   const profile = document.createElement('div');

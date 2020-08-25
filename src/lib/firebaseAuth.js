@@ -32,9 +32,7 @@ export async function logIn(email, password) {
 export async function logInGoogle(provider) {
   try {
     const userLogIn = await auth.signInWithPopup(provider);
-    // This gives you a Google Access Token. You can use it to access the Google API.
     const token = userLogIn.credential.accessToken;
-    // The signed-in user info.
     const user = userLogIn.user;
     console.log(user);
   
