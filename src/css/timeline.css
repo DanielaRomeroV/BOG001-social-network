@@ -1,10 +1,16 @@
+#timelineBody{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFF0;
+}
 
  .containerTimeline {
-    height: 1300%;
     display: block;
     justify-content: center;
     align-items: center;
-    background-color: #FFFFF0;
+    
   }
 
   .btnlogin {
@@ -20,53 +26,6 @@
   color: #FFFFFF;  
   margin-left: 70px;
   }
-
-/*MENU MURO*/
-
-.checkbtn {
-  float: right;
-}
-
-header > nav ul {
-  position: fixed;
-  width: 50%;
-  background: #06b8c7;
-  top: 50px;
-  right: -100%;
-  transition: all 0.5s;
-}
-header > nav ul li {
-  display: block;
-  margin: 5px 0;
-  line-height: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-header > nav ul img {
-   margin: 0px 15px;
-  
-}
-
-#check:checked ~ ul {
-  right: 0;
-  padding: 10px;
-}
-header > nav ul li .optionsWall {
-  font-size: 15px;
-  padding: 30px 5px;
-  color: white;
-  font-family: 'Source Sans Pro';
-}
-nav {
-  overflow-y: auto;
-  max-height: 100vh;
-  overflow-x: hidden;
-  background-color: black;
-}
-
-#check {
-  display: none;
-}
 
 /*POSTS*/
 

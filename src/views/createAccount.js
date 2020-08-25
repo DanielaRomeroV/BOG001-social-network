@@ -1,4 +1,4 @@
-import { signUser } from '../lib/firebaseAuth.js';
+import { signUp } from '../lib/firebaseAuth.js';
 
 export default () => {
   const createAccount = document.createElement('div');
@@ -19,24 +19,23 @@ export default () => {
             <input type="password" id="contraseña" class="controls" placeholder="*********" required pattern=".{6,}" title="Debe contener 6 o más carácteres"/>
             <br>
             <label for="birthday">Fecha de Nacimiento</label>
-            <input type="date" id="birthday" class="controls" placeholder="27/08/2000" required  pattern= "(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}" title="Día/Mes/Año"/>
+            <input type="text" id="birthday" class="controls" placeholder="27/08/2000" required  pattern= "(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}" title="Día/Mes/Año"/>
             <br>
             <br>
             <button type= "submit" id="buttonOne" class="btn">REGISTRARSE</button>
           </form>`;
 
   createAccount.appendChild(sectionAccount);
-  const register = createAccount.querySelector('#account');
-  register.addEventListener('submit', (e) => {
+  const form = createAccount.querySelector('#account');
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
+    const nameUser = form.nameUser.value;
+    const email = form.correo.value;
+    const password = form.contraseña.value;
+    const birthday = form.birthday.value;
+    signUp(email, password);
+    window.location.hash = '#thankAccount';
 
-    const nameUser = register.nameUser.value;
-    const email = register.correo.value;
-    const password = register.contraseña.value;
-    const birthday = register.birthday.value;
-
-    console.log(nameUser, email, password, birthday);
-    signUser(email, password);
   });
 
   return createAccount;

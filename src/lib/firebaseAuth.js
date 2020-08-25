@@ -1,64 +1,78 @@
-
-// create Account
-export async function signUser(email, password) {
+// createAccount
+export async function signUp(email, password) {
   try {
-    const userNew = await auth.createUserWithEmailAndPassword(email, password);
-    console.log(userNew);
-    window.location = '#thankAccount';
-    return userNew;
+    const newUser = await auth.createUserWithEmailAndPassword(email, password);
+    window.location.hash = "#thankAccount";
+    console.log(newUser.user);
+    return newUser;
+
+
   } catch (error) {
+    // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+    return error;
   }
 }
 
-
 // login
-
-export async function loginUser(loginEmail, passwordLogin) {
+export async function logIn(email, password) {
   try {
-    const userLogin = await auth.signInWithEmailAndPassword(loginEmail, passwordLogin);
-    console.log(userLogin);
-   window.location = '#timeline';
-return userLogin;
+    const userLogIn = await auth.signInWithEmailAndPassword(email, password);
+    return userLogIn;
   } catch (error) {
+    // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
-    console.log(errorMessage, errorCode);
+    console.log(errorCode, errorMessage);
+  }
+}
+
+export async function logInGoogle(provider) {
+  try {
+    const userLogIn = await auth.signInWithPopup(provider);
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const token = userLogIn.credential.accessToken;
+    // The signed-in user info.
+    const user = userLogIn.user;
+    console.log(user);
+    window.location = '#timeline';
+  } catch (error) {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    const credential = error.credential;
+    console.log(errorCode, errorMessage);
   }
 }
 
 // recover
-
-export async function recoverPassword(message, email) {
+export async function recoverPass(message, email) {
   try {
-    const userRecover = await auth.sendPasswordResetEmail(email);
-    message.innerHTML = `Hemos enviado un email a ${email} para cambiar la contraseña`;
-    return userRecover;
+    const sendEmail = await auth.sendPasswordResetEmail(email);
+    return message.innerHTML = `Hemos enviado un email a ${email} para cambiar la contraseña`;
   } catch (error) {
-    message.innerHTML = 'No se ha podido enviar el correo';
-    console.log('No se envio el correo');
+    return message.innerHTML = 'No se ha podido enviar el correo de verificación';
+    
   }
 }
 
-
-
-// Login with Google
-
-export async function loginGoogle(provider) {
+// main log out
+export async function signOut() {
   try {
-    const googleLogin = await auth.signInWithPopup(provider);
-    const token = googleLogin.credential.accessToken;
-    const user = googleLogin.user;
-    console.log(user);
-    window.location = '#timeline';
-    return googleLogin;
-    
-  } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    const email = error.email;
-    const credential = error.credential;
-    
+    const userOut = await auth.signOut();
+    return userOut;
+    console.log('user out');
+  } catch (e) {
+    console.log(e);
   }
+}
+
+export  function currentUser() {
+    const user =  auth.currentUser;
+    return user;
 }

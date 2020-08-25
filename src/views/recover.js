@@ -1,4 +1,4 @@
-import { recoverPassword } from '../lib/firebaseAuth.js';
+import { recoverPass } from '../lib/firebaseAuth.js';
 
 export default () => {
   const recover = document.createElement('section');
@@ -18,7 +18,7 @@ export default () => {
     const message = recover.querySelector('.message');
     message.style.display = 'block';
     console.log(email);
-    recoverPassword(message, email);
+    recoverPass(message, email);
   });
 
   return recover;
