@@ -8,11 +8,13 @@
     flex-direction: column;
     }
 #profile h1,h3{
+    font-size: 13px;
     color:black;
     text-align: center;
 }
 
 #profile .photo{
+        border-radius: 50%;
         max-width: 25%;
         display:inline-block;
     }
