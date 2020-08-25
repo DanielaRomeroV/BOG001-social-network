@@ -37,7 +37,7 @@ export async function logInGoogle(provider) {
     // The signed-in user info.
     const user = userLogIn.user;
     console.log(user);
-    window.location = '#timeline';
+  
   } catch (error) {
     // Handle Errors here.
     const errorCode = error.code;

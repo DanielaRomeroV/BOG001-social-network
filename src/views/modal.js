@@ -4,7 +4,7 @@ export const publish = (userPhoto) =>{
     modal.innerHTML = `<div class="modal-content">
           <header id="ModalHeader">
             <span class="close">&times;</span>
-            <img id="userPhoto">
+            <img id="userPhoto" src=" " />
             <p>Comenta sobre tus peliculas o series favoritas</p>
           </header>
           <form id='formComment' enctype="multipart/form-data">
