@@ -9,24 +9,24 @@
   <title>Helivisuel</title>
 </head>
 <body>
-  <header id="header" >
-    <nav id="wall">
-      <input type="checkbox" id="check">
-      <label class="icon">
-        <a class="logo-desk" href="#timeline"><img id="img-logo" src="img/icon.png" alt="logo"/></a>
-      </label>
-      <label for="check" class="checkbtn" >
-        <img src="img/menu.png" alt="logo" width="50px"/>
-      </label>
-      <ul>
-        <li><a href="#profile"  class="optionsWall perfil"><img class ="icons" src="img/profileUser.png" >Perfil</a></li>
-        <li><a href="#movies"  class="optionsWall movie"><img class ="icons" src="img/peliculas.png">Peliculas</a></li>
-        <li><a href="#series"  class="optionsWall serie"><img class ="icons" src="img/series.png" >Series</a></li>
-        <li><a href="#documentary"  class="optionsWall documentary"><img class ="icons" src="img/documentales.png" >Documentales</a></li>
-        <li id="logout"><a class="optionsWall exit"><img class ="icons" src="img/Salir.png">Cerrar Sesión</a></li>
-      </ul>
-    </nav>
-</header>
+    <header id="header" >
+      <nav id="wall">
+        <input type="checkbox" id="check">
+        <label class="icon">
+          <a class="logo-desk" href="#timeline"><img id="img-logo" src="img/icon.png" alt="logo"/></a>
+        </label>
+        <label for="check" class="checkbtn" >
+         <img src="img/menu.png" alt="logo" width="50px"/>
+        </label>
+        <ul>
+          <li><a href="#profile"  class="optionsWall perfil"><img class"icons" src="img/profile.png" >Perfil</a></li>
+          <li><a href="#movies"  class="optionsWall movie"><img class"icons" src="img/movie.png">Peliculas</a></li>
+          <li><a href="#series"  class="optionsWall serie"><img class"icons" src="img/serie.png" >Series</a></li>
+          <li><a href="#documentary"  class="optionsWall documentary"><img class"icons" src="img/documentary.png" >Documentales</a></li>
+          <li id="logout"><a class="optionsWall exit"><img class"icons" src="img/exit.png">Cerrar Sesión</a></li>
+        </ul>
+      </nav>
+  </header>
   <main id="root"></main>
   <footer id="footer">
     <p> &copy; Todos los derechos reservados - |D.D.C|  -  HELIVISUEL   </p>
@@ -36,9 +36,9 @@
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
 https://firebase.google.com/docs/web/setup#available-libraries -->
-<!--<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>-->
 <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+
 
 <script>
   // Your web app's Firebase configuration
@@ -53,13 +53,9 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
     measurementId: "G-7Z7XZEK973"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  //firebase.analytics();
-
-  //make auth  and firestore references
+  let proy = firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
-  const db = firebase.firestore();
-
+  const data = firebase.firestore();
 </script>
 <script type="module" src="main.js"></script>
 </body>

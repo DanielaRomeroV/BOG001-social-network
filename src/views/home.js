@@ -1,13 +1,13 @@
 export default () => {
-  history.replaceState({}, 'home', '#home');
-  /* console.log(window.location.hash) */
   const home = document.createElement('section');
   home.setAttribute('class', 'home');
-  home.innerHTML = '<p class="welcome">Bienvenido a la comunidad más grande de amantes de series y películas</a></p>';
+  home.innerHTML = `<p class= "welcome"> Bienvenido a la comunidad más grande de amantes de series y películas
+        <span>Ingresar</span></p>`;
 
-  home.addEventListener('click', (e) => {
+  home.addEventListener('click', () => {
     window.location = '#login';
   });
+
   return home;
 };
 
