@@ -10,6 +10,7 @@
     display: block;
     justify-content: center;
     align-items: center;
+    background-color: #FFFFF0;
     
   }
 
@@ -99,8 +100,8 @@
 
 .comments {
   margin-top: 50px;
-  width: 70%;
-  height: 80%;
+  width: 100%;
+  height: 50%;
   background: #4A4143;
   box-shadow: 0 0 12px 2px rgba(0, 0, 0, .5);
   margin-bottom: 20px;
@@ -109,7 +110,7 @@
   font-family: 'Source Sans Pro';
   color: white;
   padding: 15px;
-  margin-left: 90px;
+ 
   }
 
 .comments content {
