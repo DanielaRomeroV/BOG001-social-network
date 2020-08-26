@@ -58,3 +58,19 @@ export async function loginGoogle(provider) {
     console.log(errorCode, errorMessage);
   }
 }
+
+// Log out
+export async function signOut() {
+  try {
+    const userOut = await auth.signOut();
+    return userOut;
+    //console.log('user log out');
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export  function currentUser() {
+    const user =  auth.currentUser;
+    return user;
+}

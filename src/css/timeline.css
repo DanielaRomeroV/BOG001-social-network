@@ -1,89 +1,159 @@
-header{
-    display: block; 
-    height: 80px;
-}
-/*MENU MURO*/
-header > nav label{
+#timelineBody{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFF0;
+  }
+  
+   .containerTimeline {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      
+    }
+  
+    .btnlogin {
+    margin-top: 50px;
+    align-self: center;
+    text-align: center;
+    height: 40px;
+    width: 200px;
+    background: #06B8C7;
+    border: 2px solid #06B8C7;
+    border-radius: 5px;
+    font-family: 'Anton';
+    color: #FFFFFF;  
+    margin-left: 70px;
+    }
+  
+  /*POSTS*/
+  
+  .newsfeed {
+    padding: 0 20px;
+    
+  }
+  
+  .card {
+    width: 100%;
+    height: 100%;
+    background: #DADADA;
+    box-shadow: 0 0 12px 2px rgba(0, 0, 0, .5);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'Anton';
+    color: black;
+  }
+  
+  .card .content {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 10px;
+    margin-top:50px;
+  }
+  
+  .card .header {
+    display: flex;
     align-items: center;
-}
-#menuIcon{
-    margin: 0.5em;
-}
-.checkbtn{
+  }
+  
+  .card .profile-pic {
+    background-image: url('../img/user.png');
+    background-position: 50%;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+  
+  .card .detail {
+    margin-left: 10px;
+  }
+  
+  .card .posted {
+    font-size: 10px;
+    padding-top: 3px;
+    font-family: 'Comfortaa';
+    color: black;
+  }
+  
+  .card .desc {
+    padding-top: 10px;
+    line-height: 1.5;
+    font-family: 'Source Sans Pro';
+    color: black;
+  }
+  
+  .card .categories {
+    background-image: url('../img/series.png');
+    background-position: 50%;
+    background-size: cover;
+    height: 30px;
+    width: 30px;
+    margin-left: 130px;
+  
+  }
+  
+  /*COMMENTS*/
+  
+  .comments {
     margin-top: 20px;
-    float: right;  
-    margin-right: 20px;
-}
-header > nav ul{
-    position: fixed;
-    width: 45%;
-    height: 30vh;
-    background:#06B8C7;
-    top: 70px;
-    right: -100%;
-    transition: all .5s;
-    text-decoration-line: none;
+    width: 70%;
+    height: 100%;
+    background: #4A4143;
+    box-shadow: 0 0 12px 2px rgba(0, 0, 0, .5);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'Source Sans Pro';
     color: white;
-}
-header >nav ul li{
-    display: block;
-    margin: 5px 0;
-    line-height: 20px;
-    border-bottom:1px solid rgba(255, 255, 255, 0.3);
-    font-family: 'Source Sans Pro', sans-serif;   
-}
-header > nav ul li img{
-    margin: 0px 20px;
-}
-#check:checked ~ ul{
-    right: 0;
-    padding:10px;
-}
-header>nav ul li .optionsWall {
-    font-size: 13px;
-    /*padding: 30px 5px;*/
-    text-decoration-line: none;
-    color: white;
-}
-nav {
-    overflow-y: auto;
-    max-height: 100vh;
-    overflow-x: hidden;
-}
-#check{
+    padding: 15px;
+    margin-left: 70px;
+    }
+  
+  .comments content {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 10px;
+    margin-top:50px;
+  
+  }
+  
+  .icons {
+    margin-left: 200px;
+  }
+  
+  .icons .commentaries {
+    margin-left: 30px;
+  }
+  
+  .btnCommentaries {
+    margin-top: 10px;
+    align-self: center;
+    text-align: center;
+    height: 40px;
+    width: 100px;
+    background: #06B8C7;
+    border: 2px solid #06B8C7;
+    border-radius: 5px;
+    font-family: 'Anton';
+    color: #FFFFFF;
+    margin-left: 225px;
+    
+   
+  }
+  
+  .inputComment {
+    font-family: 'Source Sans Pro';
+    width: 100%;
+     
+  }
+  
+  .input-comment {
+    padding: 0 20px;  
+  }
+  
+  .inputCommentandButton {
     display: none;
-}
-@media screen and (min-width:768px){
-    header nav ul {
-        float: right;
-        list-style-type: none; 
-    }
-    header >nav ul li{
-        display: inline-block;
-        line-height: 80px;
-        margin: 0 2px;
-    }
-    header>nav ul li .optionsWall {
-        color: white;
-        padding:30px;
-        display: block;
-        text-decoration: none;
-        font-size: 1em;
-        border:none;
-    }
-    header>nav ul li:hover{
-        background-color: #06B8C7;
-    } 
-    .checkbtn{
-        font-size: 25px;
-        color: white;
-        float: right;
-        cursor: pointer;
-        line-height: 80px;
-        margin-right: 40px;
-        display:none;
-    }
-    #check{
-        display: none;
-    }
-}
+  }

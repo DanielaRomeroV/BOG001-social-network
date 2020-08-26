@@ -7,7 +7,7 @@ import {
 global.auth = authFirebase()();
 //console.log(authFirebase);
 
-describe('signUser', () => {
+/*describe('signUser', () => {
   it('deberia ser una función ', () => {
     expect(typeof signUser).toBe('function');
   });
@@ -18,6 +18,47 @@ describe('signUser', () => {
   });
 });
 
+it('debería retornar error;', async () => {
+  const newUser = await signUp('email@emailcom', 'contraseña123');
+  expect(newUser).toBe('error');
+});
+
+it('debería retornar error;', async () => {
+  const newUser = await signUp('email@email.com', 'abc');
+  expect(newUser).toBe('error');
+});
+
+describe('logIn', () => {
+it('debería ser una función', () => {
+  expect(typeof logIn).toBe('function');
+});
+it('debería retornar email@email.com , contraseña1234', async () => {
+  const user = await logIn('email@email.com', 'contraseña1234');
+  console.log(user);
+  expect(user).toBe('usuario email@email.com, contraseña1234');
+});
+});
+
+describe('recoverPass', () => {
+it('debería ser una función', () => {
+  expect(typeof recoverPass).toBe('function');
+});
+it('debería retornar Hemos enviado un email a email@email.com para cambiar la contraseña', async () => {
+  const message = document.createElement('p');
+  const recover = await recoverPass(message, 'email@email.com');
+  expect(recover).toBe('Hemos enviado un email a email@email.com para cambiar la contraseña');
+});
+});
+
+describe('signOut', () => {
+it('debería ser una función', () => {
+  expect(typeof signOut).toBe('function');
+});
+it('debería retornar Hemos enviado un email a email@email.com para cambiar la contraseña', async () => {
+  const outUser = await signOut();
+  expect(outUser).toBe(undefined);
+});
+});*/
 /*describe('loginUser', () => {
   it('deberia ser una función ', () => {
     expect(typeof loginUser).toBe('function');
@@ -51,4 +92,3 @@ describe('signUser', () => {
     expect(googleLogin).toBe('Loguea con ing.clara.93@gmail.com, clarita123');
   });
 });*/
-

@@ -10,6 +10,7 @@ import timeline from './views/timeline.js';
 import profile from './views/profileUser.js'
 
 const body = document.getElementById('root');
+const header = document.getElementById('header');
 
 // Verificar si los usuarios ya estan logueados, si estan registrados o no
 auth.onAuthStateChanged((user) => {
@@ -23,6 +24,7 @@ auth.onAuthStateChanged((user) => {
     const uid = user.uid;
     const providerData = user.providerData;
     console.log('Logueado');
+    window.location.hash = '#timeline';
   } else {
     // User is signed out.
     console.log('No Logueado');
@@ -31,33 +33,44 @@ auth.onAuthStateChanged((user) => {
 });
 
 const router = (rute) => {
-  body.innerHTML = '';
+  body.innerHTML = ' ';
   switch (rute) {
     case '#home':
       return body.appendChild(home());
+      break;
     case '#login':
       return body.appendChild(login());
+      break;
     case '#createAccount':
       return body.appendChild(createAccount());
+      break;
     case '#recover':
       return body.appendChild(recover());
+      break;
     case '#thankAccount':
       return body.appendChild(thankAccount());
+      break;
     case '#timeline':
       return body.appendChild(timeline());
+      break;
     case '#profile':
       return body.appendChild(profile());
-    break;
+      break;
     default:
   }
 };
 
-header.style.display = 'none';
-
 window.addEventListener('hashchange', () => {
   router(window.location.hash);
+  if(window.location.hash == '#timeline' || window.location.hash =='#profile' ){
+    header.style.display = 'block';
+  }else{
+    header.style.display = 'none';
+  }
 });
 
 
-
-myFunction();
+const logout = document.querySelector('#logout');
+logout.addEventListener('click', () => {
+  signOut();
+});
