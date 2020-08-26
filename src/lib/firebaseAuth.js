@@ -45,6 +45,9 @@ try {
   // The signed-in user info.
   const user = userLogIn.user;
   console.log(user);
+
+  return userLogIn;
+  
 } catch (error) {
   // Handle Errors here.
   const errorCode = error.code;

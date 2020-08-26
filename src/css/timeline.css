@@ -6,15 +6,14 @@
   background-color: #FFFFF0;
 }
 
- .containerTimeline {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFFFF0;
-    
-  }
 
-  .btnlogin {
+.publicationsUsers {
+  
+
+}
+
+
+ .btnlogin {
   margin-top: 50px;
   align-self: center;
   text-align: center;
@@ -28,7 +27,7 @@
   margin-left: 70px;
   }
 
-/*POSTS*/
+/*POSTS- CREATE POSTS*/
 
 .newsfeed {
   padding: 0 20px;
@@ -157,4 +156,36 @@
 
 .inputCommentandButton {
   display: none;
+}
+
+
+
+@media screen and (min-width: 1000px){
+
+  .icons {
+    margin-left: 1100px;
+       
+  }
+
+
+  .icons .commentaries {
+    width: 40px;
+    margin-left: 80px;
+  }
+
+
+  .icons .likes {
+    width: 30px;
+  }
+
+
+  .btnCommentaries {
+    margin-left: 1200px;
+    
+   
+  }
+
+  
+  
+
 }
