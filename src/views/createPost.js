@@ -39,11 +39,8 @@ export default () => {
         <div class="desc">
         "" </div></div>`;
   
-  
-    
-    timeline.appendChild(card);
-    timeline.appendChild(icons);
-    timeline.appendChild(comments);
+    card.appendChild(icons);
+    card.appendChild(comments);
     
   
    
@@ -52,8 +49,5 @@ export default () => {
     });
 
 
-  
-  
-  
-    return timeline;
+    return card;
   };
