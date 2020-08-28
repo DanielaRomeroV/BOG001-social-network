@@ -40,6 +40,12 @@ export const publish = (userPhoto, userID, userName) =>{
     modal.style.display = 'none';
   });
 
+//crear fecha
+  
+
+
+
+
   modal.querySelector('.close').addEventListener('click', ()=> {
     modal.style.display = 'none'});
 
