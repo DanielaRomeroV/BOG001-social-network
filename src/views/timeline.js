@@ -3,6 +3,9 @@ import {publish} from './modal.js';
 
 export default () => {
 
+
+let user = currentUser();
+
 const timelineContainer = document.createElement('section');
 timelineContainer.setAttribute('class', 'containerTimeline');
 
@@ -56,17 +59,26 @@ timelineContainer.appendChild(card);
 timelineContainer.appendChild(icons);
 timelineContainer.appendChild(comments);
 
-let user = currentUser();
+
 data.collectionGroup('userComments').onSnapshot(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
-        }); });
-const modal = timelineContainer.appendChild(publish(user.photoURL, user.uid));
+        });      
+      });
+    
 
+
+//pintar los datos 
+
+
+
+const modal = timelineContainer.appendChild(publish(user.photoURL, user.uid));
 newBtn.addEventListener('click', () => {
   modal.style.display = "flex";
 });
+
+
 
 icons.querySelector('.commentaries').addEventListener('click', () => {
 icons.querySelector('.inputCommentandButton').style.display = "block";});
