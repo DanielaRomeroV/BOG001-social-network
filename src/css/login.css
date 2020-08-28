@@ -1,5 +1,5 @@
 .container {
-  height: 100%;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +15,7 @@
 }
 
 .input-container {
+<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,6 +41,40 @@
   text-align: center;
   font-family: "Comfortaa";
   font-size: 12px;
+=======
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.input-container input{
+  margin: 5px;
+}
+
+
+#login .logo{
+    max-width: 50%;
+    display:inline-block;
+}
+
+.input-container p{
+    font-size: 12px;
+    margin-top:10px;
+    font-family: 'Comfortaa', sans-serif;
+    padding: 15px;
+
+}
+
+.createAccount p {
+    color: white;
+    margin: 0px;
+    text-align: center;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 12px;
+>>>>>>> b297e41f3e1d7768aa74835728f2aa2a7d365cbf
 }
 
 .createAccount .google {
@@ -49,10 +84,18 @@
   margin-right: auto;
 }
 
+<<<<<<< HEAD
 .createAccount a {
   color: #06b8c7;
   font-family: Comfortaa;
   font-size: 12px;
+=======
+.link {
+    color: #06B8C7;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 12px;
+
+>>>>>>> b297e41f3e1d7768aa74835728f2aa2a7d365cbf
 }
 
 .input-container a {
@@ -77,6 +120,7 @@
     height: 550px;
   }
 
+<<<<<<< HEAD
   #login .username {
     margin-top: 10px;
     font-size: 15px;
@@ -84,6 +128,19 @@
 
   #login .input-container p {
     font-size: 15px;
+=======
+    #login .username {
+            margin-top: 10px;
+            font-size: 15px;
+          }
+    .input-container{
+      margin-top: 0px;
+    }
+
+    .input-container p{
+        font-size: 15px;
+      }
+>>>>>>> b297e41f3e1d7768aa74835728f2aa2a7d365cbf
   }
 
 }
