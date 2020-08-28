@@ -14,12 +14,6 @@ export const commentPublish = (comment, category, userID) => {
 }
 
 //traer las colecciones de comentarios -get data
-/*
-data.collectionGroup('userComments').get().then(function (querySnapshot) {
-  querySnapshot.forEach(function (doc) {
-      console.log(doc.id, ' => ', doc.data());
-  });
-});*/
 
 export const getAllposts = () => {
   console.log('entró a getAllPsots');
@@ -33,8 +27,3 @@ export const getAllposts = () => {
     return posts;
   });
 }
-
-
-
-
-

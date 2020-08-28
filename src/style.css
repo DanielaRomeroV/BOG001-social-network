@@ -18,11 +18,11 @@
 body{
 
   color: #FFFFFF;
-  height: 100vh;
   font-size: 16px;
   display: flex;
   flex-direction: column;
   background-color: #000;
+  height: 100vh;
 }
 
 main{

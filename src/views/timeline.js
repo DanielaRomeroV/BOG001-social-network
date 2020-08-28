@@ -1,6 +1,6 @@
 import { currentUser } from '../lib/firebaseAuth.js';
 import {publish} from './modal.js';
-import {getAllposts} from '../lib/firebaseFirestore.js';
+import { getAllposts} from'../lib/firebaseFirestore.js';
 
 
 
@@ -20,11 +20,14 @@ publications.setAttribute('class', 'publicationsUsers');
 publications.innerHTML = `<div class="publicationsUsers">
 </div>`;
 
-var publicacion = [];
+
+let publicacion = [];
 console.log('va a getAllPsots');
 publicacion = getAllposts();
 console.log('sale a getAllPsots');
 console.log(publicacion);
+
+
 
 
 
@@ -44,24 +47,5 @@ modal.style.display = "flex";
   return timelineContainer;
 };
 
-// create element & render post
-/*
-export function renderCard(doc){
-  let li = document.createElement('li');
-  let category = document.createElement('span');
-  let commentary = document.createElement('span');
-  let cross = document.createElement('div');
 
-  li.setAttribute('data-id', doc.id);
-  category.textContent = doc.data().category;
-  commentary.textContent = doc.data().commentary;
-  cross.textContent = 'x';
 
-  li.appendChild(category);
-  li.appendChild(commentary);
-  li.appendChild(cross);
-
-  postList.appendChild(li);
-
-};
-*/
