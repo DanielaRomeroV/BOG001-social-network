@@ -18,7 +18,7 @@ export const commentPublish = (comment, category, userID) => {
 export const getAllposts = () => {
   console.log('entró a getAllPsots');
   var posts = [];
-  data.collectionGroup('userComments').get().then(function (querySnapshot) {
+  data.collectionGroup('userComments').onSnapshot().then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
       console.log(doc.id, ' => ', doc.data());
       posts.push(doc.data());
@@ -27,3 +27,15 @@ export const getAllposts = () => {
     return posts;
   });
 }
+
+/*export const getAllposts = () => {
+let posts = data.collectionGroup('userComments').onSnapshot(function(querySnapshot) {
+  querySnapshot.forEach(function(doc) {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data());
+  }); 
+  return posts;
+});
+}*/
+
+
