@@ -1,76 +1,5 @@
-<<<<<<< HEAD
-#profileBody{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    background-color: #FFFFF0;
-    position: relative;
-    padding: 10px
-  }
-  
-  .comment{
-    min-width: 250px;
-    margin: 30px auto;
-    background-color: gray;
-  }
-  #deleteIcon{
-    width: 30px;
-    height: 30px;
-    background-image: url(../img/delete.png);
-    background-position: center;
-    cursor: pointer;
-  }
-  
-  #confirm{
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    max-width: 400px;
-    height: 100px;
-    background-color: #FFFFFF;
-    border: 1px solid #766D78;
-    border-radius: 20px;
-    font-size: 1em;
-    text-align: center;
-    color: #5D5D5D;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
-  
-  #confirm > h2{
-    font-size: 1em;
-  }
-  #deleteBtn{
-    background-color: #ED3124;
-    border: 2px solid #C7251F;
-  }
-
-  #profile{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFFFF0;
-    background-size:cover;
-    flex-direction: column;
-    }
-#profile h1,h3{
-    font-size: 13px;
-    color:black;
-    text-align: center;
-}
-
-#profile .photo{
-        border-radius: 50%;
-        max-width: 25%;
-        display:inline-block;
-    }
-=======
 #profile{
-  min-height: 80vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,69 +7,63 @@
   background-size:cover;
   flex-direction: column;
   }
-
 #profile h1,h3{
-  font-size: 16px;
+  font-size: 13px;
   color:black;
   text-align: center;
 }
 
 #profile .photo{
-  border-radius: 50%;
-  max-width: 25%;
-  display:inline-block;
+      border-radius: 50%;
+      max-width: 25%;
+      display:inline-block;
   }
 
-
-
-#profileBody{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  background-color: #FFFFF0;
-  position: relative;
-  padding: 10px
-}
-
-.comment{
-  min-width: 250px;
-  margin: 30px auto;
-  background-color: gray;
-}
-
-
-#deleteIcon{
-  width: 30px;
-  height: 30px;
-  background-image: url(../img/delete.png);
-  background-position: center;
-  cursor: pointer;
-}
-
-#confirm{
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  max-width: 400px;
-  height: 100px;
-  background-color: #FFFFFF;
-  border: 1px solid #766D78;
-  border-radius: 20px;
-  font-size: 1em;
-  text-align: center;
-  color: #5D5D5D;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-#confirm > h2{
-  font-size: 1em;
-}
-#deleteBtn{
-  background-color: #ED3124;
-  border: 2px solid #C7251F;
-}
->>>>>>> b297e41f3e1d7768aa74835728f2aa2a7d365cbf
+  #profileBody{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      background-color: #FFFFF0;
+      position: relative;
+      padding: 10px
+    }
+    
+    .comment{
+      min-width: 250px;
+      margin: 30px auto;
+      background-color: gray;
+    }
+    #deleteIcon{
+      width: 30px;
+      height: 30px;
+      background-image: url(../img/delete.png);
+      background-position: center;
+      cursor: pointer;
+    }
+    
+    #confirm{
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      max-width: 400px;
+      height: 100px;
+      background-color: #FFFFFF;
+      border: 1px solid #766D78;
+      border-radius: 20px;
+      font-size: 1em;
+      text-align: center;
+      color: #5D5D5D;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    
+    #confirm > h2{
+      font-size: 1em;
+    }
+    #deleteBtn{
+      background-color: #ED3124;
+      border: 2px solid #C7251F;
+    }

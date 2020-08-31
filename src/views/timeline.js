@@ -40,6 +40,7 @@ export default () => {
 function printPost(post){
   let newpost = document.createElement('div');
   newpost.setAttribute('class', 'card');
+  newpost.setAttribute('id', 'docCard');
   newpost.innerHTML = post.comment;
   newpost.innerHTML = `<div class="card">
   <div class="content">
