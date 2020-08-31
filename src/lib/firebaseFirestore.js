@@ -1,4 +1,4 @@
-export const commentPublish = (comment, category, userID,) => {
+export const commentPublish = (comment, category, userID, Date) => {
   try {
     var userDocRef = data.collection('users').doc(userID);
     userDocRef.collection('userComments').doc().set({

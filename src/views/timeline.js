@@ -1,6 +1,7 @@
 import { currentUser } from '../lib/firebaseAuth.js';
 import {publish} from './modal.js';
 //import {printPost} from './createPost.js';
+import { commentPublish} from '../lib/firebaseFirestore.js';
 
 export default () => {
 
@@ -25,7 +26,13 @@ export default () => {
 
   data.collectionGroup('userComments').orderBy('date').onSnapshot((querySnapshot)=>{
     querySnapshot.forEach((doc) => {
-      card.appendChild(printPost(doc.data()));
+  //traer coleccion del usuario
+  const userName =  data.collection('users').doc(doc.data().userID).get().then((doc) => {
+  //console.log(doc.data()) 
+  return doc.data();
+});
+console.log(userName);
+      card.appendChild(printPost(doc.data(), userName));
     });
   });
 
@@ -37,7 +44,7 @@ export default () => {
   return  timelineContainer;
 };
 
-function printPost(post){
+function printPost(post, userName){
   let newpost = document.createElement('div');
   newpost.setAttribute('class', 'card');
   newpost.setAttribute('id', 'docCard');
@@ -45,10 +52,10 @@ function printPost(post){
   newpost.innerHTML = `<div class="card">
   <div class="content">
   <div class="header">
-    <div class="profile-pic"></div>        
+    <div class="profile-pic"><img src="${currentUser().photoURL}" id="profile-pic"/></div>        
       <div class="detail">
-      <p class="name">${currentUser().displayName}</p>
-      <p class="posted">${Date}</p>          
+      <p class="name">${userName.name}</p>
+      <p class="posted">${Date.toDate}</p>          
     </div>   
     <div class="categories"></div>   
   </div>
@@ -67,22 +74,24 @@ function printPost(post){
   
     newpost.appendChild(icons);
      
-  
+    //commentPublish(comment, category, userID);
    
     icons.querySelector('.commentaries').addEventListener('click', () => {
     icons.querySelector('.inputCommentandButton').style.display = "block";
     });
 
-   /* window.addEventListener('click', (e)=>{
-
-      if(e.target == newpost.querySelector('.commentaries')){
-        newpost.querySelector('.inputCommentandButton').style.display = 'flex';
+    /*window.addEventListener('click', (e)=>{
+      if(e.target == icons.querySelector('.commentaries')){
+        icons.querySelector('.inputCommentandButton').style.display = 'block';
       }else{
-        newpost.querySelector('.inputCommentandButton').style.display = 'none';
-      }*/
-
-  return newpost;
+        icons.querySelector('.inputCommentandButton').style.display = 'none';
+      });*/
+      
+      
+      return newpost;
 };
+
+
 
 
 
