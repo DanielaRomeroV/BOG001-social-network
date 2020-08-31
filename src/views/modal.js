@@ -29,6 +29,7 @@ export const publish = (userPhoto, userID, userName) =>{
   let photo =  modal.querySelector('#userPhoto');
   photo.src = `${userPhoto}`;
   const publish = modal.querySelector('#formComment');
+  
   //const img = form.loadImg.value;
   publish.addEventListener('submit', (e)=>{
     e.preventDefault();
