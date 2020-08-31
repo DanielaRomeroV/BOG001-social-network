@@ -6,6 +6,7 @@
   background-color: #FFFFF0;
   background-size:cover;
   flex-direction: column;
+  font-family: 'Source Sans Pro';
   }
 
 #profile h1,h3{
@@ -19,7 +20,10 @@
   max-width: 25%;
   display:inline-block;
   }
-
+#profile a{
+  text-decoration: none;
+  color: black;
+}
 
 
 #profileBody{

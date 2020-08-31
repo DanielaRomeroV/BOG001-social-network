@@ -8,12 +8,20 @@ console.log(auth.currentUser);
 const timelineContainer = document.createElement('section');
 timelineContainer.setAttribute('class', 'containerTimeline');
 
+const timeline = document.createElement('section');
+timeline.setAttribute('id', 'timelineBody');
+timeline.innerHTML = `<button type="button" class="btn newpublish">NUEVA PUBLICACIÓN</button>`;
+let user = currentUser();
+console.log(user.photoURL);
+timeline.querySelector('.newpublish').addEventListener('click', () => {
+const modal = timeline.appendChild(publish(user.photoURL));
+modal.style.display = "flex";
+});
 
 
 const card = document.createElement('section')
 card.setAttribute('class', 'newsfeed');
-card.innerHTML = `<button type="submit" class=" btn btnlogin">NUEVA PUBLICACIÓN</button>
-   <div class="card">
+card.innerHTML = `<div class="card">
     <div class="content">
     <div class="header">
       <div class="profile-pic"></div>
@@ -31,7 +39,7 @@ card.innerHTML = `<button type="submit" class=" btn btnlogin">NUEVA PUBLICACIÓN
 const icons = document.createElement('section')
 icons.setAttribute('class', 'input-comment');
 icons.innerHTML = `<div class="icons"><img src="img/like.png" class="likes" width="20px"/>
-<img src="img/comment.png" class="commentaries" width="20px" onclick="openInput()"/></div>
+<img src="img/comment.png" class="commentaries" width="20px"/></div>
 <div class="inputCommentandButton">
 <textarea class="inputComment" id="comment" cols="40" rows="2" required placeholder="Escribe tu comentario aquí"></textarea>
 <button type="submit" class="btnCommentaries">Enviar</button>
@@ -50,13 +58,15 @@ comments.innerHTML = `
     "La pelicula El Origen tiene una calificación IMDb 8.8/10, pero para mi deberia ser 5/10, ¿Ustedes que opinan?
     </div></div>`;
 
+timelineContainer.appendChild(timeline);
 timelineContainer.appendChild(card);
 timelineContainer.appendChild(icons);
 timelineContainer.appendChild(comments);
 
+
 icons.querySelector('.commentaries').addEventListener('click', () => {
 icons.querySelector('.inputCommentandButton').style.display = "block";
-  openInput();
+
 });
 
 
