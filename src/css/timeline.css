@@ -117,7 +117,11 @@ margin-top:50px;
 }
 
 .icons {
-margin-left: 200px;
+margin-left: 180px;
+}
+
+.icons .dislike {
+  /*display: none;*/
 }
 
 .icons .commentaries {
