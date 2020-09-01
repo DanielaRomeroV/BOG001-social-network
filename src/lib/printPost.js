@@ -24,24 +24,24 @@ export const printPost = (post, profile) => {
   icons.setAttribute('class', 'input-comment');
   icons.innerHTML = `<div class="icons"><img src="img/like.png" class="likes" width="20px"/>
   <img src="img/comment.png" class="commentaries" width="20px""/></div>
-  <div class="inputCommentandButton">
+  <div class="inputCommentandButton"><span>
   <textarea class="inputComment" id="comment" cols="40" rows="2" required placeholder="Escribe tu comentario aquí"></textarea>
-  <button type="submit" class="btnCommentaries">Enviar</button>
+  <button type="submit" class="btnCommentaries">Enviar</button></span>
   </div>`;
 
   newpost.appendChild(icons);
    
-  
-  icons.querySelector('.commentaries').addEventListener('click', () => {
-  icons.querySelector('.inputCommentandButton').style.display = "block";
-  });
+ 
 
-  /*window.addEventListener('click', (e)=>{
+  window.addEventListener('click', (e)=>{
     if(e.target == icons.querySelector('.commentaries')){
       icons.querySelector('.inputCommentandButton').style.display = 'block';
+      newpost.querySelector('.card').style.display = 'none';
     }else{
       icons.querySelector('.inputCommentandButton').style.display = 'none';
-    });*/
+      newpost.querySelector('.card').style.display = 'block';
+    }});
+  
     
     return newpost;
 };
