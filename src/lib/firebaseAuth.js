@@ -10,7 +10,7 @@ try {
   let currentUser = await auth.currentUser;
   currentUser.updateProfile({displayName: name});
   let userDb = await data.collection('users').doc(currentUser.uid)
-  .set({birthday, name: currentUser.displayName, photo: currentUser.photoURL});
+  .set({birthday, name, photo: currentUser.photoURL});
 
   window.location.hash = "#thankAccount";
 

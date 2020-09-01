@@ -1,4 +1,4 @@
-import { currentUser } from '../lib/firebaseAuth.js';
+
 
 export const printPost = (post, profile) => {
   let newpost = document.createElement('div');
