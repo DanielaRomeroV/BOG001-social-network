@@ -9,7 +9,8 @@ try {
   const newUser = await auth.createUserWithEmailAndPassword(email, password);
   let currentUser = await auth.currentUser;
   currentUser.updateProfile({displayName: name});
-  let userDb = await data.collection('users').doc(currentUser.uid).set({birthday, name: currentUser.displayName, photo: currentUser.photoURL});
+  let userDb = await data.collection('users').doc(currentUser.uid)
+  .set({birthday, name: currentUser.displayName, photo: currentUser.photoURL});
 
   window.location.hash = "#thankAccount";
 
@@ -46,7 +47,8 @@ try {
   const user = userLogIn.user;
   let currentUser = await auth.currentUser;
   currentUser.providerData.forEach(function (profile){
-    data.collection('users').doc(currentUser.uid).set({name: profile.displayName, photo: profile.photoURL});
+    data.collection('users').doc(currentUser.uid)
+    .set({name: profile.displayName, photo: profile.photoURL});
   })
 } catch (error) {
   // Handle Errors here.
@@ -67,7 +69,7 @@ try {
   return message.innerHTML = `Hemos enviado un email a ${email} para cambiar la contraseña`;
 } catch (error) {
   return message.innerHTML = 'No se ha podido enviar el correo de verificación';
-  
+  console.log('No se ha podido enviar el correo de verificación');
 }
 }
 
@@ -76,7 +78,7 @@ export async function signOut() {
 try {
   const userOut = await auth.signOut();
   return userOut;
- 
+  console.log('user out');
 } catch (e) {
   console.log(e);
 }
