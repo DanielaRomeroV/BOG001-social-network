@@ -1,118 +1,119 @@
+import { deletePost } from './firebaseFirestore.js';
 
-
-export const printPost = (post, profile) => {
+export const printPost = (post, user, postid) => {
   let newpost = document.createElement('div');
-  newpost.setAttribute('class', 'card');
+  newpost.setAttribute('id', postid);
+  newpost.setAttribute('class', 'post');
   newpost.innerHTML = post.comment;
-  newpost.innerHTML = profile;
+  newpost.innerHTML = user;
   newpost.innerHTML = `<div class="card">
   <div class="content">
   <div class="header">
-    <div class="profile-pic"><img src="${profile.photo}" id="profile-pic"/></div>        
+    <div class="profile-pic"><img src="${user.photo}" id="profile-pic"/></div>
       <div class="detail">
-      <p class="name">${profile.name}</p>
-      <p class="posted"></p>          
-    </div>   
-    <div class="categories"></div>   
+      <p class="name">${user.name}</p>
+      <p class="posted">${post.date.toDate().toDateString()}</p>
+    </div>
+    <img class="categories">
   </div>
   <div class="desc">
   ${post.comment}
   </div></div></div>`;
+
+  let categoryIcon = newpost.querySelector('.categories');
+  switch (post.category) {
+    case 'Movie':
+      categoryIcon.src = 'img/movie.png';
+      break;
+    case 'Documentary':
+      categoryIcon.src = 'img/documentary.png';
+      break;
+    case 'Serie':
+      categoryIcon.src = 'img/serie.png';
+      break;
+  }
 
 
   const icons = document.createElement('section')
   icons.setAttribute('class', 'input-comment');
-  icons.innerHTML = `<div class="icons">
-  <img src="img/dislike.png" class="likes" width="20px"/>
-  <span class="likes-count">0</span>
-  <img src="img/comment.png" class="commentaries" width="20px""/></div>
-  <div class="inputCommentandButton"><span>
-  <textarea class="inputComment" id="comment" cols="40" rows="2" required placeholder="Escribe tu comentario aquí"></textarea>
-  <button type="submit" class="btnCommentaries">Enviar</button></span>
+  icons.innerHTML = `<div id="icons">
+    <img src="img/delete.png" id="delete" class="icons"/>
+    <img src="img/edit.png" id="edit" class="icons"/>
+    <img src="img/like.png" id="likes" class="icons"/>
+    <span>0</span>
+    <img src="img/comment.png" class="commentaries icons"/>
+    <span>0</span>
+    </div>
+    <div id="confirm">
+      <h2>¿Estás seguro que quieres eliminar la publicación?</h2>
+      <button type="submit" class="btn" id="deleteBtn">ELIMINAR</button>
+    </div>
+  <div class="inputCommentandButton">
+    <textarea class="inputComment" id="comment" rows="2" required placeholder="Escribe tu comentario aquí"></textarea>
+    <button type="submit" class="btnCommentaries">Enviar</button>
   </div>`;
 
   newpost.appendChild(icons);
+  const comments = document.createElement('section')
+  comments.setAttribute('class', 'newsfeed');
+  comments.innerHTML = `
+  <div class="comments">
+      <div class="content">
+        <div class="detail">
+          </div>
+      </div>
+      <div class="desc">
+      "" </div></div>`;
 
-
-  //ocultar comentarios
-  window.addEventListener('click', (e) => {
-    if (e.target == icons.querySelector('.commentaries')) {
-      icons.querySelector('.inputCommentandButton').style.display = 'block';
-      newpost.querySelector('.card').style.display = 'none';
-    } else {
-      icons.querySelector('.inputCommentandButton').style.display = 'none';
-      newpost.querySelector('.card').style.display = 'block';
-    }
-  });
-
-
-  //like activo inactivo
-  window.addEventListener('click', (e) => {
-    if (e.target == icons.querySelector('.likes')) {
-      if (icons.querySelector('.likes').getAttribute('src') === 'img/like.png') {
-        icons.querySelector('.likes').setAttribute('src', 'img/dislike.png');
-        icons.querySelector('.like').style.display = 'block';
-      } else if (icons.querySelector('.likes').getAttribute('src') === 'img/dislike.png') {
-        icons.querySelector('.likes').setAttribute('src', 'img/like.png');
-        icons.querySelector('.like').style.display = 'block';
-      }
-    }
-  });
-
-
-
-
-
-
-  return newpost;
-};
-
-
-
-/*
-export const printPost = (post, userName) => {
-  let newpost = document.createElement('div');
-  newpost.setAttribute('class', 'card');
-  newpost.setAttribute('id', 'docCard');
-  newpost.innerHTML = post.comment;
-  newpost.innerHTML = `<div class="card">
-  <div class="content">
-  <div class="header">
-    <div class="profile-pic"><img src="${currentUser().photoURL}" id="profile-pic"/></div>
-      <div class="detail">
-      <p class="name">${userName.name}</p>
-      <p class="posted">${Date.toDate}</p>
-    </div>
-    <div class="categories"></div>
-  </div>
-  <div class="desc">
-  ${post.comment}
-  </div></div></div>`;
-
-  const icons = document.createElement('section')
-    icons.setAttribute('class', 'input-comment');
-    icons.innerHTML = `<div class="icons"><img src="img/like.png" class="likes" width="20px"/>
-    <img src="img/comment.png" class="commentaries" width="20px""/></div>
-    <div class="inputCommentandButton">
-    <textarea class="inputComment" id="comment" cols="40" rows="2" required placeholder="Escribe tu comentario aquí"></textarea>
-    <button type="submit" class="btnCommentaries">Enviar</button>
-    </div>`;
-
-    newpost.appendChild(icons);
-
-    //commentPublish(comment, category, userID);
-
-    icons.querySelector('.commentaries').addEventListener('click', () => {
-    icons.querySelector('.inputCommentandButton').style.display = "block";
-    });
-
-    /*window.addEventListener('click', (e)=>{
+  if(window.location.hash == '#timeline'){
+    icons.querySelector('#delete').style.display = 'none';
+    icons.querySelector('#edit').style.display = 'none';
+  }
+  //newpost.appendChild(comments);
+  window.addEventListener('click', (e)=>{
       if(e.target == icons.querySelector('.commentaries')){
         icons.querySelector('.inputCommentandButton').style.display = 'block';
-      }else{
+        newpost.querySelector('.card').style.display = 'none';
+      }else if (e.target == icons.querySelector('#delete')) {
+        icons.querySelector('#confirm').style.display = 'block';
+      } else if (e.target == icons.querySelector('#deleteBtn')) {
+        let postid = newpost.getAttribute('id');
+        console.log(postid);
+        deletePost(postid);
+      }
+      else{
         icons.querySelector('.inputCommentandButton').style.display = 'none';
-      });
+        newpost.querySelector('.card').style.display = 'block';
+        icons.querySelector('#confirm').style.display = 'none';
+      }
+    });
+//ocultar comentarios
+window.addEventListener('click', (e) => {
+  if (e.target == icons.querySelector('.commentaries')) {
+    icons.querySelector('.inputCommentandButton').style.display = 'block';
+    newpost.querySelector('.card').style.display = 'none';
+  } else {
+    icons.querySelector('.inputCommentandButton').style.display = 'none';
+    newpost.querySelector('.card').style.display = 'block';
+  }
+});
 
-      return newpost;
+
+
+//like activo inactivo
+window.addEventListener('click', (e) => {
+if (e.target == icons.querySelector('#likes')) {
+  if (icons.querySelector('#likes').getAttribute('src') === 'img/like.png') {
+    icons.querySelector('#likes').setAttribute('src', 'img/dislike.png');
+    icons.querySelector('#like').style.display = 'block';
+  } else if (icons.querySelector('#likes').getAttribute('src') === 'img/dislike.png') {
+    icons.querySelector('#likes').setAttribute('src', 'img/like.png');
+    icons.querySelector('#like').style.display = 'block';
+  }
+}
+});
+    return newpost;
 };
-*/
+
+
+ 

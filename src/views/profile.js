@@ -1,7 +1,11 @@
 import { currentUser } from '../lib/firebaseAuth.js';
+import { currentUserPost } from '../lib/firebaseFirestore.js';
+import { deletePost } from '../lib/firebaseFirestore.js';
 
 export default () => {
 
+    const profileContainer = document.createElement('div');
+    profileContainer.setAttribute('id', 'profileContainer');
     const profile = document.createElement('div');
     profile.setAttribute('id', 'profile');
     profile.innerHTML = `<h2 id="profileName">Mi perfil</h2>
@@ -9,7 +13,7 @@ export default () => {
         <div class="default-image"></div>
         <div id="editPhoto">
         <label for="archivo">
-        <img src="img/editProfile.png" alt ="Click aquí para subir tu foto"> 
+        <img src="img/editProfile.png" alt ="Click aquí para subir tu foto">
         </label>
         <input type="file" id="archivo" name="archivo" accept="image/*">
         </div>
@@ -22,57 +26,33 @@ export default () => {
         <h3>Sobre mi</h3>
         <input type="text" id="biography" class="aboutMe" placeholder="Cuéntanos de ti">
         <button type="submit" class="btn update" id="btnUp" >ACTUALIZAR</button>
-        <h2 id="publication">Mis publicaciones</h2>
-        <div class="comment">
-            <p>Aqui va un comentario</p>
-            <div id="deleteIcon"></div>
-            <div id="confirm">
-            <h2>¿Estás seguro que quieres eliminar la publicación?</h2>
-            <button type="submit" class="btn" id="deleteBtn">ELIMINAR</button>
-            </div>
-            </div>`;
-    const photos = profile.querySelector('#archivo');
-    const previewPhoto = profile.querySelector('#preview');
-    const defaultImage = profile.querySelector('.default-image');
-    const btnUpdate = profile.querySelector('#btnUp');
-    profile.querySelector('#deleteBtn').addEventListener('submit', ()=>{
-      e.preventDefault();
-    });
-  
-    window.addEventListener('click', (e)=>{
-  
-      if(e.target == profile.querySelector('#deleteIcon')){
-        profile.querySelector('#confirm').style.display = 'flex';
-      }else{
-        profile.querySelector('#confirm').style.display = 'none';
-      }
-  
-    })
-    
-    let currentFile = '';
+        <h2 id="publication">Mis publicaciones</h2>`;
 
-  
-    photos.addEventListener('change', () => {
-      currentFile = photos.files[0];
-      console.log(currentFile);
-      if (currentFile) {
-        const reader = new FileReader();
-        defaultImage.style.display = 'none';
-        previewPhoto.style.display = 'block';
-        reader.addEventListener('load', () => {
-          previewPhoto.setAttribute('src', reader.result);
+        const photos = profile.querySelector('#archivo');
+        const previewPhoto = profile.querySelector('#preview');
+        const defaultImage = profile.querySelector('.default-image');
+        const btnUpdate = profile.querySelector('#btnUp');
+        let currentFile = '';
+
+        photos.addEventListener('change', () => {
+          currentFile = photos.files[0];
+          console.log(currentFile);
+          if (currentFile) {
+            const reader = new FileReader();
+            defaultImage.style.display = 'none';
+            previewPhoto.style.display = 'block';
+            reader.addEventListener('load', () => {
+              previewPhoto.setAttribute('src', reader.result);
+            });
+            reader.readAsDataURL(currentFile);
+          } else {
+            defaultImage.style.display = null;
+            previewPhoto.style.display = null;
+            previewPhoto.setAttribute('src', '');
+          }
         });
-        reader.readAsDataURL(currentFile);
-      } else {
-        defaultImage.style.display = null;
-        previewPhoto.style.display = null;
-        previewPhoto.setAttribute('src', '');
-      }
-    });
 
-  //Las promesas cuando se ejecuta then, cuando falla catch, cuando se realiza complete 
-    //boton actualizar
-    btnUpdate.addEventListener('click', (e)=> {
+      btnUpdate.addEventListener('click', (e)=> {
       const file = currentFile;
       console.log(file);
       /*const valueChange = document.getElementById('biography').value;
@@ -92,7 +72,26 @@ export default () => {
           console.log(error);
         });
     }
-  
+
   });
-    return profile;
+
+      const postProfile = document.createElement('section');
+      postProfile.setAttribute('id', 'profileBody');
+      currentUserPost(postProfile, currentUser());
+      profileContainer.appendChild(profile);
+      profileContainer.appendChild(postProfile);
+
+    /*window.addEventListener('click', (e)=>{
+      if(e.target == postProfile.querySelector('#deleteIcon')){
+        postProfile.querySelector('#confirm').style.display = 'flex';
+      }else if (e.target == postProfile.querySelector('#deleteBtn')) {
+        e.preventDefault();
+        deletePost();
+        postProfile.querySelector('#confirm').style.display = 'none';
+      }
+      else{
+        postProfile.querySelector('#confirm').style.display = 'none';
+      }
+    })*/
+    return profileContainer;
 };
