@@ -1,7 +1,7 @@
-import { deletePost, likePublish } from './firebaseFirestore.js';
+import { deletePost, likePost } from './firebaseFirestore.js';
 import { currentUser } from '../lib/firebaseAuth.js';
 
-export const printPost = (post, user, postid) => {
+export const printPost = (post, user, postid, pushLike) => {
   let newpost = document.createElement('div');
   newpost.setAttribute('id', postid);
   newpost.setAttribute('class', 'post');
@@ -103,6 +103,19 @@ window.addEventListener('click', (e) => {
 
 
 //like activo inactivo
+const btnlike = icons.querySelector('#likes');
+btnlike.addEventListener('click', ()=>{
+  let userid = currentUser();
+  likePost(postid, userid.uid, pushLike);
+  if(pushLike){
+    btnlike.setAttribute('src', 'img/dislike.png');
+    pushLike=false;
+  } else{
+    btnlike.setAttribute('src', 'img/like.png');
+    pushLike=true;
+  }
+});
+/*
 window.addEventListener('click', (e) => {
 if (e.target == icons.querySelector('#likes')) {
   let postid = newpost.getAttribute('id');
@@ -110,14 +123,18 @@ if (e.target == icons.querySelector('#likes')) {
   let userid = currentUser();
   console.log(userid.uid);
   if (icons.querySelector('#likes').getAttribute('src') === 'img/like.png') {
-    likePublish(postid,userid.uid);
+    console.log(pushLike);
+    await likePost(postid,userid.uid,pushLike);
     icons.querySelector('#likes').setAttribute('src', 'img/dislike.png');   
   } else if (icons.querySelector('#likes').getAttribute('src') === 'img/dislike.png') {
+    await likePost(postid,userid.uid,pushLike);
     icons.querySelector('#likes').setAttribute('src', 'img/like.png');
 
   }
 }
 });
+*/
+
     return newpost;
 };
 

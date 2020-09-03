@@ -7,6 +7,7 @@ export const commentPublish = (comment, category, userID) => {
       category,
       userID,
       date: firebase.firestore.Timestamp.fromDate(new Date()),
+      likes:[],
     });
   } catch (e) {
     console.log(e);
@@ -21,6 +22,9 @@ export const loadPost =  async (containerDOM) =>{
         querySnapshot.forEach( (doc) => {
         let postid = doc.id;
         let post =  doc.data();
+          
+     
+
           //inicio
           console.log(post.likes.length);
         //const cantlikes = contadorLikes(post);
@@ -28,7 +32,14 @@ export const loadPost =  async (containerDOM) =>{
           //fin
 
         const user =  users.find((user) => user.id === post.userID);
-       containerDOM.appendChild(printPost(post, user, postid));
+
+
+ // se evalua si el usuario le dio like y se encuentra registrado en la base de datos
+ let pushLike = post.likes.some(likes => likes === user.id);
+ console.log(pushLike);
+
+
+       containerDOM.appendChild(printPost(post, user, postid, pushLike));
         });
       });
   } catch (e) {
@@ -48,7 +59,7 @@ export const currentUserPost =  async (containerDOM, currentUser) =>{
         querySnapshot.forEach(async (doc) => {
         let postid = doc.id;
         let post = doc.data();
-        containerDOM.appendChild(printPost(post, user, postid));
+        containerDOM.appendChild(printPost(post, user, postid, pushLike));
         });
       });
   } catch (e) {
@@ -98,8 +109,9 @@ export const likePost = async (posts) => {
 // insertar like en la coleccion
 
 export const likePublish = (PostID, idUserLike) => {
+  
   try {
-    var userDocRef = data.collection('post').doc(PostID).set({
+    var userDocRef = data.collection('post').doc(PostID).push({
       likes: [idUserLike],
     }, { merge: true });
   } catch (e) {
@@ -107,3 +119,46 @@ export const likePublish = (PostID, idUserLike) => {
   }
 };
 
+// elimina like en la coleccion
+
+export const unLikePublish = (PostID, idUserLike) => {
+  try {
+    var userDocRef = data.collection('post').doc(PostID).set({
+      likes: [],
+    }, { merge: true });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+// consulta like en la coleccion
+
+export const queryLikePublish = (PostID, idUserLike) => {
+  try {
+    var userDocRef = data.collection('post').doc(PostID).get({
+      likes: [],
+    }, { merge: true });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+
+// LIKES
+export async function likePost(currentUserId, postId, userHasLikedThePost) {
+  const db = firebase.firestore();
+  const postRef = db.collection('posts').doc(postId);
+  console.log('Entró a likePublish');
+  if (userHasLikedThePost) {
+     postRef.update({
+      likes: firebase.firestore.FieldValue.arrayRemove(currentUserId),
+    });
+  } else {
+     postRef.update({
+      likes: firebase.firestore.FieldValue.arrayUnion(currentUserId),
+    });
+  }
+}
+
+// se evalua si el usuario le dio like y se encuentra registrado en la base de datos
+ // let userHasLikedThePost = likes.some((uid) => uid === currentUserId);
