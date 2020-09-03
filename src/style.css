@@ -8,6 +8,7 @@
 @import "css/timeline.css";
 @import "css/profile.css";
 @import "css/modal.css";
+@import "css/404.css";
 
 *{
   margin: 0px;
@@ -134,7 +135,6 @@ header > nav ul li .optionsWall {
 nav {
   overflow-y: auto;
   max-height: 100vh;
-  overflow-x: hidden;
 }
 
 #check{
