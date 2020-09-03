@@ -28,7 +28,7 @@ export const loadPost =  async (containerDOM) =>{
           //fin
 
         const user =  users.find((user) => user.id === post.userID);
-        containerDOM.appendChild(printPost(post, user, postid));
+       containerDOM.appendChild(printPost(post, user, postid));
         });
       });
   } catch (e) {
