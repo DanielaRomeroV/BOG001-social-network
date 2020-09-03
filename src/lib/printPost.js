@@ -1,4 +1,5 @@
-import { deletePost } from './firebaseFirestore.js';
+import { deletePost, likePublish } from './firebaseFirestore.js';
+import { currentUser } from '../lib/firebaseAuth.js';
 
 export const printPost = (post, user, postid) => {
   let newpost = document.createElement('div');
@@ -39,8 +40,8 @@ export const printPost = (post, user, postid) => {
   icons.innerHTML = `<div id="icons">
     <img src="img/delete.png" id="delete" class="icons"/>
     <img src="img/edit.png" id="edit" class="icons"/>
-    <img src="img/like.png" id="likes" class="icons"/>
-    <span>0</span>
+    <img src="img/dislike.png" id="likes" class="icons"/>
+    <span>${post.likes.length}</span>
     <img src="img/comment.png" class="commentaries icons"/>
     <span>0</span>
     </div>
@@ -87,9 +88,10 @@ export const printPost = (post, user, postid) => {
         icons.querySelector('#confirm').style.display = 'none';
       }
     });
+
 //ocultar comentarios
 window.addEventListener('click', (e) => {
-  if (e.target == icons.querySelector('.commentaries')) {
+  if (e.target == icons.querySelector('.commentaries ')) {
     icons.querySelector('.inputCommentandButton').style.display = 'block';
     newpost.querySelector('.card').style.display = 'none';
   } else {
@@ -103,12 +105,16 @@ window.addEventListener('click', (e) => {
 //like activo inactivo
 window.addEventListener('click', (e) => {
 if (e.target == icons.querySelector('#likes')) {
+  let postid = newpost.getAttribute('id');
+  console.log(postid);
+  let userid = currentUser();
+  console.log(userid.uid);
   if (icons.querySelector('#likes').getAttribute('src') === 'img/like.png') {
-    icons.querySelector('#likes').setAttribute('src', 'img/dislike.png');
-    icons.querySelector('#like').style.display = 'block';
+    likePublish(postid,userid.uid);
+    icons.querySelector('#likes').setAttribute('src', 'img/dislike.png');   
   } else if (icons.querySelector('#likes').getAttribute('src') === 'img/dislike.png') {
     icons.querySelector('#likes').setAttribute('src', 'img/like.png');
-    icons.querySelector('#like').style.display = 'block';
+
   }
 }
 });
