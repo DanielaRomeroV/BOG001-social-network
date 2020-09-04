@@ -1,6 +1,6 @@
 import { deletePost, likePost } from './firebaseFirestore.js';
 import { currentUser } from './firebaseAuth.js';
-
+//imprime el post en el timeline
 export const printPost = (post, user, postid) => {
   const newpost = document.createElement('div');
   newpost.setAttribute('id', postid);

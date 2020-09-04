@@ -51,7 +51,7 @@ export default () => {
     }
   });
 
-  btnUpdate.addEventListener('click', (e) => {
+  btnUpdate.addEventListener('click', () => {
     const file = currentFile;
     console.log(file);
     /* const valueChange = document.getElementById('biography').value;
@@ -78,17 +78,5 @@ export default () => {
   profileContainer.appendChild(profile);
   profileContainer.appendChild(postProfile);
 
-  /* window.addEventListener('click', (e)=>{
-      if(e.target == postProfile.querySelector('#deleteIcon')){
-        postProfile.querySelector('#confirm').style.display = 'flex';
-      }else if (e.target == postProfile.querySelector('#deleteBtn')) {
-        e.preventDefault();
-        deletePost();
-        postProfile.querySelector('#confirm').style.display = 'none';
-      }
-      else{
-        postProfile.querySelector('#confirm').style.display = 'none';
-      }
-    }) */
   return profileContainer;
 };
