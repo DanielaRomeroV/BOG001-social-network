@@ -1,8 +1,8 @@
 import { deletePost, likePost } from './firebaseFirestore.js';
-import { currentUser } from '../lib/firebaseAuth.js';
+import { currentUser } from './firebaseAuth.js';
 
 export const printPost = (post, user, postid) => {
-  let newpost = document.createElement('div');
+  const newpost = document.createElement('div');
   newpost.setAttribute('id', postid);
   newpost.setAttribute('class', 'post');
   newpost.innerHTML = post.comment;
@@ -21,11 +21,12 @@ export const printPost = (post, user, postid) => {
   ${post.comment}
   </div></div></div>`;
 
-  //Toma el id del usuario logueado y valida y está dentro del arreglo de likes
-  let userid = currentUser();
+  // Toma el id del usuario logueado y valida y está dentro del arreglo de likes
+  const userid = currentUser();
   let pushLike = post.likes.some(likes => likes === userid.uid);
-  //FIN
-  let categoryIcon = newpost.querySelector('.categories');
+  // FIN
+
+  const categoryIcon = newpost.querySelector('.categories');
   switch (post.category) {
     case 'Movie':
       categoryIcon.src = 'img/movie.png';
@@ -39,12 +40,12 @@ export const printPost = (post, user, postid) => {
   }
 
 
-  const icons = document.createElement('section')
+  const icons = document.createElement('section');
   icons.setAttribute('class', 'input-comment');
   icons.innerHTML = `<div id="icons">
     <img src="img/delete.png" id="delete" class="icons"/>
     <img src="img/edit.png" id="edit" class="icons"/>
-    <img src="${pushLike ? "img/like.png" :"img/dislike.png" }" id="likes" class="icons"/>
+    <img src="${pushLike ? 'img/like.png' : 'img/dislike.png'}" id="likes" class="icons"/>
     <span>${post.likes.length}</span>
     <img src="img/comment.png" class="commentaries icons"/>
     <span>0</span>
@@ -59,67 +60,53 @@ export const printPost = (post, user, postid) => {
   </div>`;
 
   newpost.appendChild(icons);
-  const comments = document.createElement('section')
-  comments.setAttribute('class', 'newsfeed');
-  comments.innerHTML = `
-  <div class="comments">
-      <div class="content">
-        <div class="detail">
-          </div>
-      </div>
-      <div class="desc">
-      "" </div></div>`;
 
-  if(window.location.hash == '#timeline'){
+
+  if (window.location.hash == '#timeline') {
     icons.querySelector('#delete').style.display = 'none';
     icons.querySelector('#edit').style.display = 'none';
   }
-  //newpost.appendChild(comments);
-  window.addEventListener('click', (e)=>{
-      if(e.target == icons.querySelector('.commentaries')){
-        icons.querySelector('.inputCommentandButton').style.display = 'block';
-        newpost.querySelector('.card').style.display = 'none';
-      }else if (e.target == icons.querySelector('#delete')) {
-        icons.querySelector('#confirm').style.display = 'block';
-      } else if (e.target == icons.querySelector('#deleteBtn')) {
-        let postid = newpost.getAttribute('id');
-        console.log(postid);
-        deletePost(postid);
-      }
-      else{
-        icons.querySelector('.inputCommentandButton').style.display = 'none';
-        newpost.querySelector('.card').style.display = 'block';
-        icons.querySelector('#confirm').style.display = 'none';
-      }
-    });
 
-//ocultar comentarios
-window.addEventListener('click', (e) => {
-  if (e.target == icons.querySelector('.commentaries ')) {
-    icons.querySelector('.inputCommentandButton').style.display = 'block';
-    newpost.querySelector('.card').style.display = 'none';
-  } else {
-    icons.querySelector('.inputCommentandButton').style.display = 'none';
-    newpost.querySelector('.card').style.display = 'block';
-  }
-});
+  // newpost.appendChild(comments);
+  window.addEventListener('click', (e) => {
+    if (e.target == icons.querySelector('.commentaries')) {
+      icons.querySelector('.inputCommentandButton').style.display = 'block';
+      newpost.querySelector('.card').style.display = 'none';
+    } else if (e.target == icons.querySelector('#delete')) {
+      icons.querySelector('#confirm').style.display = 'block';
+    } else if (e.target == icons.querySelector('#deleteBtn')) {
+      const postid = newpost.getAttribute('id');
+      console.log(postid);
+      deletePost(postid);
+    } else {
+      icons.querySelector('.inputCommentandButton').style.display = 'none';
+      newpost.querySelector('.card').style.display = 'block';
+      icons.querySelector('#confirm').style.display = 'none';
+    }
+  });
 
+  // ocultar comentarios
+  window.addEventListener('click', (e) => {
+    if (e.target == icons.querySelector('.commentaries ')) {
+      icons.querySelector('.inputCommentandButton').style.display = 'block';
+      newpost.querySelector('.card').style.display = 'none';
+    } else {
+      icons.querySelector('.inputCommentandButton').style.display = 'none';
+      newpost.querySelector('.card').style.display = 'block';
+    }
+  });
 
+  // like activo inactivo
+  const btnlike = icons.querySelector('#likes');
+  btnlike.addEventListener('click', () => {
+    const userid = currentUser();
+    likePost(userid.uid, postid, pushLike);
+    if (pushLike) {
+      pushLike = false;
+    } else {
+      pushLike = true;
+    }
+  });
 
-//like activo inactivo
-const btnlike = icons.querySelector('#likes');
-btnlike.addEventListener('click', ()=>{
-  let userid = currentUser();
-  likePost(userid.uid, postid, pushLike);
-  if(pushLike){
-    pushLike=false;
-  } else{
-    pushLike=true;
-  }
-});
-
-    return newpost;
+  return newpost;
 };
-
-
- 

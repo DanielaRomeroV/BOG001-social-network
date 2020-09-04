@@ -2,7 +2,7 @@ import { printPost } from './printPost.js';
 
 export const commentPublish = (comment, category, userID) => {
   try {
-    var userDocRef = data.collection('post').doc().set({
+    const userDocRef = data.collection('post').doc().set({
       comment,
       category,
       userID,
@@ -16,13 +16,13 @@ export const commentPublish = (comment, category, userID) => {
 
 export const loadPost = async (containerDOM) => {
   try {
-    let users = await userInfo();
+    const users = await userInfo();
     await data.collection('post').orderBy('date', 'desc').onSnapshot((querySnapshot) => {
       containerDOM.innerHTML = '';
       querySnapshot.forEach((doc) => {
-        let postid = doc.id;
-        let post = doc.data();
-        const user = users.find((user) => user.id === post.userID);
+        const postid = doc.id;
+        const post = doc.data();
+        const user = users.find(user => user.id === post.userID);
         containerDOM.appendChild(printPost(post, user, postid));
       });
     });
@@ -33,16 +33,16 @@ export const loadPost = async (containerDOM) => {
 
 export const currentUserPost = async (containerDOM, currentUser) => {
   try {
-    let user = {
+    const user = {
       name: currentUser.displayName,
-      photo: currentUser.photoURL
-    }
-    await data.collection('post').where("userID", "==", currentUser.uid).orderBy('date', 'desc')
+      photo: currentUser.photoURL,
+    };
+    await data.collection('post').where('userID', '==', currentUser.uid).orderBy('date', 'desc')
       .onSnapshot((querySnapshot) => {
         containerDOM.innerHTML = '';
         querySnapshot.forEach(async (doc) => {
-          let postid = doc.id;
-          let post = doc.data();
+          const postid = doc.id;
+          const post = doc.data();
           containerDOM.appendChild(printPost(post, user, postid));
         });
       });
@@ -60,7 +60,7 @@ export const deletePost = async (id) => {
 };
 
 const userInfo = async () => {
-  const users = []
+  const users = [];
   await data.collection('users').get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       users.push({ id: doc.id, name: doc.data().name, photo: doc.data().photo });
