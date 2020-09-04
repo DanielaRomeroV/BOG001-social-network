@@ -1,7 +1,7 @@
 import { deletePost, likePost } from './firebaseFirestore.js';
 import { currentUser } from '../lib/firebaseAuth.js';
 
-export const printPost = (post, user, postid, pushLike) => {
+export const printPost = (post, user, postid) => {
   let newpost = document.createElement('div');
   newpost.setAttribute('id', postid);
   newpost.setAttribute('class', 'post');
@@ -21,6 +21,10 @@ export const printPost = (post, user, postid, pushLike) => {
   ${post.comment}
   </div></div></div>`;
 
+  //Toma el id del usuario logueado y valida y está dentro del arreglo de likes
+  let userid = currentUser();
+  let pushLike = post.likes.some(likes => likes === userid.uid);
+  //FIN
   let categoryIcon = newpost.querySelector('.categories');
   switch (post.category) {
     case 'Movie':
@@ -40,7 +44,7 @@ export const printPost = (post, user, postid, pushLike) => {
   icons.innerHTML = `<div id="icons">
     <img src="img/delete.png" id="delete" class="icons"/>
     <img src="img/edit.png" id="edit" class="icons"/>
-    <img src="img/dislike.png" id="likes" class="icons"/>
+    <img src="${pushLike ? "img/like.png" :"img/dislike.png" }" id="likes" class="icons"/>
     <span>${post.likes.length}</span>
     <img src="img/comment.png" class="commentaries icons"/>
     <span>0</span>
@@ -108,10 +112,8 @@ btnlike.addEventListener('click', ()=>{
   let userid = currentUser();
   likePost(userid.uid, postid, pushLike);
   if(pushLike){
-    btnlike.setAttribute('src', 'img/dislike.png');
     pushLike=false;
   } else{
-    btnlike.setAttribute('src', 'img/like.png');
     pushLike=true;
   }
 });

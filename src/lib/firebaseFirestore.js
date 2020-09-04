@@ -22,18 +22,8 @@ export const loadPost = async (containerDOM) => {
       querySnapshot.forEach((doc) => {
         let postid = doc.id;
         let post = doc.data();
-
-        console.log(post.likes.length);
-
         const user = users.find((user) => user.id === post.userID);
-
-
-        // se evalua si el usuario le dio like y se encuentra registrado en la base de datos
-        let pushLike = post.likes.some(likes => likes === user.id);
-        console.log(pushLike);
-
-
-        containerDOM.appendChild(printPost(post, user, postid, pushLike));
+        containerDOM.appendChild(printPost(post, user, postid));
       });
     });
   } catch (e) {
@@ -53,7 +43,7 @@ export const currentUserPost = async (containerDOM, currentUser) => {
         querySnapshot.forEach(async (doc) => {
           let postid = doc.id;
           let post = doc.data();
-          containerDOM.appendChild(printPost(post, user, postid, pushLike));
+          containerDOM.appendChild(printPost(post, user, postid));
         });
       });
   } catch (e) {
@@ -81,21 +71,15 @@ const userInfo = async () => {
 
 
 // coloca y quita los likes.
-export async function likePost(currentUserId, postId, userHasLikedThePost) {
-  //const db = firebase.firestore();
+export async function likePost(currentUserId, postId, pushLike) {
   const postRef = data.collection('post').doc(postId);
-
-  console.log('Entró a likePublish: ' + postRef.data);
-  if (userHasLikedThePost) {
-    console.log('Entró a likePublish lked');
-    postRef.set({
+  if (pushLike) {
+    postRef.update({
       likes: firebase.firestore.FieldValue.arrayRemove(currentUserId),
-    }, { merge: true });
-    console.log('sali a likePublish lked');
+    });
   } else {
-    console.log('Entró a likePublish dislked');
-    postRef.set({
+    postRef.update({
       likes: firebase.firestore.FieldValue.arrayUnion(currentUserId),
-    }, { merge: true });
+    });
   }
 }
