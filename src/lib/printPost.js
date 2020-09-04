@@ -106,7 +106,7 @@ window.addEventListener('click', (e) => {
 const btnlike = icons.querySelector('#likes');
 btnlike.addEventListener('click', ()=>{
   let userid = currentUser();
-  likePost(postid, userid.uid, pushLike);
+  likePost(userid.uid, postid, pushLike);
   if(pushLike){
     btnlike.setAttribute('src', 'img/dislike.png');
     pushLike=false;
@@ -115,25 +115,6 @@ btnlike.addEventListener('click', ()=>{
     pushLike=true;
   }
 });
-/*
-window.addEventListener('click', (e) => {
-if (e.target == icons.querySelector('#likes')) {
-  let postid = newpost.getAttribute('id');
-  console.log(postid);
-  let userid = currentUser();
-  console.log(userid.uid);
-  if (icons.querySelector('#likes').getAttribute('src') === 'img/like.png') {
-    console.log(pushLike);
-    await likePost(postid,userid.uid,pushLike);
-    icons.querySelector('#likes').setAttribute('src', 'img/dislike.png');   
-  } else if (icons.querySelector('#likes').getAttribute('src') === 'img/dislike.png') {
-    await likePost(postid,userid.uid,pushLike);
-    icons.querySelector('#likes').setAttribute('src', 'img/like.png');
-
-  }
-}
-});
-*/
 
     return newpost;
 };
