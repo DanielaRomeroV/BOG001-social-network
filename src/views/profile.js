@@ -1,33 +1,12 @@
 import { currentUser } from '../lib/firebaseAuth.js';
-/*() => {
-  const profile = document.createElement('section');
-  profile.setAttribute('id', 'profileBody');
-  profile.innerHTML = `<div class="comment">
-            <p>Aqui va un comentario</p>
-            <div id="deleteIcon"></div>
-            <div id="confirm">
-            <h2>¿Estás seguro que quieres eliminar la publicación?</h2>
-            <button type="submit" class="btn" id="deleteBtn">ELIMINAR</button>
-            </div>
-            </div>`;
+import { currentUserPost } from '../lib/firebaseFirestore.js';
+import { updateBiography } from '../lib/firebaseFirestore.js';
+import {userInfo} from '../lib/firebaseFirestore.js';
 
-  profile.querySelector('#deleteBtn').addEventListener('submit', ()=>{
-    e.preventDefault();
-  });
-
-  window.addEventListener('click', (e)=>{
-
-    if(e.target == profile.querySelector('#deleteIcon')){
-      profile.querySelector('#confirm').style.display = 'flex';
-    }else{
-      profile.querySelector('#confirm').style.display = 'none';
-    }
-
-  })
-  return profile;
-};*/
 export default () => {
 
+    const profileContainer = document.createElement('div');
+    profileContainer.setAttribute('id', 'profileContainer');
     const profile = document.createElement('div');
     profile.setAttribute('id', 'profile');
     profile.innerHTML = `<h2 id="profileName">Mi perfil</h2>
@@ -46,7 +25,9 @@ export default () => {
             </li>
         </ul>
         <h3>Sobre mi</h3>
-        <input type="text" id="biography" class="aboutMe" placeholder="Cuéntanos de ti">
+        <input type="text" id="biography" class="aboutMe" placeholder="Cuéntanos de ti" disabled = "true">
+        ${userInfo().biography};
+        <button type="button" class="btnEdit" id="btnEdits" ><img src="img/edit.png" alt ="Edita sobre ti" id="userEdit"></button>
         <button type="submit" class="btn update" id="btnUp" >ACTUALIZAR</button>
         <h2 id="publication">Mis publicaciones</h2>
         <div class="comment">
@@ -61,6 +42,11 @@ export default () => {
     const previewPhoto = profile.querySelector('#preview');
     const defaultImage = profile.querySelector('.default-image');
     const btnUpdate = profile.querySelector('#btnUp');
+    //let aboutUser = document.getElementById('biography');
+    const saveBtn = profile.querySelector('#btnEdits');
+    
+  
+
     profile.querySelector('#deleteBtn').addEventListener('submit', ()=>{
       e.preventDefault();
     });
@@ -99,10 +85,11 @@ export default () => {
   //Las promesas cuando se ejecuta then, cuando falla catch, cuando se realiza complete 
     //boton actualizar
     btnUpdate.addEventListener('click', (e)=> {
+
       const file = currentFile;
-      console.log(file);
-      /*const valueChange = document.getElementById('biography').value;
-      valueChange.innerHTML= `${valueChange}`*/;
+      //console.log(file);
+      let biography = document.getElementById('biography').value;
+      updateBiography(currentUser().uid,biography);
       if (!file){
         console.log('No existe archivo para cambiar la imagen!');
       }else{
@@ -121,6 +108,17 @@ export default () => {
   
   });
 
+  saveBtn.addEventListener ('click', () => {
+    let bioUser = document.getElementById('biography');
+    bioUser.disabled = false;
+  });
+
+
+  const postProfile = document.createElement('section');
+      postProfile.setAttribute('id', 'profileBody');
+      currentUserPost(postProfile, currentUser());
+      profileContainer.appendChild(profile);
+      profileContainer.appendChild(postProfile);
 
     return profile;
 };

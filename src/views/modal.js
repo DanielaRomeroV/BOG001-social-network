@@ -1,4 +1,6 @@
-export const publish = (userPhoto) =>{
+import { commentPublish } from '../lib/firebaseFirestore.js';
+
+export const publish = (userPhoto, userID, userName) =>{
   const modal = document.createElement('section');
   modal.setAttribute('class', 'modal');
   modal.innerHTML = `<div class="modal-content">
@@ -8,18 +10,16 @@ export const publish = (userPhoto) =>{
           <p>Comenta sobre tus peliculas o series favoritas</p>
         </header>
         <form id='formComment' enctype="multipart/form-data">
-          <textarea rows="2"></textarea>
+          <textarea id="comment"rows="2" required></textarea>
           <div>
             <label>
               <input type="file" id="loadImg">
             </label>
-            <select>
-              <div>
-              <option value="0"> Categoría &#9660;</option>
+            <select id="category" required>
+              <option value=""> Categoría &#9660;</option>
               <option value="Movie">Peliculas</option>
               <option value="Documentary">Documentales</option>
               <option value="Serie">Series</option>
-              </div>
             </select>
           </div>
           <button type="submit" class="btn newpublish">PUBLICAR</button>
@@ -29,12 +29,19 @@ export const publish = (userPhoto) =>{
   let photo =  modal.querySelector('#userPhoto');
   photo.src = `${userPhoto}`;
   const publish = modal.querySelector('#formComment');
+  //const img = form.loadImg.value;
   publish.addEventListener('submit', (e)=>{
     e.preventDefault();
+    let comment = publish.comment.value;
+    let category = publish.category.value;
+
+    commentPublish(comment, category, userID);
+    publish.reset();
     modal.style.display = 'none';
   });
 
-  modal.querySelector('.close').addEventListener('click', ()=> modal.style.display = 'none');
+  modal.querySelector('.close').addEventListener('click', ()=> {
+    modal.style.display = 'none'});
 
   return  modal;
 };

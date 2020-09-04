@@ -7,8 +7,10 @@ export  function currentUser() {
 export async function signUp(email, password, name) {
   try {
     const newUser = await auth.createUserWithEmailAndPassword(email, password);
-    const currentUser = await auth.currentUser;
+    let currentUser = await auth.currentUser;
     currentUser.updateProfile({displayName: name});
+    let userDb = await data.collection('users').doc(currentUser.uid)
+    .set({birthday, biography:',', name, photo: currentUser.photoURL});
 
     window.location.hash = "#thankAccount";
 
@@ -39,12 +41,19 @@ export async function logIn(email, password) {
 
 export async function logInGoogle(provider) {
   try {
+    
+
     const userLogIn = await auth.signInWithPopup(provider);
     // This gives you a Google Access Token. You can use it to access the Google API.
     const token = userLogIn.credential.accessToken;
     // The signed-in user info.
     const user = userLogIn.user;
     console.log(user);
+    let currentUser = await auth.currentUser;
+    currentUser.providerData.forEach(function (profile){
+      data.collection('users').doc(currentUser.uid)
+      .set({name: profile.displayName, photo: profile.photoURL, biography:''});
+    })
   } catch (error) {
     // Handle Errors here.
     const errorCode = error.code;
@@ -64,7 +73,7 @@ export async function recoverPass(message, email) {
     return message.innerHTML = `Hemos enviado un email a ${email} para cambiar la contraseña`;
   } catch (error) {
     return message.innerHTML = 'No se ha podido enviar el correo de verificación';
-    console.log('No se ha podido enviar el correo de verificación');
+    //console.log('No se ha podido enviar el correo de verificación');
   }
 }
 

@@ -54,6 +54,25 @@
   margin-top: 1em;
 }
 
+#btnSaves{
+  width: 100px;
+  height: 25px;
+  font-size: 12px;
+  margin-top: 1em;
+}
+
+#userEdit{
+  width: 20px;
+  height: 20px;
+  margin-bottom:1em;
+  cursor: pointer;
+}
+
+#btnEdits{
+  width: 20px;
+  height: 20px;
+  
+}
 
 /*#profileBody{
   display: flex;
