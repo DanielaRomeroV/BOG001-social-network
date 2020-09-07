@@ -1,4 +1,6 @@
 import { deletePost } from '../lib/firebaseFirestore.js';
+import { updateFieldData } from '../lib/firebaseFirestore.js';
+
 //Imprime el post en el timeline y en profile
 export default (post, user, postid) => {
   const newpost = document.createElement('div');
@@ -45,6 +47,7 @@ export default (post, user, postid) => {
     <img src="img/comment.png" class="commentaries icons"/>
     <span>00000</span>
     </div>
+    <button type="button" class="btn" id="saveBtn" style="display:none">GUARDAR</button>
     <div id="confirm">
       <h2>¿Estás seguro que quieres eliminar la publicación?</h2>
       <button type="submit" class="btn" id="deleteBtn">ELIMINAR</button>
@@ -71,6 +74,7 @@ export default (post, user, postid) => {
     icons.querySelector('#edit').style.display = 'none';
   }
   // newpost.appendChild(comments);
+  const postId = newpost.getAttribute('id');
   window.addEventListener('click', (e) => {
     if (e.target === icons.querySelector('.commentaries')) {
       icons.querySelector('.inputCommentandButton').style.display = 'block';
@@ -78,7 +82,7 @@ export default (post, user, postid) => {
     } else if (e.target === icons.querySelector('#delete')) {
       icons.querySelector('#confirm').style.display = 'block';
     } else if (e.target === icons.querySelector('#deleteBtn')) {
-      const postId = newpost.getAttribute('id');
+      //const postId = newpost.getAttribute('id');
       deletePost(postId);
     } else {
       icons.querySelector('.inputCommentandButton').style.display = 'none';
@@ -87,13 +91,26 @@ export default (post, user, postid) => {
     }
   });
 
+  let editPost = document.getElementById('post');
   const btnEdit = icons.querySelector('#edits');
+  const btnSave = icons.querySelector('#saveBtn');
+
   btnEdit.addEventListener ('click', () => {
-    let editPost = document.getElementById('#post');
     editPost.contentEditable = true;
+    btnSave.style.display = 'block';
     console.log('editing')
+
   });
 
+  btnSave.addEventListener ('click', () => {
+    updateFieldData('post',postId,{comment: editPost.innerHTML})
+    console.log(postId,editPost.innerHTML);
+    editPost.contentEditable = false;
+    btnSave.style.display = 'none';
+
+
+  });
+  
   /* window.addEventListener('click', (e)=>{
     if(e.target == icons.querySelector('.commentaries')){
       icons.querySelector('.inputCommentandButton').style.display = 'block';

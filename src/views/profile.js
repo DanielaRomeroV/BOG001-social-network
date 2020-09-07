@@ -1,8 +1,9 @@
 import { currentUser } from '../lib/firebaseAuth.js';
 import { currentUserPost} from '../lib/firebaseFirestore.js';
 import { updateBiography } from '../lib/firebaseFirestore.js';
+import { updateFieldData } from '../lib/firebaseFirestore.js';
 
-export default (biography,user,biographyid) => {
+export default () => {
 
     const profileContainer = document.createElement('div');
     profileContainer.setAttribute('id', 'profileContainer');
@@ -26,20 +27,15 @@ export default (biography,user,biographyid) => {
         <h3>Sobre mi</h3>
         <div id="biographyid" contenteditable="false" class="biography">Escribe algo sobre ti</div>
         <button type="button" class="btnEdit" id="btnEdits"><img src="img/edit.png" alt ="Edita sobre ti" id="userEdit"></button>
-        <button type="submit" class="btn update" id="btnUp" data-id="">ACTUALIZAR</button>
+        <button type="submit" class="btn update" id="btnUp">ACTUALIZAR</button>
         <h2 id="publication">Mis publicaciones</h2>`;
 
-    //<input type="text" id="biography" class="aboutMe" placeholder="Cuéntanos de ti" disabled = "true">
     const photos = profile.querySelector('#archivo');
     const previewPhoto = profile.querySelector('#preview');
     const defaultImage = profile.querySelector('.default-image');
     const btnUpdate = profile.querySelector('#btnUp');
     const saveBtn = profile.querySelector('#btnEdits');
     const contProfile = document.getElementById('profile');
-    /*let biographys = document.getElementById('biographys');
-        biographys.textContent = biography;
-        profile.replaceChild(biographys,biography);*/
-        
 
     let currentFile = '';
 
@@ -62,29 +58,16 @@ export default (biography,user,biographyid) => {
       }
     });
 
-    //const getTask =() => data.collection('users').get();
-    //const onGetTasks = (callback) => data.collection ('users').onSnapshot(callback);
-    
+    let biography = profile.querySelector('#biographyid');
+    updateBiography(currentUser().uid,biography); 
   //Las promesas cuando se ejecuta then, cuando falla catch, cuando se realiza complete 
     //boton actualizar
     btnUpdate.addEventListener('click', ()=> {
       const file = currentFile;
       //console.log(file);
-      let biography = document.getElementById('biographyid').value;
-      updateBiography(currentUser().uid,biography);
-      //console.log(e.target.dataset.id)
-      //onGetTasks((querySnapshot)=>{
-        //contProfile.innerHTML = '';
-        //const querySnapshot = await getTask();
-        //querySnapshot.forEach(doc =>{
-          //const task =doc.data();
-          //task.id = doc.id;
-          //console.log(task);
-        //console.log(doc.data());
-        //contProfile.innerHTML = `<div>${doc.data().biography}</div>`
-     //})
-      //})
-      
+      updateFieldData('users',currentUser().uid,{biography:biography.innerHTML})
+      biography.value;
+        
       if (!file){
         console.log('No existe archivo para cambiar la imagen!');
       }else{

@@ -1,5 +1,4 @@
 import printPost from '../components/printPost.js';
-import profile from '../views/profile.js';
 
 export const commentPublish = (comment, category, userID) => {
   try {
@@ -60,37 +59,21 @@ export const deletePost = async(id) =>{
   }
 };
 
-/*export const updateBiography = async(id, biography) =>{
+  export const updateFieldData = async( collectionName, id, field ) =>{
     try{
-      await data.collection('users').doc(id).update({biography:biography});
+      await data.collection(collectionName).doc(id).update(field);
     } catch (error) {
       console.log(error);
     }
-  };*/
+  };
 
-  /*export async function editBiography(id, biography) {
-    const data = firebase.firestore();
-    const bioRef = data.collection('users').doc(id);
-    return bioRef.update({
-      biography,
-    });
-  }*/
-
-  export const updateBiography = async(id, biography,profileContainer) =>{
+  export const updateBiography = async(id,containerBio) =>{
     try{
-      await data.collection('users').doc(id).update({biography:biography}).onSnapshot((querySnapshot) => {
-        profileContainer.innerHTML= '';
-        querySnapshot.forEach((doc) => {
-          const task = doc.data();
-          task.id = doc.id;
-          console.log(task);
-          biography.value = task.biography;
-          //let biography = doc.data();
-          //let biographyid = doc.id;
-          const user =  users.find((user) => user.id === biography.userID);
-          profileContainer.appendChild(profile(biography,user,biographyid));
+      await data.collection('users').doc(id).onSnapshot((querySnapshot) => {
+        let user = querySnapshot.data();
+        containerBio.innerHTML = user.biography;
+        console.log(user);
         });
-      });
     } catch (error) {
       console.log(error);
     }
