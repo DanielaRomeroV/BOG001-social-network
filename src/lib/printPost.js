@@ -2,6 +2,9 @@ import { deletePost, likePost } from './firebaseFirestore.js';
 import { currentUser } from './firebaseAuth.js';
 //imprime el post en el timeline
 export const printPost = (post, user, postid) => {
+
+  let photoDefault = "https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png";
+
   const newpost = document.createElement('div');
   newpost.setAttribute('id', postid);
   newpost.setAttribute('class', 'post');
@@ -10,7 +13,7 @@ export const printPost = (post, user, postid) => {
   newpost.innerHTML = `<div class="card">
   <div class="content">
   <div class="header">
-    <div class="profile-pic"><img src="${user.photo}" id="profile-pic"/></div>
+    <div class="profile-pic"><img src="${(user.photo === null ? photoDefault : user.photo)}" id="profile-pic"/></div>
       <div class="detail">
       <p class="name">${user.name}</p>
       <p class="posted">${post.date.toDate().toDateString()}</p>
@@ -107,6 +110,9 @@ export const printPost = (post, user, postid) => {
       pushLike = true;
     }
   });
+
+
+
 
   return newpost;
 };

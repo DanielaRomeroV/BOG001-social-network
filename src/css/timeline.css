@@ -50,7 +50,7 @@ align-items: center;
 }
 
 .card .profile-pic {
-background-image: url('../img/user.png');
+/*background-image: url('../img/user.png');*/
 background-position: 50%;
 background-size: cover;
 height: 50px;
