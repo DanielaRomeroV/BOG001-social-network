@@ -91,7 +91,7 @@ export default (post, user, postid) => {
     }
   });
 
-  let editPost = document.getElementById('post');
+  let editPost = newpost.querySelector('#post');
   const btnEdit = icons.querySelector('#edits');
   const btnSave = icons.querySelector('#saveBtn');
 
