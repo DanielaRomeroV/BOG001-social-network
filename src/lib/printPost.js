@@ -1,5 +1,7 @@
 import { deletePost, likePost } from './firebaseFirestore.js';
 import { currentUser } from './firebaseAuth.js';
+import { updateFieldData } from '../lib/firebaseFirestore.js';
+
 //imprime el post en el timeline
 export const printPost = (post, user, postid) => {
 
@@ -20,7 +22,7 @@ export const printPost = (post, user, postid) => {
     </div>
     <img class="categories">
   </div>
-  <div class="desc">
+  <div id="post" class="desc" contenteditable="false">
   ${post.comment}
   </div></div></div>`;
 
@@ -53,8 +55,9 @@ export const printPost = (post, user, postid) => {
     <img src="img/comment.png" class="commentaries icons"/>
     <span>0</span>
     </div>
+    <button type="button" class="btn" id="saveBtn" style="display:none">GUARDAR</button>
     <div id="confirm">
-      <h2>¿Estás seguro que quieres eliminar la publicación?</h2>
+          <h2>¿Estás seguro que quieres eliminar la publicación?</h2>
       <button type="submit" class="btn" id="deleteBtn">ELIMINAR</button>
     </div>
   <div class="inputCommentandButton">
@@ -71,6 +74,8 @@ export const printPost = (post, user, postid) => {
   }
 
   // newpost.appendChild(comments);
+  const postId = newpost.getAttribute('id');
+
   window.addEventListener('click', (e) => {
     if (e.target == icons.querySelector('.commentaries')) {
       icons.querySelector('.inputCommentandButton').style.display = 'block';
@@ -78,9 +83,8 @@ export const printPost = (post, user, postid) => {
     } else if (e.target == icons.querySelector('#delete')) {
       icons.querySelector('#confirm').style.display = 'block';
     } else if (e.target == icons.querySelector('#deleteBtn')) {
-      const postid = newpost.getAttribute('id');
-      console.log(postid);
-      deletePost(postid);
+      console.log(postId);
+      deletePost(postId);
     } else {
       icons.querySelector('.inputCommentandButton').style.display = 'none';
       newpost.querySelector('.card').style.display = 'block';
@@ -110,7 +114,26 @@ export const printPost = (post, user, postid) => {
       pushLike = true;
     }
   });
+//editar post 
+  let editPost = newpost.querySelector('#post');
+  const btnEdit = icons.querySelector('#edit');
+  const btnSave = icons.querySelector('#saveBtn');
 
+  btnEdit.addEventListener ('click', () => {
+    editPost.contentEditable = true;
+    btnSave.style.display = 'block';
+    console.log('editing')
+
+  });
+
+  btnSave.addEventListener ('click', () => {
+    updateFieldData('post',postId,{comment: editPost.innerHTML})
+    console.log(postId,editPost.innerHTML);
+    editPost.contentEditable = false;
+    btnSave.style.display = 'none';
+
+
+  });
 
 
 

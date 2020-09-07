@@ -68,10 +68,23 @@ export const userInfo = async () => {
   });
   return users;
 };
-//
-export const updateBiography = async(id, biography) =>{
+
+
+export const updateFieldData = async( collectionName, id, field ) =>{
   try{
-    await data.collection('users').doc(id).update({biography:biography});
+    await data.collection(collectionName).doc(id).update(field);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const updateBiography = async(id,containerBio) =>{
+  try{
+    await data.collection('users').doc(id).onSnapshot((querySnapshot) => {
+      let user = querySnapshot.data();
+      containerBio.innerHTML = user.biography;
+      console.log(user);
+      });
   } catch (error) {
     console.log(error);
   }

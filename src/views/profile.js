@@ -1,8 +1,9 @@
 import { currentUser } from '../lib/firebaseAuth.js';
 import { currentUserPost} from '../lib/firebaseFirestore.js';
 import { updateBiography } from '../lib/firebaseFirestore.js';
+import { updateFieldData } from '../lib/firebaseFirestore.js';
 
-export default (biography,user,biographyid) => {
+export default () => {
     
     let photoDefault = "https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png";
     //currentUser.photoURL = (currentUser.photoURL === null ? photoDefault : currentUser.photoURL);
@@ -32,94 +33,76 @@ export default (biography,user,biographyid) => {
         <button type="submit" class="btn update" id="btnUp" data-id="">ACTUALIZAR</button>
         <h2 id="publication">Mis publicaciones</h2>`;
 
-    //<input type="text" id="biography" class="aboutMe" placeholder="Cuéntanos de ti" disabled = "true">
-    const photos = profile.querySelector('#archivo');
-    const previewPhoto = profile.querySelector('#preview');
-    const defaultImage = profile.querySelector('.default-image');
-    const btnUpdate = profile.querySelector('#btnUp');
-    const saveBtn = profile.querySelector('#btnEdits');
-    const contProfile = document.getElementById('profile');
-    /*let biographys = document.getElementById('biographys');
-        biographys.textContent = biography;
-        profile.replaceChild(biographys,biography);*/
-        
-
-    let currentFile = '';
-
-  
-    photos.addEventListener('change', () => {
-      currentFile = photos.files[0];
-      console.log(currentFile);
-      if (currentFile) {
-        const reader = new FileReader();
-        defaultImage.style.display = 'none';
-        previewPhoto.style.display = 'block';
-        reader.addEventListener('load', () => {
-          previewPhoto.setAttribute('src', reader.result);
-        });
-        reader.readAsDataURL(currentFile);
-      } else {
-        defaultImage.style.display = null;
-        previewPhoto.style.display = null;
-        previewPhoto.setAttribute('src', '');
-      }
-    });
-
-    //const getTask =() => data.collection('users').get();
-    //const onGetTasks = (callback) => data.collection ('users').onSnapshot(callback);
+        const photos = profile.querySelector('#archivo');
+        const previewPhoto = profile.querySelector('#preview');
+        const defaultImage = profile.querySelector('.default-image');
+        const btnUpdate = profile.querySelector('#btnUp');
+        const saveBtn = profile.querySelector('#btnEdits');
+        const contProfile = document.getElementById('profile');
     
-  //Las promesas cuando se ejecuta then, cuando falla catch, cuando se realiza complete 
-    //boton actualizar
-    btnUpdate.addEventListener('click', ()=> {
-      const file = currentFile;
-      //console.log(file);
-      let biography = document.getElementById('biographyid').value;
-      updateBiography(currentUser().uid,biography);
-      //console.log(e.target.dataset.id)
-      //onGetTasks((querySnapshot)=>{
-        //contProfile.innerHTML = '';
-        //const querySnapshot = await getTask();
-        //querySnapshot.forEach(doc =>{
-          //const task =doc.data();
-          //task.id = doc.id;
-          //console.log(task);
-        //console.log(doc.data());
-        //contProfile.innerHTML = `<div>${doc.data().biography}</div>`
-     //})
-      //})
+        let currentFile = '';
+    
       
-      if (!file){
-        console.log('No existe archivo para cambiar la imagen!');
-      }else{
-        const storageRef = storage.ref('userProfileImgs/'+ file.name);
-        const task = storageRef.put(file);
-        task.on('state_changed',function (snapshot){
-          task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-            currentUser().updateProfile({
-              photoURL: downloadURL});
-            console.log('File available at', downloadURL);
-          });
-        }, function error (error){
-          console.log(error);
+        photos.addEventListener('change', () => {
+          currentFile = photos.files[0];
+          console.log(currentFile);
+          if (currentFile) {
+            const reader = new FileReader();
+            defaultImage.style.display = 'none';
+            previewPhoto.style.display = 'block';
+            reader.addEventListener('load', () => {
+              previewPhoto.setAttribute('src', reader.result);
+            });
+            reader.readAsDataURL(currentFile);
+          } else {
+            defaultImage.style.display = null;
+            previewPhoto.style.display = null;
+            previewPhoto.setAttribute('src', '');
+          }
         });
-    }
-  
-  });
-
-  saveBtn.addEventListener ('click', () => {
-    let bioUser = document.getElementById('biographyid');
-    bioUser.contentEditable = true;
-    console.log('editing')
-  });
-
-
-  const postProfile = document.createElement('section');
-      postProfile.setAttribute('id', 'profileBody');
-      currentUserPost(postProfile, currentUser());
-      profileContainer.appendChild(profile);
-      profileContainer.appendChild(postProfile);
-
-
+    
+        let biography = profile.querySelector('#biographyid');
+        updateBiography(currentUser().uid,biography); 
+      //Las promesas cuando se ejecuta then, cuando falla catch, cuando se realiza complete 
+        //boton actualizar
+        btnUpdate.addEventListener('click', ()=> {
+          const file = currentFile;
+          //console.log(file);
+          updateFieldData('users',currentUser().uid,{biography:biography.innerHTML})
+          biography.value;
+            
+          if (!file){
+            console.log('No existe archivo para cambiar la imagen!');
+          }else{
+            const storageRef = storage.ref('userProfileImgs/'+ file.name);
+            const task = storageRef.put(file);
+            task.on('state_changed',function (snapshot){
+              task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                currentUser().updateProfile({
+                  photoURL: downloadURL});
+                console.log('File available at', downloadURL);
+              });
+            }, function error (error){
+              console.log(error);
+            });
+        }
       
-    return profileContainer;
-};
+      });
+    
+      saveBtn.addEventListener ('click', () => {
+        let bioUser = document.getElementById('biographyid');
+        bioUser.contentEditable = true;
+        console.log('editing')
+      });
+    
+    
+      const postProfile = document.createElement('section');
+          postProfile.setAttribute('id', 'profileBody');
+          currentUserPost(postProfile, currentUser());
+          profileContainer.appendChild(profile);
+          profileContainer.appendChild(postProfile);
+    
+    
+          
+        return profileContainer;
+    };
