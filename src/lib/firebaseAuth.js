@@ -10,7 +10,7 @@ export async function signUp(email, password, name) {
     let currentUser = await auth.currentUser;
     currentUser.updateProfile({displayName: name});
     let userDb = await data.collection('users').doc(currentUser.uid)
-    .set({birthday, biography:',', name, photo: currentUser.photoURL});
+    .set({birthday, biography:'', name, photo: currentUser.photoURL});
 
     window.location.hash = "#thankAccount";
 

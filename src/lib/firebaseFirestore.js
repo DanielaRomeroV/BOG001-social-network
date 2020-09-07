@@ -1,4 +1,5 @@
-import {printPost} from './printPost.js';
+import printPost from '../components/printPost.js';
+import profile from '../views/profile.js';
 
 export const commentPublish = (comment, category, userID) => {
   try {
@@ -12,7 +13,7 @@ export const commentPublish = (comment, category, userID) => {
     console.log(e);
   }
 };
-
+//onSnapshot,cambios de la colección post,trae o quita los cambios que se hagan
 export const loadPost =  async (containerDOM) =>{
   try {
     let users = await userInfo();
@@ -30,6 +31,7 @@ export const loadPost =  async (containerDOM) =>{
   }
 };
 
+//User login autora del post, posts del usuario logueado
 export const currentUserPost =  async (containerDOM, currentUser) =>{
   try {
       let user = {
@@ -58,13 +60,43 @@ export const deletePost = async(id) =>{
   }
 };
 
-export const updateBiography = async(id, biography) =>{
+/*export const updateBiography = async(id, biography) =>{
     try{
       await data.collection('users').doc(id).update({biography:biography});
     } catch (error) {
       console.log(error);
     }
+  };*/
+
+  /*export async function editBiography(id, biography) {
+    const data = firebase.firestore();
+    const bioRef = data.collection('users').doc(id);
+    return bioRef.update({
+      biography,
+    });
+  }*/
+
+  export const updateBiography = async(id, biography,profileContainer) =>{
+    try{
+      await data.collection('users').doc(id).update({biography:biography}).onSnapshot((querySnapshot) => {
+        profileContainer.innerHTML= '';
+        querySnapshot.forEach((doc) => {
+          const task = doc.data();
+          task.id = doc.id;
+          console.log(task);
+          biography.value = task.biography;
+          //let biography = doc.data();
+          //let biographyid = doc.id;
+          const user =  users.find((user) => user.id === biography.userID);
+          profileContainer.appendChild(profile(biography,user,biographyid));
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+
 
 export const userInfo = async() =>{
   const users = []
