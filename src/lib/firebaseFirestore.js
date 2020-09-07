@@ -1,5 +1,5 @@
 import { printPost } from './printPost.js';
-//crear publicaciones y los campos
+// crear publicaciones y los campos
 export const commentPublish = (comment, category, userID) => {
   try {
     const userDocRef = data.collection('post').doc().set({
@@ -13,7 +13,7 @@ export const commentPublish = (comment, category, userID) => {
     console.log(e);
   }
 };
-//cargar todos los post
+// cargar todos los post
 export const loadPost = async (containerDOM) => {
   try {
     const users = await userInfo();
@@ -30,7 +30,7 @@ export const loadPost = async (containerDOM) => {
     console.log(e);
   }
 };
-//post del usuario logueado
+// post del usuario logueado
 export const currentUserPost = async (containerDOM, currentUser) => {
   try {
     const user = {
@@ -50,7 +50,7 @@ export const currentUserPost = async (containerDOM, currentUser) => {
     console.log(e);
   }
 };
-//eliminar post
+// eliminar post
 export const deletePost = async (id) => {
   try {
     await data.collection('post').doc(id).delete();
@@ -58,7 +58,7 @@ export const deletePost = async (id) => {
     console.log(e);
   }
 };
-//array de objetos en donde se va a guardar toda la información de cada usuario
+// array de objetos en donde se va a guardar toda la información de cada usuario
 export const userInfo = async () => {
   const users = [];
   await data.collection('users').get().then((querySnapshot) => {
@@ -70,21 +70,21 @@ export const userInfo = async () => {
 };
 
 
-export const updateFieldData = async( collectionName, id, field ) =>{
-  try{
+export const updateFieldData = async (collectionName, id, field) => {
+  try {
     await data.collection(collectionName).doc(id).update(field);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const updateBiography = async(id,containerBio) =>{
-  try{
+export const updateBiography = async (id, containerBio) => {
+  try {
     await data.collection('users').doc(id).onSnapshot((querySnapshot) => {
-      let user = querySnapshot.data();
+      const user = querySnapshot.data();
       containerBio.innerHTML = user.biography;
       console.log(user);
-      });
+    });
   } catch (error) {
     console.log(error);
   }

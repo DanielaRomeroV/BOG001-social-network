@@ -1,9 +1,13 @@
 // importamos la funciones firebase.auth que vamos a testear
 import authmock from '../_mocks_/mock_auth.js';
+import mockFirebase from '../_mocks_/firebaseMock.js';
+
 
 import {
   signUp, logIn, logInGoogle, recoverPass, signOut,
 } from '../src/lib/firebaseAuth.js';
+
+global.firebase = mockFirebase();
 
 global.auth = authmock();
 

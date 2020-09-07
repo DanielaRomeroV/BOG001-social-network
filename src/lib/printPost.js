@@ -1,11 +1,10 @@
-import { deletePost, likePost } from './firebaseFirestore.js';
+import { deletePost, likePost, updateFieldData } from './firebaseFirestore.js';
 import { currentUser } from './firebaseAuth.js';
-import { updateFieldData } from '../lib/firebaseFirestore.js';
 
-//imprime el post en el timeline
+
+// imprime el post en el timeline
 export const printPost = (post, user, postid) => {
-
-  let photoDefault = "https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png";
+  const photoDefault = 'https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png';
 
   const newpost = document.createElement('div');
   newpost.setAttribute('id', postid);
@@ -96,7 +95,7 @@ export const printPost = (post, user, postid) => {
   window.addEventListener('click', (e) => {
     if (e.target == icons.querySelector('.commentaries ')) {
       icons.querySelector('.inputCommentandButton').style.display = 'block';
-      newpost.querySelector('.card').style.display = 'none';
+      newpost.querySelector('.card', '#icons').style.display = 'none';
     } else {
       icons.querySelector('.inputCommentandButton').style.display = 'none';
       newpost.querySelector('.card').style.display = 'block';
@@ -114,27 +113,23 @@ export const printPost = (post, user, postid) => {
       pushLike = true;
     }
   });
-//editar post 
-  let editPost = newpost.querySelector('#post');
+  // editar post
+  const editPost = newpost.querySelector('#post');
   const btnEdit = icons.querySelector('#edit');
   const btnSave = icons.querySelector('#saveBtn');
 
-  btnEdit.addEventListener ('click', () => {
+  btnEdit.addEventListener('click', () => {
     editPost.contentEditable = true;
     btnSave.style.display = 'block';
-    console.log('editing')
-
+    console.log('editing');
   });
 
-  btnSave.addEventListener ('click', () => {
-    updateFieldData('post',postId,{comment: editPost.innerHTML})
-    console.log(postId,editPost.innerHTML);
+  btnSave.addEventListener('click', () => {
+    updateFieldData('post', postId, { comment: editPost.innerHTML });
+    console.log(postId, editPost.innerHTML);
     editPost.contentEditable = false;
     btnSave.style.display = 'none';
-
-
   });
-
 
 
   return newpost;

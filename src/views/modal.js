@@ -1,8 +1,7 @@
 import { commentPublish } from '../lib/firebaseFirestore.js';
 
 export const publish = (userPhoto, userID, userName) => {
-
-  let photoDefault = "https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png";
+  const photoDefault = 'https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png';
 
   const modal = document.createElement('section');
   modal.setAttribute('class', 'modal');
@@ -30,7 +29,7 @@ export const publish = (userPhoto, userID, userName) => {
       </div>`;
 
   const photo = modal.querySelector('#userPhoto');
-  photo.src = `${(userPhoto === null ? photoDefault :userPhoto)}`;
+  photo.src = `${(userPhoto === null ? photoDefault : userPhoto)}`;
   const publish = modal.querySelector('#formComment');
 
   // const img = form.loadImg.value;

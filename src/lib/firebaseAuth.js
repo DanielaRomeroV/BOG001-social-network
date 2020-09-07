@@ -5,7 +5,7 @@ export function currentUser() {
 }
 
 export async function signUp(email, password, name, birthday) {
-  let photoDefault = "https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png";
+  const photoDefault = 'https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png';
   try {
     const newUser = await auth.createUserWithEmailAndPassword(email, password);
     const currentUser = await auth.currentUser;
