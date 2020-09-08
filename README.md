@@ -2,7 +2,15 @@
 
 ## HELIVISUEL 🍿
 
-<img src="img/../src/img/icon.png"></img>
+<img src="img/../src/img/banner.png">
+
+## Índice
+
+* [1. Definición del producto](#1-definición-del-producto)
+* [2. Historia de usuarios](#2-historia-de-usuarios)
+* [3. Prototipos](#3-prototipos)
+* [4. Test de usabilidad](#4-Test-de-usabilidad)
+* [5. Objetivos de aprendizaje](#5-objetivos-de-aprendizaje)
 
 
 
@@ -24,7 +32,7 @@ Nuestros usuarios abarcan desde aquel que se dedica profesionalmente a hacer rev
 ## 2. HISTORIAS DE USUARIO
 
 *  H1: El usuario se puede loguear o registrar
-*  H2:  El usuario puede realizar posts y visualizarlos en su muro
+*  H2: El usuario puede realizar posts y visualizarlos en su muro
 *  H3: El usuario podrá ingresar a su perfil y ver su información general
 *  H4: El usuario tendrá más opciones para interactuar en la red social
 
@@ -33,13 +41,27 @@ Nuestros usuarios abarcan desde aquel que se dedica profesionalmente a hacer rev
 Prototipos de baja fidelidad
 <img src="prototipos/baja/Imagen%20de%20iOS%20(1).jpg"> 
 <img src="prototipos/baja/Imagen%20de%20iOS.jpg">
-<img src="prototipos/baja/IMG_20200818_093856.jpg">
+<img src="prototipos/baja/WhatsApp%20Image%202020-07-30%20at%2012.01.50%20PM%20(2).jpeg">
+<img src="prototipos/baja/IMG_20200730_110928545.jpg">
+
+Prototipos de alta fidelidad
+
+Paleta de colores
+<img src="prototipos/alta/AdobeColor-My%20Color%20Theme%20(1).jpeg">
+
+Movil: https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?node-id=31%3A492&scaling=scale-down
+Desktop: https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?node-id=51%3A79&scaling=min-zoom
+Tablet: https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?node-id=77%3A180&scaling=scale-down
 
 
 ## 4. TEST DE USABILIDAD
 
-
-
+En los tests de usabilidad que se realizaron con nuestras compañeras y coach se identifico que la paleta de colores que estabamos utilizando era la correcta, les gusto el diseño de la página, como sugerencias nos dijeron que pusieramos la letra mas grande, adicional que le cambiaramos el color si era un link, y que el fondo del timeline fuera diferente al tono blanco para que la experiencia visual del usuario fuera mejor.
+El usuario interactua con la pagina de la siguiente manera:
+1. Primero el usuario entra a una pagina de Bienvenida a la red social donde puede ingresar.
+2. Segundo encuentra una sección donde se puede loguear, tiene la opción de crear una cuenta o entrar con Google, adicional tiene la opción de recuperar la contraseña si la ha olvidado.
+3. Tercero al haberse logueado ya puede ingresar al timeline, donde puede realizar una publicación teniendo en cuenta tres categorias: Películas, series o documentales. Además puede dar o quitar like a otras publicaciones.
+4. Cuarto tiene una sección de perfil, donde puede cambiar su foto, agregar una biografia, y ver sus publicaciones, las cuales puede editar o eliminar.
 
 ## 5. OBJETIVOS DE APRENDIZAJE
 
