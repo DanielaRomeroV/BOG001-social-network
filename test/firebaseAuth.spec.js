@@ -1,13 +1,9 @@
 // importamos la funciones firebase.auth que vamos a testear
 import authmock from '../_mocks_/mock_auth.js';
-import mockFirebase from '../_mocks_/firebaseMock.js';
-
 
 import {
   signUp, logIn, logInGoogle, recoverPass, signOut,
 } from '../src/lib/firebaseAuth.js';
-
-global.firebase = mockFirebase();
 
 global.auth = authmock();
 
@@ -38,7 +34,6 @@ describe('logIn', () => {
   });
   it('debería retornar email@email.com , contraseña1234', async () => {
     const user = await logIn('email@email.com', 'contraseña1234');
-    console.log(user);
     expect(user).toBe('usuario email@email.com, contraseña1234');
   });
 });

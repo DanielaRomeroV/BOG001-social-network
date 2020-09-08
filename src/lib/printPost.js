@@ -120,6 +120,7 @@ export const printPost = (post, user, postid) => {
 
   btnEdit.addEventListener('click', () => {
     editPost.contentEditable = true;
+    editPost.style.backgroundColor = 'white';
     btnSave.style.display = 'block';
     console.log('editing');
   });

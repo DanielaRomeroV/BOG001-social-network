@@ -88,6 +88,7 @@ export default () => {
   saveBtn.addEventListener('click', () => {
     const bioUser = document.getElementById('biographyid');
     bioUser.contentEditable = true;
+    bioUser.style.backgroundColor = 'white';
     console.log('editing');
   });
 
