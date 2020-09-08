@@ -2,7 +2,7 @@
 
 ## HELIVISUEL 🍿
 
-<img src="../BOG001-social-network/src/img/banner.png">
+<img src="../src/img/../../BOG001-social-network/src/img/banner.png">
 
 ## Índice
 
