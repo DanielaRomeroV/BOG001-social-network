@@ -47,7 +47,7 @@ export const currentUserPost =  async (containerDOM, currentUser) =>{
         querySnapshot.forEach(async (doc) => {
         let postid = doc.id;
         let post = doc.data();
-        console.log(post);
+        //console.log(post);
         containerDOM.appendChild(printPost(post, user, postid));
         });
       });
@@ -80,7 +80,7 @@ export const deletePost = async(id) =>{
       await data.collection('users').doc(id).onSnapshot((querySnapshot) => {
         let user = querySnapshot.data();
         containerBio.innerHTML = user.biography;
-        console.log(user);
+        //console.log(user);
         });
     } catch (error) {
       console.log(error);

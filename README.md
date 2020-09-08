@@ -37,10 +37,10 @@ Nuestros usuarios abarcan desde aquel que se dedica profesionalmente a hacer rev
 
 ### Prototipos de baja fidelidad
 
-<img src="prototipos/baja/Imagen%20de%20iOS%20(1).jpg" width=200> 
-<img src="prototipos/baja/Imagen%20de%20iOS.jpg" width=200>
-<img src="prototipos/baja/WhatsApp%20Image%202020-07-30%20at%2012.01.50%20PM%20(2).jpeg" width=200>
-<img src="prototipos/baja/IMG_20200730_110928545.jpg" width=200>
+<img src="src/img/Imagen%20de%20iOS%20(1).jpg" width=200> 
+<img src="src/img/Imagen%20de%20iOS.jpg" width=200>
+<img src="src/img/WhatsApp%20Image%202020-07-30%20at%2012.01.50%20PM%20(2).jpeg" width=200>
+<img src="src/img/IMG_20200730_110928545.jpg" width=200>
 
 ### Prototipos de alta fidelidad
 
@@ -52,7 +52,7 @@ Tablet: https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?
 
 ### Paleta de colores
 
-<img src="prototipos/alta/AdobeColor-My%20Color%20Theme%20(1).jpeg" width=400>
+<img src="src/img/AdobeColor-My%20Color%20Theme%20(1).jpeg" width=400>
 
 
 ## 2. Test de Usabilidad

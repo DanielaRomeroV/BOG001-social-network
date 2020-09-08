@@ -52,8 +52,7 @@ export default (post, user, postid) => {
     <img src="img/comment.png" class="commentaries icons"/>
     <span>0</span>
     </div>
-    <button type="button" class="btn" id="saveBtn" style="display:none" style="height:25px" style="width: 100px" style="font-size: 12px" style=" margin-top: 1em">
-    GUARDAR</button>
+    <button type="button" class="btn " id="saveBtn" style="display:none">GUARDAR</button>
     <div id="confirm">
       <h2>¿Estás seguro que quieres eliminar la publicación?</h2>
       <button type="submit" class="btn" id="deleteBtn">ELIMINAR</button>
