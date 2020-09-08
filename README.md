@@ -38,15 +38,13 @@ Nuestros usuarios abarcan desde aquel que se dedica profesionalmente a hacer rev
 ## 3. PROTOTIPOS DE ALTA Y BAJA FIDELIDAD
 
 Prototipos de baja fidelidad
-<img src="prototipos/baja/Imagen%20de%20iOS%20(1).jpg" width=400> 
-<img src="prototipos/baja/Imagen%20de%20iOS.jpg" width=400>
-<img src="prototipos/baja/WhatsApp%20Image%202020-07-30%20at%2012.01.50%20PM%20(2).jpeg" width=400>
-<img src="prototipos/baja/IMG_20200730_110928545.jpg" width=400>
+
+<img src="prototipos/baja/Imagen%20de%20iOS%20(1).jpg" width=200> 
+<img src="prototipos/baja/Imagen%20de%20iOS.jpg" width=200>
+<img src="prototipos/baja/WhatsApp%20Image%202020-07-30%20at%2012.01.50%20PM%20(2).jpeg" width=200>
+<img src="prototipos/baja/IMG_20200730_110928545.jpg" width=200>
 
 Prototipos de alta fidelidad
-
-Paleta de colores
-<img src="prototipos/alta/AdobeColor-My%20Color%20Theme%20(1).jpeg">
 
 Movil: https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?node-id=31%3A492&scaling=scale-down
  
@@ -54,6 +52,9 @@ Desktop: https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma
  
 Tablet: https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?node-id=77%3A180&scaling=scale-down
 
+Paleta de colores
+
+<img src="prototipos/alta/AdobeColor-My%20Color%20Theme%20(1).jpeg" width=400>
 
 ## 4. TEST DE USABILIDAD
 
