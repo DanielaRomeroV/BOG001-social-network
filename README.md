@@ -2,7 +2,7 @@
 
 ## HELIVISUEL 🍿
 
-<img src="../src/img/../../BOG001-social-network/src/img/banner.png">
+<img src="src/img/Banner.png">
 
 ## Índice
 
@@ -20,7 +20,6 @@ Definición del problema
 
 Con las mejoras en el flujo de datos a partir de tecnologías como 4G y 5G, el crecimiento de contenido audiovisual variado, de calidad y asequible a través de plataformas de streaming, se están creando comunidades de discusión sobre series, películas, documentales, cortometrajes, etc., donde las opiniones generan un valor sobre cada contenido para el usuario influenciado las decisiones sobre lo próximo que verá y al tiempo le permite compartir con personas que tienen intereses afines. 
 
-Bla bla bla es entonces una aplicación que busca conectar estas comunidades de fans alrededor del mundo. 
 
 Perfil del usuario 
 
@@ -39,10 +38,10 @@ Nuestros usuarios abarcan desde aquel que se dedica profesionalmente a hacer rev
 ## 3. PROTOTIPOS DE ALTA Y BAJA FIDELIDAD
 
 Prototipos de baja fidelidad
-<img src="prototipos/baja/Imagen%20de%20iOS%20(1).jpg"> 
-<img src="prototipos/baja/Imagen%20de%20iOS.jpg">
-<img src="prototipos/baja/WhatsApp%20Image%202020-07-30%20at%2012.01.50%20PM%20(2).jpeg">
-<img src="prototipos/baja/IMG_20200730_110928545.jpg">
+<img src="prototipos/baja/Imagen%20de%20iOS%20(1).jpg" width=400> 
+<img src="prototipos/baja/Imagen%20de%20iOS.jpg" width=400>
+<img src="prototipos/baja/WhatsApp%20Image%202020-07-30%20at%2012.01.50%20PM%20(2).jpeg" width=400>
+<img src="prototipos/baja/IMG_20200730_110928545.jpg" width=400>
 
 Prototipos de alta fidelidad
 
