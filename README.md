@@ -2,38 +2,39 @@
 
 ## HELIVISUEL 🍿
 
+<img src="img/../src/img/icon.png"></img>
+
 
 
 ## 1. DEFINICIÓN DEL PRODUCTO
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
-vivir sin ellas.
+Definición del problema
 
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
+Con las mejoras en el flujo de datos a partir de tecnologías como 4G y 5G, el crecimiento de contenido audiovisual variado, de calidad y asequible a través de plataformas de streaming, se están creando comunidades de discusión sobre series, películas, documentales, cortometrajes, etc., donde las opiniones generan un valor sobre cada contenido para el usuario influenciado las decisiones sobre lo próximo que verá y al tiempo le permite compartir con personas que tienen intereses afines. 
+
+Bla bla bla es entonces una aplicación que busca conectar estas comunidades de fans alrededor del mundo. 
+
+Perfil del usuario 
+
+Nuestros usuarios son personas entre los 18 y los 50 años tiene un interés por las películas, series y demás contenido audiovisual, que tienen acceso a las plataformas de streaming como Netflix, Disney +, Amazon Prime o Hulu o servicios de televisión o que frecuentan el cine, y a quiénes les gusta compartir y comparar opiniones sobre estas producciones. 
+
+Nuestros usuarios abarcan desde aquel que se dedica profesionalmente a hacer reviews hasta personas que solo buscan aportar su opinión o una buena recomendación. Quieren poder agregar recomendaciones de otros a su lista de pendientes, y agregar una lista donde aparezca aquello que vio y quiere recomendar a la comunidad o comentar, participar en discusiones, poder buscar una película por su título ver las reviews asociadas y darles like, saber quién escribió la reseña (y si le gusta poder seguirlo). 
+
 
 ## 2. HISTORIAS DE USUARIO
 
-En este proyecto construirás una Red Social sobre lo que decidan tú y tu equipo.
-Podría ser, por ejemplo, sobre alimentación saludable, feminismo, educación,
-salud, energías renovables, amantes de las [Empanadas](https://es.wikipedia.org/wiki/Empanada)
-o de los [Tacos de Canasta](https://es.wikipedia.org/wiki/Taco), de la
-[Feijoada](https://es.wikipedia.org/wiki/Feijoada), o de lo que sea.
-
-Tu Red Social tendrá que permitir a cualquier usuario crear una cuenta de
-acceso y loguearse con ella; crear, editar, borrar y _"likear"_ publicacciones.
+*  H1: El usuario se puede loguear o registrar
+*  H2:  El usuario puede realizar posts y visualizarlos en su muro
+*  H3: El usuario podrá ingresar a su perfil y ver su información general
+*  H4: El usuario tendrá más opciones para interactuar en la red social
 
 ## 3. PROTOTIPOS DE ALTA Y BAJA FIDELIDAD
 
-El objetivo principal de aprendizaje de este proyecto es construir una
-[Single-page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-[_responsive_](https://github.com/Laboratoria/curricula-js/tree/master/topics/css/02-responsive)
- (con más de una vista / página) en la que podamos **leer y escribir datos.**
+Prototipos de baja fidelidad
+<img src="prototipos/baja/Imagen%20de%20iOS%20(1).jpg"> 
+<img src="prototipos/baja/Imagen%20de%20iOS.jpg">
+<img src="prototipos/baja/IMG_20200818_093856.jpg">
+
 
 ## 4. TEST DE USABILIDAD
 
