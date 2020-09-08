@@ -4,13 +4,13 @@ import { updateBiography } from '../lib/firebaseFirestore.js';
 import { updateFieldData } from '../lib/firebaseFirestore.js';
 
 export default () => {
-
+    const photoDefault = 'https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png';
     const profileContainer = document.createElement('div');
     profileContainer.setAttribute('id', 'profileContainer');
     const profile = document.createElement('div');
     profile.setAttribute('id', 'profile');
     profile.innerHTML = `<h2 id="profileName">Mi perfil</h2>
-        <img src="${currentUser().photoURL}" id="preview" alt="photoUser" class="photo"/>
+        <img src="${(currentUser().photoURL === null ? photoDefault : currentUser().photoURL)}" id="preview" alt="photoUser" class="photo"/>
         <div class="default-image"></div>
         <div id="editPhoto">
         <label for="archivo">
@@ -62,6 +62,7 @@ export default () => {
     updateBiography(currentUser().uid,biography); 
   //Las promesas cuando se ejecuta then, cuando falla catch, cuando se realiza complete 
     //boton actualizar
+
     btnUpdate.addEventListener('click', ()=> {
       const file = currentFile;
       //console.log(file);
@@ -77,13 +78,13 @@ export default () => {
           task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
             currentUser().updateProfile({
               photoURL: downloadURL});
+            updateFieldData('users',currentUser().uid,{photo: downloadURL});
             console.log('File available at', downloadURL);
           });
         }, function error (error){
           console.log(error);
         });
     }
-  
   });
 
   saveBtn.addEventListener ('click', () => {

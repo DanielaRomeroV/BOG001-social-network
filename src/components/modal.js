@@ -1,6 +1,7 @@
 import { commentPublish } from '../lib/firebaseFirestore.js';
 
 export const publish = (userPhoto, userID, userName) =>{
+  const photoDefault = 'https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png';
   const modal = document.createElement('section');
   modal.setAttribute('class', 'modal');
   modal.innerHTML = `<div class="modal-content">
@@ -27,9 +28,9 @@ export const publish = (userPhoto, userID, userName) =>{
       </div>`
 
   let photo =  modal.querySelector('#userPhoto');
-  photo.src = `${userPhoto}`;
+  photo.src = `${(userPhoto === null ? photoDefault : userPhoto)}`;
   const publish = modal.querySelector('#formComment');
-  //const img = form.loadImg.value;
+
   publish.addEventListener('submit', (e)=>{
     e.preventDefault();
     let comment = publish.comment.value;

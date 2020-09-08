@@ -1,5 +1,6 @@
 import printPost from '../components/printPost.js';
 
+// crear publicaciones y los campos
 export const commentPublish = (comment, category, userID) => {
   try {
     var userDocRef = data.collection('post').doc().set({
@@ -12,6 +13,8 @@ export const commentPublish = (comment, category, userID) => {
     console.log(e);
   }
 };
+
+//Cargar los posts
 //onSnapshot,cambios de la colección post,trae o quita los cambios que se hagan
 export const loadPost =  async (containerDOM) =>{
   try {
@@ -30,6 +33,7 @@ export const loadPost =  async (containerDOM) =>{
   }
 };
 
+
 //User login autora del post, posts del usuario logueado
 export const currentUserPost =  async (containerDOM, currentUser) =>{
   try {
@@ -43,6 +47,7 @@ export const currentUserPost =  async (containerDOM, currentUser) =>{
         querySnapshot.forEach(async (doc) => {
         let postid = doc.id;
         let post = doc.data();
+        console.log(post);
         containerDOM.appendChild(printPost(post, user, postid));
         });
       });
@@ -51,6 +56,7 @@ export const currentUserPost =  async (containerDOM, currentUser) =>{
   }
 };
 
+//Borrar post
 export const deletePost = async(id) =>{
   try {
     await data.collection('post').doc(id).delete();
@@ -59,6 +65,7 @@ export const deletePost = async(id) =>{
   }
 };
 
+//Me actualiza cualquier campo de la colección, en este caso lo utilizamos para actualizar la biografia y los posts
   export const updateFieldData = async( collectionName, id, field ) =>{
     try{
       await data.collection(collectionName).doc(id).update(field);
@@ -67,6 +74,7 @@ export const deletePost = async(id) =>{
     }
   };
 
+  //Guarda la información de la biografia del usuario
   export const updateBiography = async(id,containerBio) =>{
     try{
       await data.collection('users').doc(id).onSnapshot((querySnapshot) => {
@@ -79,14 +87,29 @@ export const deletePost = async(id) =>{
     }
   };
 
+  // coloca y quita los likes.
+export async function likePost(currentUserId, postId, pushLike) {
+  const postRef = data.collection('post').doc(postId);
+  if (pushLike) {
+    postRef.update({
+      likes: firebase.firestore.FieldValue.arrayRemove(currentUserId),
+    });
+  } else {
+    postRef.update({
+      likes: firebase.firestore.FieldValue.arrayUnion(currentUserId),
+    });
+  }
+}
 
-
+// array de objetos en donde se va a guardar toda la información de cada usuario
 export const userInfo = async() =>{
   const users = []
   await data.collection('users').get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             users.push({id: doc.id, name: doc.data().name, photo: doc.data().photo, biography:doc.data().biography});
         });
+      //console.log(users);
       });
+    
   return users;
 };

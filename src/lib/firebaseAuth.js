@@ -4,19 +4,17 @@ export  function currentUser() {
     return user;
 }
 
-export async function signUp(email, password, name) {
+export async function signUp(email, password, name, birthday) {
+  const photoDefault = 'https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png';
   try {
     const newUser = await auth.createUserWithEmailAndPassword(email, password);
-    let currentUser = await auth.currentUser;
-    currentUser.updateProfile({displayName: name});
-    let userDb = await data.collection('users').doc(currentUser.uid)
-    .set({birthday, biography:'', name, photo: currentUser.photoURL});
-
-    window.location.hash = "#thankAccount";
-
+    const currentUser = await auth.currentUser;
+    currentUser.photoURL = (currentUser.photoURL === null ? photoDefault : currentUser.photoURL);
+    currentUser.updateProfile({ displayName: name });
+    const userDb = await data.collection('users').doc(currentUser.uid)
+      .add({ birthday, biography:'', name, photo: (currentUser.photoURL) });
+    window.location.hash = '#thankAccount';
     return newUser;
-
-
   } catch (error) {
     // Handle Errors here.
     const errorCode = error.code;
@@ -52,7 +50,7 @@ export async function logInGoogle(provider) {
     let currentUser = await auth.currentUser;
     currentUser.providerData.forEach(function (profile){
       data.collection('users').doc(currentUser.uid)
-      .set({name: profile.displayName, photo: profile.photoURL, biography:''});
+      .add({name: profile.displayName, photo: profile.photoURL, biography:''});
     })
   } catch (error) {
     // Handle Errors here.
