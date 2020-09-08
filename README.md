@@ -50,7 +50,9 @@ Paleta de colores
 <img src="prototipos/alta/AdobeColor-My%20Color%20Theme%20(1).jpeg">
 
 Movil: https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?node-id=31%3A492&scaling=scale-down
+ 
 Desktop: https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?node-id=51%3A79&scaling=min-zoom
+ 
 Tablet: https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?node-id=77%3A180&scaling=scale-down
 
 
