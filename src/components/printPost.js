@@ -28,7 +28,7 @@ export const printPost = (post, user, postid) => {
   // Toma el id del usuario logueado y valida y está dentro del arreglo de likes
   const userid = currentUser();
   let pushLike = post.likes.some(likes => likes === userid.uid);
-  
+
 
   const categoryIcon = newpost.querySelector('.categories');
   switch (post.category) {

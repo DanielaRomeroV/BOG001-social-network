@@ -93,14 +93,14 @@ El usuario interactua con la pagina de la siguiente manera:
 * [x] Manipular objects (key | value)
 * [x] Uso ES modules ([`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 | [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export))
-* [x] Diferenciar entre expression y statements.
-* [ ] Diferenciar entre tipos de datos primitivos y no primitivos.
+* [ ] Diferenciar entre expression y statements.
+* [x] Diferenciar entre tipos de datos primitivos y no primitivos.
 * [ ] [Uso de callbacks.](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
 * [ ] [Consumo de Promesas.](https://scotch.io/tutorials/javascript-promises-for-dummies#toc-consuming-promises)
 
 ### Testing
 
-* [x] [Testeo unitario.](https://jestjs.io/docs/es-ES/getting-started)
+* [ ] [Testeo unitario.](https://jestjs.io/docs/es-ES/getting-started)
 * [ ] [Testeo asíncrono.](https://jestjs.io/docs/es-ES/asynchronous)
 * [ ] [Uso de librerias de Mock.](https://jestjs.io/docs/es-ES/manual-mocks)
 

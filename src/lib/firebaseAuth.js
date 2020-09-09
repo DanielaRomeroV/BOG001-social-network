@@ -12,7 +12,9 @@ export async function signUp(email, password, name, birthday) {
     currentUser.photoURL = (currentUser.photoURL === null ? photoDefault : currentUser.photoURL);
     currentUser.updateProfile({ displayName: name });
     const userDb = await data.collection('users').doc(currentUser.uid)
-      .add({ birthday, biography:'', name, photo: (currentUser.photoURL) });
+      .add({
+        birthday, biography: '', name, photo: (currentUser.photoURL),
+      });
 
     window.location.hash = '#thankAccount';
 
@@ -49,7 +51,7 @@ export async function logInGoogle(provider) {
     const currentUser = await auth.currentUser;
     currentUser.providerData.forEach((profile) => {
       data.collection('users').doc(currentUser.uid)
-        .add({ name: profile.displayName, photo: profile.photoURL,  biography:'' });
+        .add({ name: profile.displayName, photo: profile.photoURL, biography: '' });
     });
   } catch (error) {
   // Handle Errors here.
