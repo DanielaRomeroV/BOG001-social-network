@@ -8,7 +8,7 @@ const fixtureData = {
     notes: {
       _doc_ : {
         QBC0vVQZ7tfOKUoEIweAMVRp3Kd2: {
-          name: 'Daniela Romero'
+          name: 'Daniela Romero',
           photo: 'https://lh3.googleusercontent.com/a-/AOh14GgOdLv70vgHqJ2NlorbmN9HCnfPbf3T9kpQzQo_'
         },
       }

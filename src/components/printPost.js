@@ -75,6 +75,8 @@ export const printPost = (post, user, postid) => {
   // newpost.appendChild(comments);
   const postId = newpost.getAttribute('id');
 
+
+  //ocultar input de los comentarios
   window.addEventListener('click', (e) => {
     if (e.target == icons.querySelector('.commentaries')) {
       icons.querySelector('.inputCommentandButton').style.display = 'block';
@@ -91,16 +93,7 @@ export const printPost = (post, user, postid) => {
     }
   });
 
-  // ocultar comentarios
-  window.addEventListener('click', (e) => {
-    if (e.target == icons.querySelector('.commentaries ')) {
-      icons.querySelector('.inputCommentandButton').style.display = 'block';
-      newpost.querySelector('.card', '#icons').style.display = 'none';
-    } else {
-      icons.querySelector('.inputCommentandButton').style.display = 'none';
-      newpost.querySelector('.card').style.display = 'block';
-    }
-  });
+ 
 
   // like activo inactivo
   const btnlike = icons.querySelector('#likes');
