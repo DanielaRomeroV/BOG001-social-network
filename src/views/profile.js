@@ -1,6 +1,6 @@
 import { currentUser } from '../lib/firebaseAuth.js';
 import { currentUserPost, updateBiography, updateFieldData } from '../lib/firebaseFirestore.js';
-
+import { printPost } from '../lib/printPost.js'
 
 export default () => {
   const photoDefault = 'https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png';
@@ -35,12 +35,16 @@ export default () => {
   const previewPhoto = profile.querySelector('#preview');
   const defaultImage = profile.querySelector('.default-image');
   const btnUpdate = profile.querySelector('#btnUp');
-  const saveBtn = profile.querySelector('#btnEdits');
-  const contProfile = document.getElementById('profile');
-
+  const saveBtn = profile.querySelector('#userEdit');
+  const biography = profile.querySelector('#biographyid');
   let currentFile = '';
+  updateBiography(currentUser().uid, biography);
 
+  saveBtn.addEventListener('click', () => {
+    biography.contentEditable = true;
+  });
 
+  //Permite el cambio de imagen de perfil y la sube a storage
   photos.addEventListener('change', () => {
     currentFile = photos.files[0];
     console.log(currentFile);
@@ -59,16 +63,12 @@ export default () => {
     }
   });
 
-  const biography = profile.querySelector('#biographyid');
-  updateBiography(currentUser().uid, biography);
-  // Las promesas cuando se ejecuta then, cuando falla catch, cuando se realiza complete
-  // boton actualizar
+  //Actualiza los campos de foto y biografía
   btnUpdate.addEventListener('click', () => {
     const file = currentFile;
-    // console.log(file);
+    console.log(file);
     updateFieldData('users', currentUser().uid, { biography: biography.innerHTML });
-    biography.value;
-
+    biography.contentEditable = false;
     if (!file) {
       console.log('No existe archivo para cambiar la imagen!');
     } else {
@@ -77,6 +77,7 @@ export default () => {
       task.on('state_changed', (snapshot) => {
         task.snapshot.ref.getDownloadURL().then((downloadURL) => {
           currentUser().updateProfile({ photoURL: downloadURL });
+          updateFieldData('users', currentUser().uid, { photo: downloadURL });
           console.log('File available at', downloadURL);
         });
       }, (error) => {
@@ -85,20 +86,12 @@ export default () => {
     }
   });
 
-  saveBtn.addEventListener('click', () => {
-    const bioUser = document.getElementById('biographyid');
-    bioUser.contentEditable = true;
-    bioUser.style.backgroundColor = 'white';
-    console.log('editing');
-  });
-
-
+  //Muestra los post del usuario logueado
   const postProfile = document.createElement('section');
   postProfile.setAttribute('id', 'profileBody');
-  currentUserPost(postProfile, currentUser());
+  currentUserPost(postProfile, currentUser(), printPost);
   profileContainer.appendChild(profile);
   profileContainer.appendChild(postProfile);
-
 
   return profileContainer;
 };
