@@ -1,6 +1,6 @@
 import { currentUser } from '../lib/firebaseAuth.js';
 import { currentUserPost, updateBiography, updateFieldData } from '../lib/firebaseFirestore.js';
-import { printPost } from '../lib/printPost.js'
+import { printPost } from '../components/printPost.js'
 
 export default () => {
   const photoDefault = 'https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png';

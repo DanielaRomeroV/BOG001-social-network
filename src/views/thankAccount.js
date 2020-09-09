@@ -13,10 +13,5 @@ export default () => {
   otherThank.appendChild(accountThank);
 
 
-  // click boton a el muro
-  otherThank.addEventListener('click', () => {
-    window.location = '#timeline';
-  });
-
   return otherThank;
 };

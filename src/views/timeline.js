@@ -1,5 +1,5 @@
 import { currentUser } from '../lib/firebaseAuth.js';
-import { publish } from './modal.js';
+import { publish } from '../components/modal.js';
 import { loadPost } from '../lib/firebaseFirestore.js';
 
 export default () => {
@@ -27,17 +27,7 @@ export default () => {
     modal.style.display = 'flex';
   });
 
-  // icons.querySelector('.commentaries').addEventListener('click', () => {
-  // icons.querySelector('.inputCommentandButton').style.display = "block";});
-
 
   return timelineContainer;
 };
 
-function printPost(post) {
-  const newpost = document.createElement('div');
-  newpost.setAttribute('class', 'card');
-  newpost.innerHTML = post.comment;
-
-  return newpost;
-}

@@ -11,6 +11,3 @@ export default () => {
   return home;
 };
 
-/* `<div class="home">
-  <p class="welcome">Welcome to the largest community of series and movies lovers</p>
-</div>` */

@@ -1,4 +1,5 @@
-import { printPost } from './printPost.js';
+import { printPost } from '../components/printPost.js';
+
 // crear publicaciones y los campos
 export const commentPublish = (comment, category, userID) => {
   try {

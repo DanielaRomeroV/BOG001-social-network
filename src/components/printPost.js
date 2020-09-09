@@ -1,5 +1,5 @@
-import { deletePost, likePost, updateFieldData } from './firebaseFirestore.js';
-import { currentUser } from './firebaseAuth.js';
+import { deletePost, likePost, updateFieldData } from '../lib/firebaseFirestore.js';
+import { currentUser } from '../lib/firebaseAuth.js';
 
 
 // imprime el post en el timeline
@@ -28,7 +28,7 @@ export const printPost = (post, user, postid) => {
   // Toma el id del usuario logueado y valida y está dentro del arreglo de likes
   const userid = currentUser();
   let pushLike = post.likes.some(likes => likes === userid.uid);
-  // FIN
+  
 
   const categoryIcon = newpost.querySelector('.categories');
   switch (post.category) {
