@@ -1,10 +1,10 @@
-import { deletePost, likePost } from '../lib/firebaseFirestore.js';
-import { updateFieldData } from '../lib/firebaseFirestore.js';
-import {currentUser} from '../lib/firebaseAuth.js';
+import { deletePost, likePost, updateFieldData } from '../lib/firebaseFirestore.js';
 
-//Imprime el post en el timeline y en profile
+import { currentUser } from '../lib/firebaseAuth.js';
+
+// Imprime el post en el timeline y en profile
 export default (post, user, postid) => {
-  let photoDefault = "https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png";
+  const photoDefault = 'https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png';
   const newpost = document.createElement('div');
   newpost.setAttribute('id', postid);
   newpost.setAttribute('class', 'post');
@@ -64,7 +64,7 @@ export default (post, user, postid) => {
 
   newpost.appendChild(icons);
 
-  /*const comments = document.createElement('section');
+  /* const comments = document.createElement('section');
   comments.setAttribute('class', 'newsfeed');
   comments.innerHTML = `
   <div class="comments">
@@ -73,13 +73,13 @@ export default (post, user, postid) => {
           </div>
       </div>
       <div class="desc">
-      "" </div></div>`;*/
+      "" </div></div>`; */
 
   if (window.location.hash === '#timeline') {
     icons.querySelector('#delete').style.display = 'none';
     icons.querySelector('#edit').style.display = 'none';
   }
-  
+
   const postId = newpost.getAttribute('id');
 
   window.addEventListener('click', (e) => {
@@ -120,28 +120,25 @@ export default (post, user, postid) => {
     }
   });
 
-  //Editar post
+  // Editar post
 
   const editPost = newpost.querySelector('#post');
   const btnEdit = icons.querySelector('#edit');
   const btnSave = icons.querySelector('#saveBtn');
 
-  btnEdit.addEventListener ('click', () => {
+  btnEdit.addEventListener('click', () => {
     editPost.contentEditable = true;
     editPost.style.backgroundColor = 'white';
     btnSave.style.display = 'block';
-    console.log('editing')
-
+    console.log('editing');
   });
 
-  btnSave.addEventListener ('click', () => {
-    updateFieldData('post',postId,{comment: editPost.innerHTML});
-    console.log(postId,editPost.innerHTML);
+  btnSave.addEventListener('click', () => {
+    updateFieldData('post', postId, { comment: editPost.innerHTML });
+    console.log(postId, editPost.innerHTML);
     editPost.contentEditable = false;
     btnSave.style.display = 'none';
-
-
   });
-  
+
   return newpost;
 };

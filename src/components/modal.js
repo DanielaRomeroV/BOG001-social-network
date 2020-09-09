@@ -1,6 +1,6 @@
 import { commentPublish } from '../lib/firebaseFirestore.js';
 
-export const publish = (userPhoto, userID, userName) =>{
+export const publish = (userPhoto, userID, userName) => {
   const photoDefault = 'https://www.nicepng.com/png/detail/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png';
   const modal = document.createElement('section');
   modal.setAttribute('class', 'modal');
@@ -25,24 +25,25 @@ export const publish = (userPhoto, userID, userName) =>{
           </div>
           <button type="submit" class="btn newpublish">PUBLICAR</button>
         </form>
-      </div>`
+      </div>`;
 
-  let photo =  modal.querySelector('#userPhoto');
+  const photo = modal.querySelector('#userPhoto');
   photo.src = `${(userPhoto === null ? photoDefault : userPhoto)}`;
   const publish = modal.querySelector('#formComment');
 
-  publish.addEventListener('submit', (e)=>{
+  publish.addEventListener('submit', (e) => {
     e.preventDefault();
-    let comment = publish.comment.value;
-    let category = publish.category.value;
+    const comment = publish.comment.value;
+    const category = publish.category.value;
 
     commentPublish(comment, category, userID);
     publish.reset();
     modal.style.display = 'none';
   });
 
-  modal.querySelector('.close').addEventListener('click', ()=> {
-    modal.style.display = 'none'});
+  modal.querySelector('.close').addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
 
-  return  modal;
+  return modal;
 };

@@ -33,9 +33,9 @@
     display:inline-block;
 }
 
-#login a{
+/*#login a{
   color:white;
-}
+}*/
 
 .input-container p{
     font-size: 12px;
@@ -54,17 +54,10 @@
 }
 
 .createAccount .google {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    border: none;
-    margin-top: 10px;
-    /*display:block;
-    margin-left: auto;
-    margin-right: auto;*/
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .link {
@@ -72,6 +65,12 @@
     font-family: 'Comfortaa', sans-serif;
     font-size: 12px;
 
+}
+
+.input-container a {
+  color: #06b8c7;
+  font-family: Comfortaa;
+  font-size: 12px;
 }
 
 /*Tablet--------------------*/

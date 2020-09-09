@@ -54,9 +54,9 @@ const router = (rute) => {
 
 window.addEventListener('hashchange', () => {
   router(window.location.hash);
-  if(window.location.hash == '#timeline' || window.location.hash =='#profile'){
+  if (window.location.hash == '#timeline' || window.location.hash == '#profile') {
     header.style.display = 'block';
-  }else{
+  } else {
     header.style.display = 'none';
   }
 });

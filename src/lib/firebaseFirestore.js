@@ -3,7 +3,7 @@ import printPost from '../components/printPost.js';
 // crear publicaciones y los campos
 export const commentPublish = (comment, category, userID) => {
   try {
-    var userDocRef = data.collection('post').doc().set({
+    const userDocRef = data.collection('post').doc().set({
       comment,
       category,
       userID,
@@ -14,50 +14,50 @@ export const commentPublish = (comment, category, userID) => {
   }
 };
 
-//Cargar los posts
-//onSnapshot,cambios de la colección post,trae o quita los cambios que se hagan
-export const loadPost =  async (containerDOM) =>{
+// Cargar los posts
+// onSnapshot,cambios de la colección post,trae o quita los cambios que se hagan
+export const loadPost = async (containerDOM) => {
   try {
-    let users = await userInfo();
-      await data.collection('post').orderBy('date','desc').onSnapshot((querySnapshot) => {
-        containerDOM.innerHTML= '';
-        querySnapshot.forEach( (doc) => {
-        let postid = doc.id;
-        let post =  doc.data();
-        const user =  users.find((user) => user.id === post.userID);
+    const users = await userInfo();
+    await data.collection('post').orderBy('date', 'desc').onSnapshot((querySnapshot) => {
+      containerDOM.innerHTML = '';
+      querySnapshot.forEach((doc) => {
+        const postid = doc.id;
+        const post = doc.data();
+        const user = users.find(user => user.id === post.userID);
         containerDOM.appendChild(printPost(post, user, postid));
-        });
       });
+    });
   } catch (e) {
-      console.log(e);
+    console.log(e);
   }
 };
 
 
-//User login autora del post, posts del usuario logueado
-export const currentUserPost =  async (containerDOM, currentUser) =>{
+// User login autora del post, posts del usuario logueado
+export const currentUserPost = async (containerDOM, currentUser) => {
   try {
-      let user = {
-        name: currentUser.displayName,
-        photo: currentUser.photoURL
-      }
-      await data.collection('post').where("userID", "==", currentUser.uid).orderBy('date','desc')
+    const user = {
+      name: currentUser.displayName,
+      photo: currentUser.photoURL,
+    };
+    await data.collection('post').where('userID', '==', currentUser.uid).orderBy('date', 'desc')
       .onSnapshot((querySnapshot) => {
-        containerDOM.innerHTML= '';
+        containerDOM.innerHTML = '';
         querySnapshot.forEach(async (doc) => {
-        let postid = doc.id;
-        let post = doc.data();
-        //console.log(post);
-        containerDOM.appendChild(printPost(post, user, postid));
+          const postid = doc.id;
+          const post = doc.data();
+          // console.log(post);
+          containerDOM.appendChild(printPost(post, user, postid));
         });
       });
   } catch (e) {
-      console.log(e);
+    console.log(e);
   }
 };
 
-//Borrar post
-export const deletePost = async(id) =>{
+// Borrar post
+export const deletePost = async (id) => {
   try {
     await data.collection('post').doc(id).delete();
   } catch (e) {
@@ -65,29 +65,29 @@ export const deletePost = async(id) =>{
   }
 };
 
-//Me actualiza cualquier campo de la colección, en este caso lo utilizamos para actualizar la biografia y los posts
-  export const updateFieldData = async( collectionName, id, field ) =>{
-    try{
-      await data.collection(collectionName).doc(id).update(field);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+// Me actualiza cualquier campo de la colección, en este caso lo utilizamos para actualizar la biografia y los posts
+export const updateFieldData = async (collectionName, id, field) => {
+  try {
+    await data.collection(collectionName).doc(id).update(field);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-  //Guarda la información de la biografia del usuario
-  export const updateBiography = async(id,containerBio) =>{
-    try{
-      await data.collection('users').doc(id).onSnapshot((querySnapshot) => {
-        let user = querySnapshot.data();
-        containerBio.innerHTML = user.biography;
-        //console.log(user);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+// Guarda la información de la biografia del usuario
+export const updateBiography = async (id, containerBio) => {
+  try {
+    await data.collection('users').doc(id).onSnapshot((querySnapshot) => {
+      const user = querySnapshot.data();
+      containerBio.innerHTML = user.biography;
+      // console.log(user);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-  // coloca y quita los likes.
+// coloca y quita los likes.
 export async function likePost(currentUserId, postId, pushLike) {
   const postRef = data.collection('post').doc(postId);
   if (pushLike) {
@@ -102,14 +102,16 @@ export async function likePost(currentUserId, postId, pushLike) {
 }
 
 // array de objetos en donde se va a guardar toda la información de cada usuario
-export const userInfo = async() =>{
-  const users = []
+export const userInfo = async () => {
+  const users = [];
   await data.collection('users').get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            users.push({id: doc.id, name: doc.data().name, photo: doc.data().photo, biography:doc.data().biography});
-        });
-      //console.log(users);
+    querySnapshot.forEach((doc) => {
+      users.push({
+        id: doc.id, name: doc.data().name, photo: doc.data().photo, biography: doc.data().biography,
       });
-    
+    });
+    // console.log(users);
+  });
+
   return users;
 };
