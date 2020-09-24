@@ -1,6 +1,6 @@
 # Creando una Red Social
 
-## HELIVISUEL 🍿
+## HELIVISUEL
 
 <img src="src/img/Banner.png">
 
@@ -11,21 +11,21 @@
 * [3. Prototipos](#3-prototipos)
 * [4. Test de usabilidad](#4-Test-de-usabilidad)
 * [5. Objetivos de aprendizaje](#5-objetivos-de-aprendizaje)
-
+* [6. Objetivos de aprendizaje](#6-autores)
 
 
 ## 1. DEFINICIÓN DEL PRODUCTO
 
 Definición del problema
 
-Con las mejoras en el flujo de datos a partir de tecnologías como 4G y 5G, el crecimiento de contenido audiovisual variado, de calidad y asequible a través de plataformas de streaming, se están creando comunidades de discusión sobre series, películas, documentales, cortometrajes, etc., donde las opiniones generan un valor sobre cada contenido para el usuario influenciado las decisiones sobre lo próximo que verá y al tiempo le permite compartir con personas que tienen intereses afines. 
+Con las mejoras en el flujo de datos a partir de tecnologías como 4G y 5G, el crecimiento de contenido audiovisual variado, de calidad y asequible a través de plataformas de streaming, se están creando comunidades de discusión sobre series, películas, documentales, cortometrajes, etc., donde las opiniones generan un valor sobre cada contenido para el usuario influenciado las decisiones sobre lo próximo que verá y al tiempo le permite compartir con personas que tienen intereses afines.
 
 
-Perfil del usuario 
+Perfil del usuario
 
-Nuestros usuarios son personas entre los 18 y los 50 años tiene un interés por las películas, series y demás contenido audiovisual, que tienen acceso a las plataformas de streaming como Netflix, Disney +, Amazon Prime o Hulu o servicios de televisión o que frecuentan el cine, y a quiénes les gusta compartir y comparar opiniones sobre estas producciones. 
+Nuestros usuarios son personas entre los 18 y los 50 años tiene un interés por las películas, series y demás contenido audiovisual, que tienen acceso a las plataformas de streaming como Netflix, Disney +, Amazon Prime o Hulu o servicios de televisión o que frecuentan el cine, y a quiénes les gusta compartir y comparar opiniones sobre estas producciones.
 
-Nuestros usuarios abarcan desde aquel que se dedica profesionalmente a hacer reviews hasta personas que solo buscan aportar su opinión o una buena recomendación. Quieren poder agregar recomendaciones de otros a su lista de pendientes, y agregar una lista donde aparezca aquello que vio y quiere recomendar a la comunidad o comentar, participar en discusiones, poder buscar una película por su título ver las reviews asociadas y darles like, saber quién escribió la reseña (y si le gusta poder seguirlo). 
+Nuestros usuarios abarcan desde aquel que se dedica profesionalmente a hacer reviews hasta personas que solo buscan aportar su opinión o una buena recomendación. Quieren poder agregar recomendaciones de otros a su lista de pendientes, y agregar una lista donde aparezca aquello que vio y quiere recomendar a la comunidad o comentar, participar en discusiones, poder buscar una película por su título ver las reviews asociadas y darles like, saber quién escribió la reseña (y si le gusta poder seguirlo).
 
 
 ## 2. HISTORIAS DE USUARIO
@@ -39,22 +39,29 @@ Nuestros usuarios abarcan desde aquel que se dedica profesionalmente a hacer rev
 
 Prototipos de baja fidelidad
 
-<img src="prototipos/baja/Imagen%20de%20iOS%20(1).jpg" width=200> 
+<img src="prototipos/baja/Imagen%20de%20iOS%20(1).jpg" width=200>
 <img src="prototipos/baja/Imagen%20de%20iOS.jpg" width=200>
 <img src="prototipos/baja/WhatsApp%20Image%202020-07-30%20at%2012.01.50%20PM%20(2).jpeg" width=200>
 <img src="prototipos/baja/IMG_20200730_110928545.jpg" width=200>
 
 Prototipos de alta fidelidad
 
-Movil: https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?node-id=31%3A492&scaling=scale-down
- 
-Desktop: https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?node-id=51%3A79&scaling=min-zoom
- 
-Tablet: https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?node-id=77%3A180&scaling=scale-down
+Movil: [Figma Mobile](https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?node-id=31%3A492&scaling=scale-down)
+
+Desktop: [Figma Desktop](https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?node-id=51%3A79&scaling=min-zoom)
+
+Tablet: [Figma Tablet](https://www.figma.com/proto/vVV1qI2KgMuUCAKSVx8nxJ/Prototyping-in-Figma?node-id=77%3A180&scaling=scale-down)
 
 Paleta de colores
 
 <img src="prototipos/alta/AdobeColor-My%20Color%20Theme%20(1).jpeg" width=400>
+
+Herramientas de apoyo
+
+[Figma](https://www.figma.com/) - Prototipado
+[Flaticon](https://www.flaticon.com/) - Iconos
+[Unsplash](https://unsplash.com/) - Imágenes
+[Content Reel](https://contentreel.design/) - Avatar
 
 ## 4. TEST DE USABILIDAD
 
@@ -64,6 +71,7 @@ El usuario interactua con la pagina de la siguiente manera:
 2. Segundo encuentra una sección donde se puede loguear, tiene la opción de crear una cuenta o entrar con Google, adicional tiene la opción de recuperar la contraseña si la ha olvidado.
 3. Tercero al haberse logueado ya puede ingresar al timeline, donde puede realizar una publicación teniendo en cuenta tres categorias: Películas, series o documentales. Además puede dar o quitar like a otras publicaciones.
 4. Cuarto tiene una sección de perfil, donde puede cambiar su foto, agregar una biografia, y ver sus publicaciones, las cuales puede editar o eliminar.
+
 
 ## 5. OBJETIVOS DE APRENDIZAJE
 
@@ -132,3 +140,10 @@ El usuario interactua con la pagina de la siguiente manera:
 * [x] Aplicar los principios de diseño visual (contraste, alineación, jerarquía)
 * [x] Planear y ejecutar tests de usabilidad.
 
+## 6. AUTORES
+
+Daniela Romero Vera [@DanielaRomeroV](https://github.com/DanielaRomeroV)
+
+Clara Escobar Sarmiento [@Claraescobar123](https://github.com/Claraescobar123)
+
+Diana Catalina Olarte [@dcoa](https://github.com/dcoa)
