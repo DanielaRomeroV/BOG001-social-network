@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 export default () => {
   const otherThank = document.createElement('div');
   otherThank.setAttribute('id', 'thanku');
@@ -15,4 +13,3 @@ export default () => {
   otherThank.appendChild(accountThank);
   return otherThank;
 };
->>>>>>> d6aad1bc38beb309193060fe174871320969362d

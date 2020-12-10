@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import { signUp } from '../lib/firebaseAuth.js';
 
 export default () => {
@@ -41,4 +39,3 @@ export default () => {
 
   return createAccount;
 };
->>>>>>> d6aad1bc38beb309193060fe174871320969362d

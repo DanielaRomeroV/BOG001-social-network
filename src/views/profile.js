@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import { currentUser } from '../lib/firebaseAuth.js';
 import {
   currentUserPost, deletePost, updateDataField, updateBiography,
@@ -97,4 +95,3 @@ export default () => {
 
   return profileContainer;
 };
->>>>>>> d6aad1bc38beb309193060fe174871320969362d

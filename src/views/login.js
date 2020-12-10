@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import { logIn, logInGoogle } from '../lib/firebaseAuth.js';
 
 export default () => {
@@ -44,4 +42,3 @@ export default () => {
 
   return signin;
 };
->>>>>>> d6aad1bc38beb309193060fe174871320969362d

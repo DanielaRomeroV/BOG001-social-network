@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import { currentUser } from '../lib/firebaseAuth.js';
 import publish from '../components/modal.js';
 import { loadPost } from '../lib/firebaseFirestore.js';
@@ -31,4 +29,3 @@ export default () => {
 
   return timelineContainer;
 };
->>>>>>> d6aad1bc38beb309193060fe174871320969362d

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // Este es el punto de entrada de tu aplicacion
 import { signOut } from './lib/firebaseAuth.js';
 import home from './views/home.js';
@@ -69,4 +67,3 @@ const logout = document.querySelector('#logout');
 logout.addEventListener('click', () => {
   signOut();
 });
->>>>>>> d6aad1bc38beb309193060fe174871320969362d

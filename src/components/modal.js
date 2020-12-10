@@ -1,5 +1,3 @@
-<<<<<<< HEAD:src/views/modal.js
-=======
 import { commentPublish } from '../lib/firebaseFirestore.js';
 
 export default (userPhoto, userID) => {
@@ -50,4 +48,3 @@ export default (userPhoto, userID) => {
 
   return modal;
 };
->>>>>>> d6aad1bc38beb309193060fe174871320969362d:src/components/modal.js

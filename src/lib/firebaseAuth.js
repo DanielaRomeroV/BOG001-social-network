@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 
 export function currentUser() {
   const user = auth.currentUser;
@@ -89,4 +87,3 @@ export async function signOut() {
     console.log(e);
   }
 }
->>>>>>> d6aad1bc38beb309193060fe174871320969362d
