@@ -34,7 +34,6 @@ describe('logIn', () => {
   });
   it('debería retornar email@email.com , contraseña1234', async () => {
     const user = await logIn('email@email.com', 'contraseña1234');
-    console.log(user);
     expect(user).toBe('usuario email@email.com, contraseña1234');
   });
 });
