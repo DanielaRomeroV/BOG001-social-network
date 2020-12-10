@@ -2,7 +2,7 @@
 
 ## HELIVISUEL
 
-<img src="src/img/Banner.png">
+<img src="img/Banner.png">
 
 ## Índice
 
