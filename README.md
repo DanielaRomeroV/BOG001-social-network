@@ -142,7 +142,7 @@ El usuario interactua con la pagina de la siguiente manera:
 
 ## 6. AUTORES
 
-Daniela Romero Vera [@DanielaRomeroV](https://github.com/DanielaRomeroV)
+Daniela Romero Varela [@DanielaRomeroV](https://github.com/DanielaRomeroV)
 
 Clara Escobar Sarmiento [@Claraescobar123](https://github.com/Claraescobar123)
 
