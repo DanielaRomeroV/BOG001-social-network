@@ -1,0 +1,38 @@
+#thanku {
+<<<<<<< HEAD:src/css/thanksAccount.css
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("background/thanksaccount.png");
+  background-size:cover;
+=======
+height: 90vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background-image: url("background/thanksaccount.png");
+background-size:cover;
+>>>>>>> 46b62a711834c0f798572c147c3184d83eb9f01a:css/thanksAccount.css
+}
+
+#thankAccount{
+    background: rgb(0,0,0, 0.6);
+    max-width: 300px;
+    height: 400px;
+    color:white;
+    font-size: 15px;
+    font-family:'Comfortaa', cursive;
+    display: flex;
+    margin: auto;
+    text-align: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+#thankAccount a{
+    color: white;
+}
+#icono{
+    align-self: center;
+    width: 50%;
+}
